@@ -13,4 +13,5 @@
 @property (strong, nonatomic) AVAudioPlayer *player;
 + (G2SoundManager *)sharedInstance;
 - (void)playSounds:(NSArray *)sounds;
+- (void)playSoundFileNames:(NSArray *)soundFileNames;
 @end

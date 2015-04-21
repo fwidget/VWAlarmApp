@@ -28,7 +28,6 @@
         _player = [[AVAudioPlayer alloc] initWithData:fileData error:&error];
         [_player play];
     }
-
 }
 
 - (NSString *)filePathOfSoundName:(NSString *)soundName
@@ -36,4 +35,33 @@
     NSString *filePath = [[NSBundle mainBundle] pathForResource:soundName ofType:@"mp3"];
     return filePath;
 }
+
+- (void)playSoundFileNames:(NSArray *)soundFileNames
+{
+    for (NSString *soundName in soundFileNames) {
+        NSString *filePath = [self filePathOfSoundName:soundName];
+        NSData *fileData = [NSData dataWithContentsOfFile:filePath];
+        NSError *error = nil;
+//        AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithData:fileData error:&error];
+        
+    }
+}
+
+- (void)playSound
+{
+    
+}
+
+- (void)nextPlay
+{
+
+}
+
+
+#pragma mark - 
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    
+}
+
 @end
