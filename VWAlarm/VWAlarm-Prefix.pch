@@ -1,0 +1,32 @@
+//
+//  VWAlarm-Prefix.pch
+//  VWAlarm
+//
+//  Created by KIMSEONGTAN on 2015. 4. 16..
+//  Copyright (c) 2015년 vwa. All rights reserved.
+//
+
+#ifndef VWAlarm_VWAlarm_Prefix_pch
+#define VWAlarm_VWAlarm_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <UIKit/UIKitDefines.h>
+#import <Foundation/Foundation.h>
+#import "G2CacheManager.h"
+#import "G2DataManager.h"
+#import "G2DateManager.h"
+#import "G2SoundManager.h"
+#import "G2NotificationManager.h"
+#import "G2Utility.h"
+#endif
+
+#endif
