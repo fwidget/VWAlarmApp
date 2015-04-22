@@ -92,6 +92,12 @@
 {
     static NSString *CellIdentifier = ALARM_CELL_IDENTIFIER_ALARM;
     AlarmCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    [self configuration:cell atIndexPath:indexPath];
+    return cell;
+}
+
+- (void)configuration:(AlarmCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
     cell.item = _items[indexPath.row];
     cell.titleLb.text = _items[indexPath.row][ALARM_ITEM_KEY_TITLE];
     NSString *time = [G2DateManager timeStrFromDate:_items[indexPath.row][ALARM_ITEM_KEY_DATE]];
@@ -102,7 +108,6 @@
     cell.ampmLb.text = ampm;
     cell.repeatLb.text = [self repeateWithItems:_items[indexPath.row][ALARM_ITEM_KEY_REPEAT]];
     cell.activeSwitch.on = ([_items[indexPath.row][ALARM_ITEM_KEY_ACTIVE] integerValue] == 1 ) ? YES : NO;
-    return cell;
 }
 
 - (NSString *)repeateWithItems:(NSArray *)items

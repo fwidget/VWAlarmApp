@@ -186,8 +186,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" translatesAutoresizingMaskIntoConstraints="NO" id="UUO-rk-d4x">
-                                <rect key="frame" x="0.0" y="63" width="320" height="162"/>
+                            <datePicker clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="10" translatesAutoresizingMaskIntoConstraints="NO" id="UUO-rk-d4x">
+                                <rect key="frame" x="0.0" y="64" width="320" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="450632504.34732598">
                                     <!--2015-04-13 15:41:44 +0000-->
                                 </date>
@@ -274,7 +274,7 @@
                                             <segue destination="ouh-1R-mae" kind="push" identifier="sound" id="tUt-wg-aAO"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AlarmSnoozeCell" id="vcz-fm-M7z">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AlarmSnoozeCell" id="vcz-fm-M7z">
                                         <rect key="frame" x="0.0" y="218" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vcz-fm-M7z" id="V9J-8Y-JoV">
@@ -286,10 +286,18 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" clipsSubviews="YES" tag="111" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Y7-CG-BAh">
+                                                <switch opaque="NO" clipsSubviews="YES" tag="111" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Y7-CG-BAh">
                                                     <rect key="frame" x="263" y="6" width="51" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="31" id="2uc-8b-5lh"/>
+                                                        <constraint firstAttribute="width" constant="49" id="n3I-ch-ydm"/>
+                                                    </constraints>
                                                 </switch>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="1Y7-CG-BAh" secondAttribute="trailing" constant="8" id="fBH-Gl-bzw"/>
+                                                <constraint firstAttribute="centerY" secondItem="1Y7-CG-BAh" secondAttribute="centerY" id="oHu-5t-i5f"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AlarmDeleteCell" id="wDt-Vh-dL2">
