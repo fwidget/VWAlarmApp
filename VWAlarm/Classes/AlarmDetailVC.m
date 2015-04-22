@@ -58,7 +58,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // 수정은 삭제셀 표시, 신규 미표시
-    return (!_isAdd) ? 1 : 2;
+    return (_isAdd) ? 1 : 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -80,6 +80,16 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIndentifier forIndexPath:indexPath];
     [self configuration:cell indexPath:indexPath];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1) {
+        if ([_delegate respondsToSelector:@selector(deleteAlarmDetail:)]) {
+            [_delegate deleteAlarmDetail:_item];
+        }
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (void)configuration:(UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath

@@ -20,6 +20,7 @@
     [super viewDidLoad];
     
     _items = [[G2DataManager sharedInstance] loadDataForName:ALARM_DATA_KEY];
+    self.navigationItem.leftBarButtonItem = [self barButton];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,11 +29,38 @@
 }
 
 #pragma mark - Navigation button
-- (IBAction)editButton:(id)sender
+
+- (void)tableEditting
 {
     _tableView.editing = !_tableView.editing;
     _tableView.allowsSelectionDuringEditing = !_tableView.allowsSelectionDuringEditing;
 }
+
+- (UIBarButtonItem *)barButton
+{
+    UIBarButtonItem *barButton;
+    if (_tableView.editing) {
+        barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButton:)];
+    } else {
+        barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editButton:)];
+    }
+    
+    return barButton;
+}
+
+
+- (void)editButton:(id)sender
+{
+    [self tableEditting];
+    self.navigationItem.leftBarButtonItem = [self barButton];
+}
+
+- (void)doneButton:(id)sender
+{
+    [self tableEditting];
+    self.navigationItem.leftBarButtonItem = [self barButton];
+}
+
 - (IBAction)addAlarm:(id)sender
 {
     [self presentAlarmWithItem:nil];
@@ -93,7 +121,10 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
+        [self deleteRowItemAtIndexPath:indexPath];
+        [_tableView beginUpdates];
+        [_tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [_tableView endUpdates];
     }
 }
 
@@ -104,7 +135,25 @@
     [self presentAlarmWithItem:_items[indexPath.row]];
 }
 
-#pragma mark - saveAlarmDetailDelegate
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return (_tableView.editing) ? YES : NO;
+}
+
+- (void)deleteRowItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [_items removeObjectAtIndex:indexPath.row];
+}
+
+#pragma mark - AlarmDetailDelegate
+- (void)deleteAlarmDetail:(NSMutableDictionary *)item
+{
+    [self deleteRowItemAtIndexPath:_selectIndexPath];
+    [_tableView beginUpdates];
+    [_tableView deleteRowsAtIndexPaths:@[_selectIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+    [_tableView endUpdates];
+}
+
 - (void)saveAlarmDetail:(NSMutableDictionary *)item isAdd:(BOOL)isAdd
 {
     NSLog(@"item %@", item);
