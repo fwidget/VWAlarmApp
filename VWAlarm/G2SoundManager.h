@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface G2SoundManager : NSObject
+@interface G2SoundManager : NSObject < AVAudioPlayerDelegate >
 @property (strong, nonatomic) NSMutableArray *players;
+@property (strong, nonatomic) AVAudioPlayer *player;
 + (G2SoundManager *)sharedInstance;
-- (void)playSounds:(NSArray *)sounds;
+//- (void)playSounds:(NSArray *)sounds;
 - (void)playSoundFileNames:(NSArray *)soundFileNames;
-
+- (void)startPlaySounds;
+- (void)pauseSounds;
+- (void)stopPlaySounds;
 @end

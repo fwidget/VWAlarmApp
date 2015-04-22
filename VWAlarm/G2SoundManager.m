@@ -10,6 +10,10 @@
 #import <AVFoundation/AVFoundation.h>
 
 @implementation G2SoundManager
+{
+    NSInteger _playIndex;
+}
+
 + (G2SoundManager *)sharedInstance
 {
     static dispatch_once_t pred;
@@ -41,18 +45,56 @@
         NSData *fileData = [NSData dataWithContentsOfFile:filePath];
         NSError *error = nil;
         AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithData:fileData error:&error];
-        [player play];
+        if (!_players) _players = [NSMutableArray array];
+        [_players addObject:player];
+    }
+    
+}
+
+- (void)startPlaySounds
+{
+    if (_players.count > 0) {
+        _playIndex = 0;
+        [self playSoundAtIndex:_playIndex];
     }
 }
 
-- (void)playSound
+- (void)pauseSounds
 {
-    
+    [_player pause];
+}
+
+- (void)stopPlaySounds
+{
+    [_player pause];
+    [_player stop];
+    _player = nil;
+    _players = nil;
+    _playIndex = 0;
+}
+
+- (void)playSoundAtIndex:(NSInteger)index
+{
+    if (_players.count > 0) {
+        _player = [_players objectAtIndex:index];
+        [_player play];
+    }
 }
 
 - (void)nextPlay
 {
-    
+    if (_players.count > 0 && _playIndex < _players.count) {
+        _playIndex = _playIndex + 1;
+        [self playSoundAtIndex:_playIndex];
+    }
+}
+
+#pragma mark - AVAudioPlayerDelegate
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    if (flag) {
+        [self nextPlay];
+    }
 }
 
 @end
