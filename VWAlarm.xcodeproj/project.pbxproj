@@ -31,6 +31,8 @@
 		047D9EA41ADFDFD600BB3407 /* G2NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D9EA31ADFDFD600BB3407 /* G2NotificationManager.m */; };
 		047D9EA81AE00D9800BB3407 /* NSDate+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D9EA71AE00D9800BB3407 /* NSDate+Extras.m */; };
 		049349141AE7D9B6007EF6C7 /* G2SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 049349131AE7D9B6007EF6C7 /* G2SoundManager.m */; };
+		049349181AE7F0AD007EF6C7 /* WeatherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049349171AE7F0AD007EF6C7 /* WeatherCell.m */; };
+		0493491B1AE7F2AB007EF6C7 /* WeatherDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493491A1AE7F2AB007EF6C7 /* WeatherDetailVC.m */; };
 		C887E2AD987DD7DC97C96474 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E30D5092D3CCA77046DF1D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +98,11 @@
 		047D9EA71AE00D9800BB3407 /* NSDate+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extras.m"; sourceTree = "<group>"; };
 		049349121AE7D9B6007EF6C7 /* G2SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = G2SoundManager.h; sourceTree = "<group>"; };
 		049349131AE7D9B6007EF6C7 /* G2SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G2SoundManager.m; sourceTree = "<group>"; };
+		049349161AE7F0AD007EF6C7 /* WeatherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherCell.h; sourceTree = "<group>"; };
+		049349171AE7F0AD007EF6C7 /* WeatherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherCell.m; sourceTree = "<group>"; };
+		049349191AE7F2AB007EF6C7 /* WeatherDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherDetailVC.h; sourceTree = "<group>"; };
+		0493491A1AE7F2AB007EF6C7 /* WeatherDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherDetailVC.m; sourceTree = "<group>"; };
+		0493491F1AE7F331007EF6C7 /* Weather.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
 		E02331D468846E6CE39B5644 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E8E30D5092D3CCA77046DF1D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -274,8 +281,12 @@
 		048CD8A31ADC260300C91CFE /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				0493491F1AE7F331007EF6C7 /* Weather.h */,
 				04745DE81ADEADBB00C9711B /* WeatherVC.h */,
 				04745DE91ADEADBB00C9711B /* WeatherVC.m */,
+				049349191AE7F2AB007EF6C7 /* WeatherDetailVC.h */,
+				0493491A1AE7F2AB007EF6C7 /* WeatherDetailVC.m */,
+				049349151AE7F087007EF6C7 /* Cells */,
 			);
 			name = Weather;
 			sourceTree = "<group>";
@@ -287,6 +298,15 @@
 				04745DFC1ADEADF400C9711B /* SettingVC.m */,
 			);
 			name = Setting;
+			sourceTree = "<group>";
+		};
+		049349151AE7F087007EF6C7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				049349161AE7F0AD007EF6C7 /* WeatherCell.h */,
+				049349171AE7F0AD007EF6C7 /* WeatherCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		91BBB17AF28BE6D3CC989F2E /* Pods */ = {
@@ -455,6 +475,7 @@
 				04745DFA1ADEADE800C9711B /* AlarmVC.m in Sources */,
 				045E0FE01AD41C2D00EAD210 /* main.m in Sources */,
 				04745DE51ADEADAC00C9711B /* TopVC.m in Sources */,
+				0493491B1AE7F2AB007EF6C7 /* WeatherDetailVC.m in Sources */,
 				047D9EA41ADFDFD600BB3407 /* G2NotificationManager.m in Sources */,
 				04745DF81ADEADE800C9711B /* AlarmDetailOptionVC.m in Sources */,
 				04745DDA1ADEAD9A00C9711B /* G2DateManager.m in Sources */,
@@ -462,6 +483,7 @@
 				04745DFD1ADEADF400C9711B /* SettingVC.m in Sources */,
 				047D9EA81AE00D9800BB3407 /* NSDate+Extras.m in Sources */,
 				04745DEA1ADEADBB00C9711B /* WeatherVC.m in Sources */,
+				049349181AE7F0AD007EF6C7 /* WeatherCell.m in Sources */,
 				0402C23F1AE122A500CB2416 /* AlarmCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
