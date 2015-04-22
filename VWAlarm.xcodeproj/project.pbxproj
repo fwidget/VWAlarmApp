@@ -17,7 +17,6 @@
 		04745DD81ADEAD9A00C9711B /* G2CacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DD11ADEAD9A00C9711B /* G2CacheManager.m */; };
 		04745DD91ADEAD9A00C9711B /* G2DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DD31ADEAD9A00C9711B /* G2DataManager.m */; };
 		04745DDA1ADEAD9A00C9711B /* G2DateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DD51ADEAD9A00C9711B /* G2DateManager.m */; };
-		04745DDB1ADEAD9A00C9711B /* G2SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DD71ADEAD9A00C9711B /* G2SoundManager.m */; };
 		04745DE41ADEADAC00C9711B /* TopClockVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DDD1ADEADAC00C9711B /* TopClockVC.m */; };
 		04745DE51ADEADAC00C9711B /* TopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DDF1ADEADAC00C9711B /* TopVC.m */; };
 		04745DE61ADEADAC00C9711B /* TopWeatherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DE11ADEADAC00C9711B /* TopWeatherCell.m */; };
@@ -31,6 +30,7 @@
 		04745DFD1ADEADF400C9711B /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DFC1ADEADF400C9711B /* SettingVC.m */; };
 		047D9EA41ADFDFD600BB3407 /* G2NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D9EA31ADFDFD600BB3407 /* G2NotificationManager.m */; };
 		047D9EA81AE00D9800BB3407 /* NSDate+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D9EA71AE00D9800BB3407 /* NSDate+Extras.m */; };
+		049349141AE7D9B6007EF6C7 /* G2SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 049349131AE7D9B6007EF6C7 /* G2SoundManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,8 +64,6 @@
 		04745DD31ADEAD9A00C9711B /* G2DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = G2DataManager.m; path = Manager/G2DataManager.m; sourceTree = "<group>"; };
 		04745DD41ADEAD9A00C9711B /* G2DateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = G2DateManager.h; path = Manager/G2DateManager.h; sourceTree = "<group>"; };
 		04745DD51ADEAD9A00C9711B /* G2DateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = G2DateManager.m; path = Manager/G2DateManager.m; sourceTree = "<group>"; };
-		04745DD61ADEAD9A00C9711B /* G2SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = G2SoundManager.h; path = Manager/G2SoundManager.h; sourceTree = "<group>"; };
-		04745DD71ADEAD9A00C9711B /* G2SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = G2SoundManager.m; path = Manager/G2SoundManager.m; sourceTree = "<group>"; };
 		04745DDC1ADEADAC00C9711B /* TopClockVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopClockVC.h; path = Classes/TopClockVC.h; sourceTree = "<group>"; };
 		04745DDD1ADEADAC00C9711B /* TopClockVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopClockVC.m; path = Classes/TopClockVC.m; sourceTree = "<group>"; };
 		04745DDE1ADEADAC00C9711B /* TopVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopVC.h; path = Classes/TopVC.h; sourceTree = "<group>"; };
@@ -94,6 +92,8 @@
 		047D9EA31ADFDFD600BB3407 /* G2NotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G2NotificationManager.m; sourceTree = "<group>"; };
 		047D9EA61AE00D9800BB3407 /* NSDate+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extras.h"; sourceTree = "<group>"; };
 		047D9EA71AE00D9800BB3407 /* NSDate+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extras.m"; sourceTree = "<group>"; };
+		049349121AE7D9B6007EF6C7 /* G2SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = G2SoundManager.h; sourceTree = "<group>"; };
+		049349131AE7D9B6007EF6C7 /* G2SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G2SoundManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,10 +132,10 @@
 				04745DD31ADEAD9A00C9711B /* G2DataManager.m */,
 				04745DD41ADEAD9A00C9711B /* G2DateManager.h */,
 				04745DD51ADEAD9A00C9711B /* G2DateManager.m */,
-				04745DD61ADEAD9A00C9711B /* G2SoundManager.h */,
-				04745DD71ADEAD9A00C9711B /* G2SoundManager.m */,
 				047D9EA21ADFDFD600BB3407 /* G2NotificationManager.h */,
 				047D9EA31ADFDFD600BB3407 /* G2NotificationManager.m */,
+				049349121AE7D9B6007EF6C7 /* G2SoundManager.h */,
+				049349131AE7D9B6007EF6C7 /* G2SoundManager.m */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -392,6 +392,7 @@
 				04745DD81ADEAD9A00C9711B /* G2CacheManager.m in Sources */,
 				04745DE41ADEADAC00C9711B /* TopClockVC.m in Sources */,
 				04745DEF1ADEADC800C9711B /* G2LineView.m in Sources */,
+				049349141AE7D9B6007EF6C7 /* G2SoundManager.m in Sources */,
 				04745DFA1ADEADE800C9711B /* AlarmVC.m in Sources */,
 				045E0FE01AD41C2D00EAD210 /* main.m in Sources */,
 				04745DE51ADEADAC00C9711B /* TopVC.m in Sources */,
@@ -402,7 +403,6 @@
 				04745DFD1ADEADF400C9711B /* SettingVC.m in Sources */,
 				047D9EA81AE00D9800BB3407 /* NSDate+Extras.m in Sources */,
 				04745DEA1ADEADBB00C9711B /* WeatherVC.m in Sources */,
-				04745DDB1ADEAD9A00C9711B /* G2SoundManager.m in Sources */,
 				0402C23F1AE122A500CB2416 /* AlarmCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

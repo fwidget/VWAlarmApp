@@ -68,7 +68,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AlarmCell" rowHeight="94" id="eL6-CZ-Cia" customClass="AlarmCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AlarmCell" rowHeight="94" id="eL6-CZ-Cia" customClass="AlarmCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eL6-CZ-Cia" id="b9K-fW-zmQ">
@@ -159,11 +159,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Alarm" id="TH1-bq-hVu">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="daI-qv-mch">
-                            <connections>
-                                <action selector="editButton:" destination="8rJ-Kc-sve" id="DDz-Vo-Szn"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="daI-qv-mch"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="4bk-EO-dSd">
                             <connections>
                                 <action selector="addAlarm:" destination="8rJ-Kc-sve" id="9uw-aG-0Vf"/>
