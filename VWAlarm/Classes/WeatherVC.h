@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WeatherVC : UIViewController
-
+@interface WeatherVC : UIViewController < UITableViewDataSource, UITableViewDelegate >
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *items;
 @end

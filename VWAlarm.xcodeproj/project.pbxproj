@@ -17,7 +17,6 @@
 		04745DD81ADEAD9A00C9711B /* G2CacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DD11ADEAD9A00C9711B /* G2CacheManager.m */; };
 		04745DD91ADEAD9A00C9711B /* G2DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DD31ADEAD9A00C9711B /* G2DataManager.m */; };
 		04745DDA1ADEAD9A00C9711B /* G2DateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DD51ADEAD9A00C9711B /* G2DateManager.m */; };
-		04745DDB1ADEAD9A00C9711B /* G2SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DD71ADEAD9A00C9711B /* G2SoundManager.m */; };
 		04745DE41ADEADAC00C9711B /* TopClockVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DDD1ADEADAC00C9711B /* TopClockVC.m */; };
 		04745DE51ADEADAC00C9711B /* TopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DDF1ADEADAC00C9711B /* TopVC.m */; };
 		04745DE61ADEADAC00C9711B /* TopWeatherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DE11ADEADAC00C9711B /* TopWeatherCell.m */; };
@@ -31,6 +30,10 @@
 		04745DFD1ADEADF400C9711B /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DFC1ADEADF400C9711B /* SettingVC.m */; };
 		047D9EA41ADFDFD600BB3407 /* G2NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D9EA31ADFDFD600BB3407 /* G2NotificationManager.m */; };
 		047D9EA81AE00D9800BB3407 /* NSDate+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D9EA71AE00D9800BB3407 /* NSDate+Extras.m */; };
+		049349141AE7D9B6007EF6C7 /* G2SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 049349131AE7D9B6007EF6C7 /* G2SoundManager.m */; };
+		049349181AE7F0AD007EF6C7 /* WeatherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049349171AE7F0AD007EF6C7 /* WeatherCell.m */; };
+		0493491B1AE7F2AB007EF6C7 /* WeatherDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493491A1AE7F2AB007EF6C7 /* WeatherDetailVC.m */; };
+		C887E2AD987DD7DC97C96474 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E30D5092D3CCA77046DF1D /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,14 +61,13 @@
 		045E0FFB1AD41C2D00EAD210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		045E0FFC1AD41C2D00EAD210 /* VWAlarmTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VWAlarmTests.m; sourceTree = "<group>"; };
 		045EA7821ADEB4BE00FA2455 /* VWAlarm-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VWAlarm-Prefix.pch"; sourceTree = "<group>"; };
+		046DAB4358431710862F5C7B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		04745DD01ADEAD9A00C9711B /* G2CacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = G2CacheManager.h; path = Manager/G2CacheManager.h; sourceTree = "<group>"; };
 		04745DD11ADEAD9A00C9711B /* G2CacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = G2CacheManager.m; path = Manager/G2CacheManager.m; sourceTree = "<group>"; };
 		04745DD21ADEAD9A00C9711B /* G2DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = G2DataManager.h; path = Manager/G2DataManager.h; sourceTree = "<group>"; };
 		04745DD31ADEAD9A00C9711B /* G2DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = G2DataManager.m; path = Manager/G2DataManager.m; sourceTree = "<group>"; };
 		04745DD41ADEAD9A00C9711B /* G2DateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = G2DateManager.h; path = Manager/G2DateManager.h; sourceTree = "<group>"; };
 		04745DD51ADEAD9A00C9711B /* G2DateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = G2DateManager.m; path = Manager/G2DateManager.m; sourceTree = "<group>"; };
-		04745DD61ADEAD9A00C9711B /* G2SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = G2SoundManager.h; path = Manager/G2SoundManager.h; sourceTree = "<group>"; };
-		04745DD71ADEAD9A00C9711B /* G2SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = G2SoundManager.m; path = Manager/G2SoundManager.m; sourceTree = "<group>"; };
 		04745DDC1ADEADAC00C9711B /* TopClockVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopClockVC.h; path = Classes/TopClockVC.h; sourceTree = "<group>"; };
 		04745DDD1ADEADAC00C9711B /* TopClockVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopClockVC.m; path = Classes/TopClockVC.m; sourceTree = "<group>"; };
 		04745DDE1ADEADAC00C9711B /* TopVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopVC.h; path = Classes/TopVC.h; sourceTree = "<group>"; };
@@ -94,6 +96,15 @@
 		047D9EA31ADFDFD600BB3407 /* G2NotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G2NotificationManager.m; sourceTree = "<group>"; };
 		047D9EA61AE00D9800BB3407 /* NSDate+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extras.h"; sourceTree = "<group>"; };
 		047D9EA71AE00D9800BB3407 /* NSDate+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extras.m"; sourceTree = "<group>"; };
+		049349121AE7D9B6007EF6C7 /* G2SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = G2SoundManager.h; sourceTree = "<group>"; };
+		049349131AE7D9B6007EF6C7 /* G2SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G2SoundManager.m; sourceTree = "<group>"; };
+		049349161AE7F0AD007EF6C7 /* WeatherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherCell.h; sourceTree = "<group>"; };
+		049349171AE7F0AD007EF6C7 /* WeatherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherCell.m; sourceTree = "<group>"; };
+		049349191AE7F2AB007EF6C7 /* WeatherDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherDetailVC.h; sourceTree = "<group>"; };
+		0493491A1AE7F2AB007EF6C7 /* WeatherDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherDetailVC.m; sourceTree = "<group>"; };
+		0493491F1AE7F331007EF6C7 /* Weather.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
+		E02331D468846E6CE39B5644 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E8E30D5092D3CCA77046DF1D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C887E2AD987DD7DC97C96474 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,10 +144,10 @@
 				04745DD31ADEAD9A00C9711B /* G2DataManager.m */,
 				04745DD41ADEAD9A00C9711B /* G2DateManager.h */,
 				04745DD51ADEAD9A00C9711B /* G2DateManager.m */,
-				04745DD61ADEAD9A00C9711B /* G2SoundManager.h */,
-				04745DD71ADEAD9A00C9711B /* G2SoundManager.m */,
 				047D9EA21ADFDFD600BB3407 /* G2NotificationManager.h */,
 				047D9EA31ADFDFD600BB3407 /* G2NotificationManager.m */,
+				049349121AE7D9B6007EF6C7 /* G2SoundManager.h */,
+				049349131AE7D9B6007EF6C7 /* G2SoundManager.m */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -157,6 +169,8 @@
 				045E0FDC1AD41C2D00EAD210 /* VWAlarm */,
 				045E0FF91AD41C2D00EAD210 /* VWAlarmTests */,
 				045E0FDB1AD41C2D00EAD210 /* Products */,
+				91BBB17AF28BE6D3CC989F2E /* Pods */,
+				9C19CE8FCEE99F6AA6E301F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -267,8 +281,12 @@
 		048CD8A31ADC260300C91CFE /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				0493491F1AE7F331007EF6C7 /* Weather.h */,
 				04745DE81ADEADBB00C9711B /* WeatherVC.h */,
 				04745DE91ADEADBB00C9711B /* WeatherVC.m */,
+				049349191AE7F2AB007EF6C7 /* WeatherDetailVC.h */,
+				0493491A1AE7F2AB007EF6C7 /* WeatherDetailVC.m */,
+				049349151AE7F087007EF6C7 /* Cells */,
 			);
 			name = Weather;
 			sourceTree = "<group>";
@@ -282,6 +300,32 @@
 			name = Setting;
 			sourceTree = "<group>";
 		};
+		049349151AE7F087007EF6C7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				049349161AE7F0AD007EF6C7 /* WeatherCell.h */,
+				049349171AE7F0AD007EF6C7 /* WeatherCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		91BBB17AF28BE6D3CC989F2E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E02331D468846E6CE39B5644 /* Pods.debug.xcconfig */,
+				046DAB4358431710862F5C7B /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9C19CE8FCEE99F6AA6E301F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E8E30D5092D3CCA77046DF1D /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -289,9 +333,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 045E10001AD41C2D00EAD210 /* Build configuration list for PBXNativeTarget "VWAlarm" */;
 			buildPhases = (
+				18F4043E88BC6C5337D31371 /* Check Pods Manifest.lock */,
 				045E0FD61AD41C2D00EAD210 /* Sources */,
 				045E0FD71AD41C2D00EAD210 /* Frameworks */,
 				045E0FD81AD41C2D00EAD210 /* Resources */,
+				0D0C337103B705A778B3C353 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -379,6 +425,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0D0C337103B705A778B3C353 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		18F4043E88BC6C5337D31371 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		045E0FD61AD41C2D00EAD210 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -392,9 +471,11 @@
 				04745DD81ADEAD9A00C9711B /* G2CacheManager.m in Sources */,
 				04745DE41ADEADAC00C9711B /* TopClockVC.m in Sources */,
 				04745DEF1ADEADC800C9711B /* G2LineView.m in Sources */,
+				049349141AE7D9B6007EF6C7 /* G2SoundManager.m in Sources */,
 				04745DFA1ADEADE800C9711B /* AlarmVC.m in Sources */,
 				045E0FE01AD41C2D00EAD210 /* main.m in Sources */,
 				04745DE51ADEADAC00C9711B /* TopVC.m in Sources */,
+				0493491B1AE7F2AB007EF6C7 /* WeatherDetailVC.m in Sources */,
 				047D9EA41ADFDFD600BB3407 /* G2NotificationManager.m in Sources */,
 				04745DF81ADEADE800C9711B /* AlarmDetailOptionVC.m in Sources */,
 				04745DDA1ADEAD9A00C9711B /* G2DateManager.m in Sources */,
@@ -402,7 +483,7 @@
 				04745DFD1ADEADF400C9711B /* SettingVC.m in Sources */,
 				047D9EA81AE00D9800BB3407 /* NSDate+Extras.m in Sources */,
 				04745DEA1ADEADBB00C9711B /* WeatherVC.m in Sources */,
-				04745DDB1ADEAD9A00C9711B /* G2SoundManager.m in Sources */,
+				049349181AE7F0AD007EF6C7 /* WeatherCell.m in Sources */,
 				0402C23F1AE122A500CB2416 /* AlarmCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -523,6 +604,7 @@
 		};
 		045E10011AD41C2D00EAD210 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E02331D468846E6CE39B5644 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -538,6 +620,7 @@
 		};
 		045E10021AD41C2D00EAD210 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 046DAB4358431710862F5C7B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

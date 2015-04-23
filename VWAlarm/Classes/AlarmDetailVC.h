@@ -10,6 +10,7 @@
 #import "AlarmDetailOptionVC.h"
 @protocol AlarmDetailDelegate <NSObject>
 - (void)saveAlarmDetail:(NSMutableDictionary *)item isAdd:(BOOL)isAdd;
+- (void)deleteAlarmDetail:(NSMutableDictionary *)item;
 @end
 
 @interface AlarmDetailVC : UIViewController < UITableViewDelegate, UITableViewDataSource, AlarmDetailOptionDelegate >
