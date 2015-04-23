@@ -15,7 +15,7 @@
     static G2NotificationManager *sharedSoundManager = nil;
     dispatch_once(&pred, ^{
         sharedSoundManager = [[self alloc] init];
-    });
+    });  
     return sharedSoundManager;
 }
 
