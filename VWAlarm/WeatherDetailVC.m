@@ -9,5 +9,8 @@
 #import "WeatherDetailVC.h"
 
 @implementation WeatherDetailVC
-
+- (IBAction)cancelNaviBtn:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

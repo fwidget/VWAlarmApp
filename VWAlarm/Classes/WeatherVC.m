@@ -10,18 +10,88 @@
 #import "Weather.h"
 #import "WeatherDetailVC.h"
 #import "WeatherCell.h"
+#import "OWMWeatherAPI.h"
 
 @interface WeatherVC ()
 @property (nonatomic) NSIndexPath *selectIndexPath;
+@property (strong, nonatomic) OWMWeatherAPI *weatherAPI;
 @end
 
 @implementation WeatherVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    _items = [[G2DataManager sharedInstance] loadDataForName:WEATHER_DATA_KEY];
     self.navigationItem.leftBarButtonItem = [self barButton];
+    
+    _items = [[G2DataManager sharedInstance] loadDataForName:WEATHER_DATA_KEY];
+    
+    _weatherAPI = [[OWMWeatherAPI alloc] initWithAPIKey:@"b679f6c90a21d8c40513078a40bc19b8"];
+    [_weatherAPI setLangWithPreferedLanguage];
+    [_weatherAPI setTemperatureFormat:kOWMTempCelcius];
+    
+    [_weatherAPI currentWeatherByCityName:@"Odense" withCallback:^(NSError *error, NSDictionary *result) {
+        if (error) {
+            // Handle the error
+            return;
+        }
+        
+        if (!_items) _items = [NSMutableArray array];
+        
+        NSString *cityName = [NSString stringWithFormat:@"%@, %@",
+                              result[@"name"],
+                              result[@"sys"][@"country"]
+                              ];
+        
+        NSString *currentTemp = [NSString stringWithFormat:@"%.1f℃",
+                                 [result[@"main"][@"temp"] floatValue] ];
+        NSString *minTemp = [NSString stringWithFormat:@"%.1f℃",
+                                 [result[@"main"][@"temp_min"] floatValue] ];
+        NSString *maxTemp = [NSString stringWithFormat:@"%.1f℃",
+                                 [result[@"main"][@"temp_max"] floatValue] ];
+        
+        NSString *weather = result[@"weather"][0][@"description"];
+        NSDictionary *weatherInfo = @{@"name" : cityName, @"currentTemp" : currentTemp, @"minTemp" : minTemp, @"maxTemp" : maxTemp, @"weather" : weather};
+        [_items addObject:weatherInfo];
+        [_tableView reloadData];
+    }];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if (!_weatherAPI) {
+        _weatherAPI = [[OWMWeatherAPI alloc] initWithAPIKey:@"b679f6c90a21d8c40513078a40bc19b8"];
+        [_weatherAPI setLangWithPreferedLanguage];
+        [_weatherAPI setTemperatureFormat:kOWMTempCelcius];
+    }
+    
+    [_weatherAPI currentWeatherByCityName:@"Odense" withCallback:^(NSError *error, NSDictionary *result) {
+        if (error) {
+            // Handle the error
+            return;
+        }
+        
+        if (!_items) _items = [NSMutableArray array];
+        
+        NSString *cityName = [NSString stringWithFormat:@"%@, %@",
+                              result[@"name"],
+                              result[@"sys"][@"country"]
+                              ];
+        
+        NSString *currentTemp = [NSString stringWithFormat:@"%.1f℃",
+                                 [result[@"main"][@"temp"] floatValue] ];
+        NSString *minTemp = [NSString stringWithFormat:@"%.1f℃",
+                             [result[@"main"][@"temp_min"] floatValue] ];
+        NSString *maxTemp = [NSString stringWithFormat:@"%.1f℃",
+                             [result[@"main"][@"temp_max"] floatValue] ];
+        
+        NSString *weather = result[@"weather"][0][@"description"];
+        NSDictionary *weatherInfo = @{@"name" : cityName, @"currentTemp" : currentTemp, @"minTemp" : minTemp, @"maxTemp" : maxTemp, @"weather" : weather};
+        [_items addObject:weatherInfo];
+        [_tableView reloadData];
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,6 +165,11 @@
 {
     static NSString *CellIdentifier = WEATHER_CELL_IDENTIFIER_WEATHER;
     WeatherCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    cell.weatherLb.text = _items[indexPath.row][@"weather"];
+    cell.weatherLowLb.text = _items[indexPath.row][@"minTemp"];
+    cell.weatherHighLb.text = _items[indexPath.row][@"maxTemp"];
+    cell.weatherImageView.image = nil;
+    cell.weatherEtcLb.text = _items[indexPath.row][@"name"];
     return cell;
 }
 
