@@ -20,6 +20,9 @@
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 
+// system version
+#define SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+
 // value type
 #define ESTABLISH_WEAK_SELF __weak typeof(self) weakSelf = self
 #define ESTABLISH_STRONG_SELF __strong typeof(self) strongSelf = weakSelf;

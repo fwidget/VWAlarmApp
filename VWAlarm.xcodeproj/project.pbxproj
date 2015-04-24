@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0402C23F1AE122A500CB2416 /* AlarmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0402C23E1AE122A500CB2416 /* AlarmCell.m */; };
+		045460661AEAB0A900308E02 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045460651AEAB0A900308E02 /* CoreLocation.framework */; };
+		045460691AEAB0E300308E02 /* G2LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 045460681AEAB0E300308E02 /* G2LocationManager.m */; };
 		045E0FE01AD41C2D00EAD210 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E0FDF1AD41C2D00EAD210 /* main.m */; };
 		045E0FE31AD41C2D00EAD210 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E0FE21AD41C2D00EAD210 /* AppDelegate.m */; };
 		045E0FEC1AD41C2D00EAD210 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045E0FEA1AD41C2D00EAD210 /* Main.storyboard */; };
@@ -49,6 +51,9 @@
 /* Begin PBXFileReference section */
 		0402C23D1AE122A500CB2416 /* AlarmCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmCell.h; sourceTree = "<group>"; };
 		0402C23E1AE122A500CB2416 /* AlarmCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmCell.m; sourceTree = "<group>"; };
+		045460651AEAB0A900308E02 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		045460671AEAB0E300308E02 /* G2LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = G2LocationManager.h; sourceTree = "<group>"; };
+		045460681AEAB0E300308E02 /* G2LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G2LocationManager.m; sourceTree = "<group>"; };
 		045E0FDA1AD41C2D00EAD210 /* VWAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VWAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		045E0FDE1AD41C2D00EAD210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		045E0FDF1AD41C2D00EAD210 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -112,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045460661AEAB0A900308E02 /* CoreLocation.framework in Frameworks */,
 				C887E2AD987DD7DC97C96474 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,6 +154,8 @@
 				047D9EA31ADFDFD600BB3407 /* G2NotificationManager.m */,
 				049349121AE7D9B6007EF6C7 /* G2SoundManager.h */,
 				049349131AE7D9B6007EF6C7 /* G2SoundManager.m */,
+				045460671AEAB0E300308E02 /* G2LocationManager.h */,
+				045460681AEAB0E300308E02 /* G2LocationManager.m */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -321,6 +329,7 @@
 		9C19CE8FCEE99F6AA6E301F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				045460651AEAB0A900308E02 /* CoreLocation.framework */,
 				E8E30D5092D3CCA77046DF1D /* libPods.a */,
 			);
 			name = Frameworks;
@@ -478,6 +487,7 @@
 				0493491B1AE7F2AB007EF6C7 /* WeatherDetailVC.m in Sources */,
 				047D9EA41ADFDFD600BB3407 /* G2NotificationManager.m in Sources */,
 				04745DF81ADEADE800C9711B /* AlarmDetailOptionVC.m in Sources */,
+				045460691AEAB0E300308E02 /* G2LocationManager.m in Sources */,
 				04745DDA1ADEAD9A00C9711B /* G2DateManager.m in Sources */,
 				04745DF01ADEADC800C9711B /* G2NoticeView.m in Sources */,
 				04745DFD1ADEADF400C9711B /* SettingVC.m in Sources */,
