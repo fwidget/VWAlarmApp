@@ -7,6 +7,13 @@
 //
 
 #import "SettingVC.h"
+#import "Line.h"
+#import "LKLineActivity.h"
+
+#define SHARE_MESSAGE_MAIL_TITLE     @"あなたに声で教えてくれる天気アプリ"
+#define SHARE_MESSAGE_CONTENT   @"あなたに声で天気を教えてくれるアプリ"
+#define SHARE_MESSAGE_URL       @"https://itun.es/i6B34fX"
+
 
 @interface SettingVC ()
 
@@ -34,4 +41,11 @@
 }
 */
 
+
+- (void)openActivity
+{
+    UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:@[SHARE_MESSAGE_CONTENT, [NSURL URLWithString:SHARE_MESSAGE_URL]] applicationActivities:@[[[LKLineActivity alloc] init]]];
+    [self presentViewController:avc animated:YES completion:nil];
+
+}
 @end

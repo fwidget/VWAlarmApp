@@ -1,13 +1,16 @@
 PODS:
   - AFNetworking (1.3.4)
+  - LineKit (1.4.1)
   - OpenWeatherMapAPI (0.0.5):
     - AFNetworking (~> 1.3.1)
 
 DEPENDENCIES:
+  - LineKit
   - OpenWeatherMapAPI (~> 0.0.5)
 
 SPEC CHECKSUMS:
   AFNetworking: cf8e418e16f0c9c7e5c3150d019a3c679d015018
+  LineKit: 3c3ff477614c4d947d651560119c5176afc72951
   OpenWeatherMapAPI: 53613bba3dffc948f852a66a25f512f7a16643e7
 
 COCOAPODS: 0.36.0
