@@ -12,11 +12,11 @@
 + (G2NotificationManager *)sharedInstance
 {
     static dispatch_once_t pred;
-    static G2NotificationManager *sharedSoundManager = nil;
+    static G2NotificationManager *sharedInstance = nil;
     dispatch_once(&pred, ^{
-        sharedSoundManager = [[self alloc] init];
+        sharedInstance = [[self alloc] init];
     });  
-    return sharedSoundManager;
+    return sharedInstance;
 }
 
 

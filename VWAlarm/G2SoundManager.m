@@ -17,9 +17,9 @@
 + (G2SoundManager *)sharedInstance
 {
     static dispatch_once_t pred;
-    static G2SoundManager *sharedSoundManager = nil;
-    dispatch_once(&pred, ^{ sharedSoundManager = [[self alloc] init]; });
-    return sharedSoundManager;
+    static G2SoundManager *sharedInstance = nil;
+    dispatch_once(&pred, ^{ sharedInstance = [[self alloc] init]; });
+    return sharedInstance;
 }
 - (void)playSounds:(NSArray *)sounds
 {
