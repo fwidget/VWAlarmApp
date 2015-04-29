@@ -14,5 +14,6 @@
 + (NSString *)yyyyMMddHHmmssFromNow;
 + (NSString *)timeStrFromDate:(NSDate *)date;
 + (NSArray*)oneWeekDateWithEnableWeekdayType:(G2WeekdayType)type date:(NSDate *)date;
-+ (NSString *)timeStrFromDate:(NSDate *)date format:(NSString *)format;
++ (NSString *)strFromDate:(NSDate *)date format:(NSString *)format;
++ (NSString *)strWeekdayFromDate:(NSDate *)date localeIdentifier:(NSString *)localeIdentifier; // 요일 리턴
 @end
