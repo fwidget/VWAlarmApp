@@ -104,7 +104,7 @@
     NSString *ampm = ALARM_CLOCK_AM;
     if ([[time substringWithRange:NSMakeRange(0, 2)] integerValue] > 12) ampm = ALARM_CLOCK_PM;
     
-    cell.alarmLb.text = [NSString stringWithFormat:@"%@", [G2DateManager timeStrFromDate:_items[indexPath.row][ALARM_ITEM_KEY_DATE] format:@"hh:mm"]];
+    cell.alarmLb.text = [NSString stringWithFormat:@"%@", [G2DateManager strFromDate:_items[indexPath.row][ALARM_ITEM_KEY_DATE] format:@"hh:mm"]];
     cell.ampmLb.text = ampm;
     cell.repeatLb.text = [self repeateWithItems:_items[indexPath.row][ALARM_ITEM_KEY_REPEAT]];
     cell.activeSwitch.on = ([_items[indexPath.row][ALARM_ITEM_KEY_ACTIVE] integerValue] == 1 ) ? YES : NO;
