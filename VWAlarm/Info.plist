@@ -47,8 +47,8 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
     <key>NSLocationAlwaysUsageDescription</key>
-    <string>Always</string>
+    <string>位置情報を取得しでもいいでしょうか？</string>
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string>When in use</string>
+    <string>位置情報が必要です</string>
 </dict>
 </plist>
