@@ -67,9 +67,12 @@
                              [result[@"main"][@"temp_min"] floatValue] ];
         NSString *maxTemp = [NSString stringWithFormat:@"%.1f℃",
                              [result[@"main"][@"temp_max"] floatValue] ];
+        NSString *weather = result[@"weather"][0];
         
-        NSString *weather = result[@"weather"][0][@"description"];
         _weatherInfo = @{@"name" : cityName, @"currentTemp" : currentTemp, @"minTemp" : minTemp, @"maxTemp" : maxTemp, @"weather" : weather};
+        if ([_deleage respondsToSelector:@selector(weatherInfo:)]) {
+            [_deleage weatherInfo:_weatherInfo];
+        }
     }];
 }
 
@@ -97,8 +100,11 @@
         NSString *maxTemp = [NSString stringWithFormat:@"%.1f℃",
                              [result[@"main"][@"temp_max"] floatValue] ];
         
-        NSString *weather = result[@"weather"][0][@"description"];
+        NSString *weather = result[@"weather"][0];
         _weatherInfo = @{@"name" : cityName, @"currentTemp" : currentTemp, @"minTemp" : minTemp, @"maxTemp" : maxTemp, @"weather" : weather};
+        if ([_deleage respondsToSelector:@selector(weatherInfo:)]) {
+            [_deleage weatherInfo:_weatherInfo];
+        }
     }];
 }
 
@@ -126,8 +132,11 @@
         NSString *maxTemp = [NSString stringWithFormat:@"%.1f℃",
                              [result[@"main"][@"temp_max"] floatValue] ];
         
-        NSString *weather = result[@"weather"][0][@"description"];
+        NSString *weather = result[@"weather"][0];
         _weatherInfo = @{@"name" : cityName, @"currentTemp" : currentTemp, @"minTemp" : minTemp, @"maxTemp" : maxTemp, @"weather" : weather};
+        if ([_deleage respondsToSelector:@selector(weatherInfo:)]) {
+            [_deleage weatherInfo:_weatherInfo];
+        }
     }];
 }
 
@@ -145,5 +154,6 @@
 {
     return _weatherInfo;
 }
+
 
 @end

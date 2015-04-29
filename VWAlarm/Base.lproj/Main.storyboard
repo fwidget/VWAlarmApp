@@ -13,23 +13,23 @@
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="img_top.png" translatesAutoresizingMaskIntoConstraints="NO" id="9bB-fz-m37">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="img_top.png" translatesAutoresizingMaskIntoConstraints="NO" id="9bB-fz-m37">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fog.png" translatesAutoresizingMaskIntoConstraints="NO" id="41c-M9-Wsh">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="41c-M9-Wsh">
                                 <rect key="frame" x="37" y="293" width="128" height="128"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="17°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="715-Az-1Tn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="17°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="715-Az-1Tn">
                                 <rect key="frame" x="37" y="411" width="128" height="50"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="44"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="東京" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbD-9g-CKO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="東京" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bbD-9g-CKO">
                                 <rect key="frame" x="36" y="247" width="240" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -42,9 +42,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.078431372549019607" green="0.078431372549019607" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Top" image="first" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="localLb" destination="bbD-9g-CKO" id="oBS-mT-cp4"/>
+                        <outlet property="nowDateLb" destination="ghT-va-5wR" id="7fq-BB-Xep"/>
+                        <outlet property="temperatureLb" destination="715-Az-1Tn" id="TjB-NJ-DJi"/>
+                        <outlet property="weatherImageView" destination="41c-M9-Wsh" id="zvX-Z1-IFZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -441,9 +447,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="bVz-kJ-y3j">
-                        <barButtonItem key="leftBarButtonItem" id="pdp-QI-Qjc"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="bVz-kJ-y3j"/>
                     <connections>
                         <outlet property="tableView" destination="xIY-99-Fdx" id="0Ev-Ck-47Y"/>
                     </connections>
@@ -777,7 +781,6 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
-        <image name="fog.png" width="128" height="128"/>
         <image name="img_top.png" width="640" height="1137"/>
         <image name="second" width="30" height="30"/>
     </resources>
@@ -787,6 +790,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="3Gj-aF-wc0"/>
+        <segue reference="tUt-wg-aAO"/>
     </inferredMetricsTieBreakers>
 </document>
