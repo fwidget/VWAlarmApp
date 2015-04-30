@@ -29,20 +29,18 @@
 		040890141AEABF5D009FCCD4 /* tstorm3.png in Resources */ = {isa = PBXBuildFile; fileRef = 040890041AEABF5D009FCCD4 /* tstorm3.png */; };
 		040890181AEAC2DB009FCCD4 /* WeatherServiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 040890171AEAC2DB009FCCD4 /* WeatherServiece.m */; };
 		045460661AEAB0A900308E02 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045460651AEAB0A900308E02 /* CoreLocation.framework */; };
-		045460691AEAB0E300308E02 /* G2LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 045460681AEAB0E300308E02 /* G2LocationManager.m */; };
 		045E0FE01AD41C2D00EAD210 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E0FDF1AD41C2D00EAD210 /* main.m */; };
 		045E0FE31AD41C2D00EAD210 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E0FE21AD41C2D00EAD210 /* AppDelegate.m */; };
 		045E0FEC1AD41C2D00EAD210 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045E0FEA1AD41C2D00EAD210 /* Main.storyboard */; };
 		045E0FEE1AD41C2D00EAD210 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 045E0FED1AD41C2D00EAD210 /* Images.xcassets */; };
 		045E0FF11AD41C2D00EAD210 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045E0FEF1AD41C2D00EAD210 /* LaunchScreen.xib */; };
 		045E0FFD1AD41C2D00EAD210 /* VWAlarmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E0FFC1AD41C2D00EAD210 /* VWAlarmTests.m */; };
+		04602E471AF09F6000FF399B /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04602E461AF09F6000FF399B /* MediaPlayer.framework */; };
+		04602E4A1AF09F8F00FF399B /* G2MediaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04602E491AF09F8F00FF399B /* G2MediaManager.m */; };
 		04745DD81ADEAD9A00C9711B /* G2CacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DD11ADEAD9A00C9711B /* G2CacheManager.m */; };
 		04745DD91ADEAD9A00C9711B /* G2DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DD31ADEAD9A00C9711B /* G2DataManager.m */; };
 		04745DDA1ADEAD9A00C9711B /* G2DateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DD51ADEAD9A00C9711B /* G2DateManager.m */; };
-		04745DE41ADEADAC00C9711B /* TopClockVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DDD1ADEADAC00C9711B /* TopClockVC.m */; };
 		04745DE51ADEADAC00C9711B /* TopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DDF1ADEADAC00C9711B /* TopVC.m */; };
-		04745DE61ADEADAC00C9711B /* TopWeatherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DE11ADEADAC00C9711B /* TopWeatherCell.m */; };
-		04745DE71ADEADAC00C9711B /* TopWeatherVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DE31ADEADAC00C9711B /* TopWeatherVC.m */; };
 		04745DEA1ADEADBB00C9711B /* WeatherVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DE91ADEADBB00C9711B /* WeatherVC.m */; };
 		04745DEF1ADEADC800C9711B /* G2LineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DEC1ADEADC800C9711B /* G2LineView.m */; };
 		04745DF01ADEADC800C9711B /* G2NoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DEE1ADEADC800C9711B /* G2NoticeView.m */; };
@@ -93,8 +91,6 @@
 		040890161AEAC2DB009FCCD4 /* WeatherServiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherServiece.h; sourceTree = "<group>"; };
 		040890171AEAC2DB009FCCD4 /* WeatherServiece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherServiece.m; sourceTree = "<group>"; };
 		045460651AEAB0A900308E02 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		045460671AEAB0E300308E02 /* G2LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = G2LocationManager.h; sourceTree = "<group>"; };
-		045460681AEAB0E300308E02 /* G2LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G2LocationManager.m; sourceTree = "<group>"; };
 		045E0FDA1AD41C2D00EAD210 /* VWAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VWAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		045E0FDE1AD41C2D00EAD210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		045E0FDF1AD41C2D00EAD210 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -107,6 +103,10 @@
 		045E0FFB1AD41C2D00EAD210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		045E0FFC1AD41C2D00EAD210 /* VWAlarmTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VWAlarmTests.m; sourceTree = "<group>"; };
 		045EA7821ADEB4BE00FA2455 /* VWAlarm-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VWAlarm-Prefix.pch"; sourceTree = "<group>"; };
+		04602E441AF09F3800FF399B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		04602E461AF09F6000FF399B /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		04602E481AF09F8F00FF399B /* G2MediaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = G2MediaManager.h; sourceTree = "<group>"; };
+		04602E491AF09F8F00FF399B /* G2MediaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G2MediaManager.m; sourceTree = "<group>"; };
 		046DAB4358431710862F5C7B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		04745DD01ADEAD9A00C9711B /* G2CacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = G2CacheManager.h; path = Manager/G2CacheManager.h; sourceTree = "<group>"; };
 		04745DD11ADEAD9A00C9711B /* G2CacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = G2CacheManager.m; path = Manager/G2CacheManager.m; sourceTree = "<group>"; };
@@ -114,14 +114,8 @@
 		04745DD31ADEAD9A00C9711B /* G2DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = G2DataManager.m; path = Manager/G2DataManager.m; sourceTree = "<group>"; };
 		04745DD41ADEAD9A00C9711B /* G2DateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = G2DateManager.h; path = Manager/G2DateManager.h; sourceTree = "<group>"; };
 		04745DD51ADEAD9A00C9711B /* G2DateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = G2DateManager.m; path = Manager/G2DateManager.m; sourceTree = "<group>"; };
-		04745DDC1ADEADAC00C9711B /* TopClockVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopClockVC.h; path = Classes/TopClockVC.h; sourceTree = "<group>"; };
-		04745DDD1ADEADAC00C9711B /* TopClockVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopClockVC.m; path = Classes/TopClockVC.m; sourceTree = "<group>"; };
 		04745DDE1ADEADAC00C9711B /* TopVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopVC.h; path = Classes/TopVC.h; sourceTree = "<group>"; };
 		04745DDF1ADEADAC00C9711B /* TopVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopVC.m; path = Classes/TopVC.m; sourceTree = "<group>"; };
-		04745DE01ADEADAC00C9711B /* TopWeatherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopWeatherCell.h; path = Classes/TopWeatherCell.h; sourceTree = "<group>"; };
-		04745DE11ADEADAC00C9711B /* TopWeatherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopWeatherCell.m; path = Classes/TopWeatherCell.m; sourceTree = "<group>"; };
-		04745DE21ADEADAC00C9711B /* TopWeatherVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopWeatherVC.h; path = Classes/TopWeatherVC.h; sourceTree = "<group>"; };
-		04745DE31ADEADAC00C9711B /* TopWeatherVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopWeatherVC.m; path = Classes/TopWeatherVC.m; sourceTree = "<group>"; };
 		04745DE81ADEADBB00C9711B /* WeatherVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeatherVC.h; path = Classes/WeatherVC.h; sourceTree = "<group>"; };
 		04745DE91ADEADBB00C9711B /* WeatherVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeatherVC.m; path = Classes/WeatherVC.m; sourceTree = "<group>"; };
 		04745DEB1ADEADC800C9711B /* G2LineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = G2LineView.h; path = Common/UI/G2LineView.h; sourceTree = "<group>"; };
@@ -158,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04602E471AF09F6000FF399B /* MediaPlayer.framework in Frameworks */,
 				045460661AEAB0A900308E02 /* CoreLocation.framework in Frameworks */,
 				C887E2AD987DD7DC97C96474 /* libPods.a in Frameworks */,
 			);
@@ -227,8 +222,8 @@
 				047D9EA31ADFDFD600BB3407 /* G2NotificationManager.m */,
 				049349121AE7D9B6007EF6C7 /* G2SoundManager.h */,
 				049349131AE7D9B6007EF6C7 /* G2SoundManager.m */,
-				045460671AEAB0E300308E02 /* G2LocationManager.h */,
-				045460681AEAB0E300308E02 /* G2LocationManager.m */,
+				04602E481AF09F8F00FF399B /* G2MediaManager.h */,
+				04602E491AF09F8F00FF399B /* G2MediaManager.m */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -352,14 +347,8 @@
 		048CD89E1ADC176600C91CFE /* Top */ = {
 			isa = PBXGroup;
 			children = (
-				04745DDC1ADEADAC00C9711B /* TopClockVC.h */,
-				04745DDD1ADEADAC00C9711B /* TopClockVC.m */,
 				04745DDE1ADEADAC00C9711B /* TopVC.h */,
 				04745DDF1ADEADAC00C9711B /* TopVC.m */,
-				04745DE01ADEADAC00C9711B /* TopWeatherCell.h */,
-				04745DE11ADEADAC00C9711B /* TopWeatherCell.m */,
-				04745DE21ADEADAC00C9711B /* TopWeatherVC.h */,
-				04745DE31ADEADAC00C9711B /* TopWeatherVC.m */,
 			);
 			name = Top;
 			sourceTree = "<group>";
@@ -423,6 +412,8 @@
 		9C19CE8FCEE99F6AA6E301F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04602E461AF09F6000FF399B /* MediaPlayer.framework */,
+				04602E441AF09F3800FF399B /* MapKit.framework */,
 				045460651AEAB0A900308E02 /* CoreLocation.framework */,
 				E8E30D5092D3CCA77046DF1D /* libPods.a */,
 			);
@@ -489,7 +480,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 045E0FD51AD41C2D00EAD210 /* Build configuration list for PBXProject "VWAlarm" */;
+			buildConfigurationList = 045E0FD51AD41C2D00EAD210 /* Build configuration list for PBXProject "VWAlarm1" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -585,14 +576,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04745DE61ADEADAC00C9711B /* TopWeatherCell.m in Sources */,
-				04745DE71ADEADAC00C9711B /* TopWeatherVC.m in Sources */,
 				040890181AEAC2DB009FCCD4 /* WeatherServiece.m in Sources */,
 				04745DF91ADEADE800C9711B /* AlarmDetailVC.m in Sources */,
 				04745DD91ADEAD9A00C9711B /* G2DataManager.m in Sources */,
 				045E0FE31AD41C2D00EAD210 /* AppDelegate.m in Sources */,
 				04745DD81ADEAD9A00C9711B /* G2CacheManager.m in Sources */,
-				04745DE41ADEADAC00C9711B /* TopClockVC.m in Sources */,
 				04745DEF1ADEADC800C9711B /* G2LineView.m in Sources */,
 				049349141AE7D9B6007EF6C7 /* G2SoundManager.m in Sources */,
 				04745DFA1ADEADE800C9711B /* AlarmVC.m in Sources */,
@@ -601,8 +589,8 @@
 				0493491B1AE7F2AB007EF6C7 /* WeatherDetailVC.m in Sources */,
 				047D9EA41ADFDFD600BB3407 /* G2NotificationManager.m in Sources */,
 				04745DF81ADEADE800C9711B /* AlarmDetailOptionVC.m in Sources */,
-				045460691AEAB0E300308E02 /* G2LocationManager.m in Sources */,
 				04745DDA1ADEAD9A00C9711B /* G2DateManager.m in Sources */,
+				04602E4A1AF09F8F00FF399B /* G2MediaManager.m in Sources */,
 				04745DF01ADEADC800C9711B /* G2NoticeView.m in Sources */,
 				04745DFD1ADEADF400C9711B /* SettingVC.m in Sources */,
 				047D9EA81AE00D9800BB3407 /* NSDate+Extras.m in Sources */,
@@ -795,7 +783,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		045E0FD51AD41C2D00EAD210 /* Build configuration list for PBXProject "VWAlarm" */ = {
+		045E0FD51AD41C2D00EAD210 /* Build configuration list for PBXProject "VWAlarm1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				045E0FFE1AD41C2D00EAD210 /* Debug */,
