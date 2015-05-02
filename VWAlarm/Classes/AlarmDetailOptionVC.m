@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (!_item) {
+        _item = [[AlarmItem alloc] init];
+    }
     [self initTableView];
     // Do any additional setup after loading the view.
 }
@@ -84,9 +87,10 @@
     } else {
         [_selectItems addObject:@(indexPath.row)];
     }
+    _item.repeatTimes = _selectItems;
     [tableView reloadData];
     [self sortingItems:_selectItems];
-    [self sendItem:@{ALARM_PARAMETER_KEY_REPEAT : _selectItems}];
+    [self sendItem:_item];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -98,11 +102,12 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     if (textField.text.length > 0) {
-        [self sendItem:@{ALARM_PARAMETER_KEY_LABEL: textField.text}];
+        _item.title = textField.text;
+        [self sendItem:_item];
     }
 }
 
-- (void)sendItem:(id)item
+- (void)sendItem:(AlarmItem *)item
 {
     if ([_delegate respondsToSelector:@selector(sendItem:)]) {
         [_delegate sendItem:item];

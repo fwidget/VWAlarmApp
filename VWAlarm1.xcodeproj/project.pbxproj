@@ -53,6 +53,8 @@
 		049349141AE7D9B6007EF6C7 /* G2SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 049349131AE7D9B6007EF6C7 /* G2SoundManager.m */; };
 		049349181AE7F0AD007EF6C7 /* WeatherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049349171AE7F0AD007EF6C7 /* WeatherCell.m */; };
 		0493491B1AE7F2AB007EF6C7 /* WeatherDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493491A1AE7F2AB007EF6C7 /* WeatherDetailVC.m */; };
+		04BE604C1AF4DAC800D9FBC3 /* AlarmItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE604B1AF4DAC800D9FBC3 /* AlarmItem.m */; };
+		04BE604F1AF4DCB100D9FBC3 /* WeatherItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE604E1AF4DCB100D9FBC3 /* WeatherItem.m */; };
 		C887E2AD987DD7DC97C96474 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E30D5092D3CCA77046DF1D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -143,6 +145,10 @@
 		049349191AE7F2AB007EF6C7 /* WeatherDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherDetailVC.h; sourceTree = "<group>"; };
 		0493491A1AE7F2AB007EF6C7 /* WeatherDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherDetailVC.m; sourceTree = "<group>"; };
 		0493491F1AE7F331007EF6C7 /* Weather.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
+		04BE604A1AF4DAC800D9FBC3 /* AlarmItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmItem.h; sourceTree = "<group>"; };
+		04BE604B1AF4DAC800D9FBC3 /* AlarmItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmItem.m; sourceTree = "<group>"; };
+		04BE604D1AF4DCB100D9FBC3 /* WeatherItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherItem.h; sourceTree = "<group>"; };
+		04BE604E1AF4DCB100D9FBC3 /* WeatherItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherItem.m; sourceTree = "<group>"; };
 		E02331D468846E6CE39B5644 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E8E30D5092D3CCA77046DF1D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -282,15 +288,15 @@
 			isa = PBXGroup;
 			children = (
 				045E0FEA1AD41C2D00EAD210 /* Main.storyboard */,
+				045E0FEF1AD41C2D00EAD210 /* LaunchScreen.xib */,
 				045E0FE11AD41C2D00EAD210 /* AppDelegate.h */,
 				045E0FE21AD41C2D00EAD210 /* AppDelegate.m */,
+				04BE60491AF4DAAF00D9FBC3 /* model */,
 				040890151AEAC2AD009FCCD4 /* WeatherService */,
 				042CA0F21ADE9B6600F8F183 /* Common */,
 				048CD89E1ADC176600C91CFE /* Top */,
 				048CD8A21ADC258900C91CFE /* Alarm */,
 				048CD8A41ADC260F00C91CFE /* Setting */,
-				045E0FED1AD41C2D00EAD210 /* Images.xcassets */,
-				045E0FEF1AD41C2D00EAD210 /* LaunchScreen.xib */,
 				045E0FDD1AD41C2D00EAD210 /* Supporting Files */,
 			);
 			path = VWAlarm;
@@ -299,6 +305,7 @@
 		045E0FDD1AD41C2D00EAD210 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				045E0FED1AD41C2D00EAD210 /* Images.xcassets */,
 				0454606D1AEAB82500308E02 /* images */,
 				045E0FDE1AD41C2D00EAD210 /* Info.plist */,
 				045E0FDF1AD41C2D00EAD210 /* main.m */,
@@ -398,6 +405,17 @@
 				049349171AE7F0AD007EF6C7 /* WeatherCell.m */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		04BE60491AF4DAAF00D9FBC3 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				04BE604A1AF4DAC800D9FBC3 /* AlarmItem.h */,
+				04BE604B1AF4DAC800D9FBC3 /* AlarmItem.m */,
+				04BE604D1AF4DCB100D9FBC3 /* WeatherItem.h */,
+				04BE604E1AF4DCB100D9FBC3 /* WeatherItem.m */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 		91BBB17AF28BE6D3CC989F2E /* Pods */ = {
@@ -580,6 +598,7 @@
 				04745DF91ADEADE800C9711B /* AlarmDetailVC.m in Sources */,
 				04745DD91ADEAD9A00C9711B /* G2DataManager.m in Sources */,
 				045E0FE31AD41C2D00EAD210 /* AppDelegate.m in Sources */,
+				04BE604C1AF4DAC800D9FBC3 /* AlarmItem.m in Sources */,
 				04745DD81ADEAD9A00C9711B /* G2CacheManager.m in Sources */,
 				04745DEF1ADEADC800C9711B /* G2LineView.m in Sources */,
 				049349141AE7D9B6007EF6C7 /* G2SoundManager.m in Sources */,
@@ -589,6 +608,7 @@
 				0493491B1AE7F2AB007EF6C7 /* WeatherDetailVC.m in Sources */,
 				047D9EA41ADFDFD600BB3407 /* G2NotificationManager.m in Sources */,
 				04745DF81ADEADE800C9711B /* AlarmDetailOptionVC.m in Sources */,
+				04BE604F1AF4DCB100D9FBC3 /* WeatherItem.m in Sources */,
 				04745DDA1ADEAD9A00C9711B /* G2DateManager.m in Sources */,
 				04602E4A1AF09F8F00FF399B /* G2MediaManager.m in Sources */,
 				04745DF01ADEADC800C9711B /* G2NoticeView.m in Sources */,

@@ -20,29 +20,55 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="img_top.png" translatesAutoresizingMaskIntoConstraints="NO" id="9bB-fz-m37">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="41c-M9-Wsh">
-                                <rect key="frame" x="37" y="293" width="128" height="128"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="41c-M9-Wsh">
+                                <rect key="frame" x="96" y="220" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="PQH-Gj-zgx"/>
+                                    <constraint firstAttribute="height" constant="128" id="X8N-Yu-5go"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="17°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="715-Az-1Tn">
-                                <rect key="frame" x="37" y="411" width="128" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="715-Az-1Tn">
+                                <rect key="frame" x="96" y="368" width="128" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="d7l-Ob-jYZ"/>
+                                    <constraint firstAttribute="height" constant="50" id="dGA-ox-Rlr"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="44"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="東京" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bbD-9g-CKO">
-                                <rect key="frame" x="36" y="247" width="240" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015.04.19 日曜日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghT-va-5wR">
+                                <rect key="frame" x="41" y="101" width="239" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="239" id="UDj-Ak-lDo"/>
+                                    <constraint firstAttribute="height" constant="15" id="rL8-nT-831"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2015.04.19 日曜日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghT-va-5wR">
-                                <rect key="frame" x="37" y="226" width="239" height="15"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="東京" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bbD-9g-CKO">
+                                <rect key="frame" x="40" y="135" width="240" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="XPZ-Ag-Haj"/>
+                                    <constraint firstAttribute="width" constant="240" id="qj9-pv-9mW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.078431372549019607" green="0.078431372549019607" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ghT-va-5wR" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="81" id="Lec-ph-Vs1"/>
+                            <constraint firstItem="41c-M9-Wsh" firstAttribute="top" secondItem="bbD-9g-CKO" secondAttribute="bottom" constant="45" id="Mwa-Wr-CN7"/>
+                            <constraint firstItem="715-Az-1Tn" firstAttribute="top" secondItem="41c-M9-Wsh" secondAttribute="bottom" constant="20" id="YaS-d7-YDL"/>
+                            <constraint firstItem="bbD-9g-CKO" firstAttribute="top" secondItem="ghT-va-5wR" secondAttribute="bottom" constant="19" id="abG-FD-yE9"/>
+                            <constraint firstAttribute="centerX" secondItem="ghT-va-5wR" secondAttribute="centerX" constant="-0.5" id="hEt-lX-v11"/>
+                            <constraint firstAttribute="centerX" secondItem="bbD-9g-CKO" secondAttribute="centerX" id="jUz-5D-5aI"/>
+                            <constraint firstAttribute="centerX" secondItem="715-Az-1Tn" secondAttribute="centerX" id="o2D-YH-N6Y"/>
+                            <constraint firstAttribute="centerX" secondItem="41c-M9-Wsh" secondAttribute="centerX" id="wRn-Mn-dWK"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Top" image="first" id="acW-dT-cKf"/>
                     <connections>
@@ -489,8 +515,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lKf-8g-ymX">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lKf-8g-ymX">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Ctx-ee-3xy">
@@ -512,6 +538,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lKf-8g-ymX" firstAttribute="leading" secondItem="vs2-6a-Gxq" secondAttribute="leading" id="URX-Ug-pu1"/>
+                            <constraint firstAttribute="trailing" secondItem="lKf-8g-ymX" secondAttribute="trailing" id="h6v-zW-hVX"/>
+                            <constraint firstItem="lKf-8g-ymX" firstAttribute="top" secondItem="vs2-6a-Gxq" secondAttribute="top" id="nIL-Tp-QVc"/>
+                            <constraint firstItem="1Bi-nf-cT9" firstAttribute="top" secondItem="lKf-8g-ymX" secondAttribute="bottom" id="ow2-NZ-Gm0"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Setting" id="Wt3-7D-SCn"/>
                 </viewController>

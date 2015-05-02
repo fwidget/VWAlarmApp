@@ -27,7 +27,7 @@
 #define ESTABLISH_WEAK_SELF __weak typeof(self) weakSelf = self
 #define ESTABLISH_STRONG_SELF __strong typeof(self) strongSelf = weakSelf;
 
-// localized
+// NSLocalizedString
 #define LSTR(s) NSLocalizedString((s), nil)
 
 // color rgb, rgba

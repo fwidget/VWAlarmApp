@@ -13,7 +13,7 @@
 
 @interface AlarmDetailOptionVC : UIViewController < UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate >
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSDictionary *item;
+@property (strong, nonatomic) AlarmItem *item;
 @property (strong, nonatomic) NSMutableArray *selectItems;
 @property (strong, nonatomic) NSString *cellIdentifier;
 @property (weak, nonatomic) id<AlarmDetailOptionDelegate> delegate;

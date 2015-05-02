@@ -159,7 +159,7 @@
     [_tableView endUpdates];
 }
 
-- (void)saveAlarmDetail:(NSMutableDictionary *)item isAdd:(BOOL)isAdd
+- (void)saveAlarmDetail:(AlarmItem *)item isAdd:(BOOL)isAdd
 {
     NSLog(@"item %@", item);
     if (item && isAdd) {
@@ -170,6 +170,18 @@
     }
     [_tableView reloadData];
     [self saveData];
+    [self addNotification:item isAdd:isAdd];
+}
+
+// 알람 등록
+- (void)addNotification:(AlarmItem *)item isAdd:(BOOL)isAdd
+{
+    if (isAdd) {
+        // 신규
+        [G2NotificationManager addAlarmScheduleLocalNotificationWithDates:item alarmId:item.alarmId repeat:item.repeatTimes];
+    } else {
+        // 알람 수정
+    }
 }
 
 - (void)saveData

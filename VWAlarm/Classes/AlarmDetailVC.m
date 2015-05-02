@@ -20,20 +20,18 @@
     [super viewDidLoad];
     _isAdd = (_item) ? NO : YES;
     if (_isAdd) {
-        NSDictionary *item = @{ ALARM_ITEM_KEY_TITLE : ALARM_DEFAULT_TITLE, ALARM_ITEM_KEY_SOUND : @"", ALARM_ITEM_KEY_SOUND_FILENAME : @"", ALARM_ITEM_KEY_SNOOSE : @(NO), ALARM_ITEM_KEY_REPEAT:@[], ALARM_ITEM_KEY_DATE : [NSDate date]};
-        _item = [item mutableCopy];
+        _item = [[AlarmItem alloc] init];
     }
     [self initDatePicker];
 }
 
 - (void)initDatePicker
 {
-    _datePicker.date = _item[ALARM_ITEM_KEY_DATE];
+    _datePicker.date = _item.date;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 - (IBAction)cancelNaviBtn:(id)sender
 {
@@ -51,7 +49,7 @@
 - (IBAction)alarmdate:(UIDatePicker *)sender
 {
     NSLog(@"input : %@", sender.date);
-    _item[ALARM_ITEM_KEY_DATE] = sender.date;
+    _item.date = sender.date;
 }
 
 #pragma mark - TableView Delegate
@@ -100,25 +98,40 @@
     
     switch (indexPath.row) {
         case 0:
-            cell.detailTextLabel.text = (_item[ALARM_ITEM_KEY_TITLE]) ? _item[ALARM_ITEM_KEY_TITLE] : ALARM_DEFAULT_TITLE;
+            cell.detailTextLabel.text = (_item.title.length > 0) ? _item.title : ALARM_DEFAULT_TITLE;
             break;
         case 1:
-            cell.detailTextLabel.text = (_item[ALARM_ITEM_KEY_REPEAT]) ? [self repeateWithItems:_item[ALARM_ITEM_KEY_REPEAT]] : ALARM_NONE_TITLE;
+            cell.detailTextLabel.text = (_item.repeatTimes.count > 0) ? [self repeateWithItems:_item.repeatTimes] : ALARM_NONE_TITLE;
             break;
         case 2:
-            cell.detailTextLabel.text = (_item[ALARM_ITEM_KEY_SOUND]) ? _item[ALARM_ITEM_KEY_SOUND] : ALARM_NONE_TITLE;
+            cell.detailTextLabel.text = (_item.soundFiles.count > 0) ? [self soundTitleWithItems:_item.soundFiles] : ALARM_NONE_TITLE;
             break;
         case 3:
         {
             UISwitch *snoose = (UISwitch *)[cell viewWithTag:VIEW_WITH_TAG_SNOOSE_SWITCH];
-            snoose.on = ([_item[ALARM_ITEM_KEY_SNOOSE] boolValue]) ? YES : NO;
+            snoose.on = (_item.snoose) ? YES : NO;
         }
             break;
         default:
             break;
     }
 }
-
+- (NSString *)soundTitleWithItems:(NSArray *)items
+{
+    if (!items || items.count == 0) {
+        return ALARM_NONE_TITLE;
+    }
+    NSString *title_str = @"";
+    for (NSString *str in items) {
+        if (str.length == 0) {
+            title_str = str;
+        } else {
+            title_str = [title_str stringByAppendingString:str];
+        }
+    }
+    return title_str;
+    
+}
 - (NSString *)repeateWithItems:(NSArray *)items
 {
     if (!items || items.count == 0) {
@@ -136,24 +149,23 @@
 }
 
 #pragma mark - AlarmDetailOptionDelegate
-- (void)sendItem:(id)item
+- (void)sendItem:(AlarmItem *)item
 {
     NSLog(@"sendItem %@",item);
     if (!item || ![item isKindOfClass:[NSDictionary class]]) {
         return;
     }
     
-    if (item[ALARM_PARAMETER_KEY_REPEAT]) {
-        _item[ALARM_ITEM_KEY_REPEAT] = ([item[ALARM_PARAMETER_KEY_REPEAT] count] > 0) ? item[ALARM_PARAMETER_KEY_REPEAT] : ALARM_NONE_TITLE;
+    if (item.repeatTimes.count > 0) {
+        _item.repeatTimes = item.repeatTimes;
     }
     
-    if (item[ALARM_PARAMETER_KEY_LABEL]) {
-        _item[ALARM_ITEM_KEY_TITLE] = item[ALARM_PARAMETER_KEY_LABEL];
+    if (item.title) {
+        _item.title = item.title;
     }
     
-    if (item[ALARM_PARAMETER_KEY_SOUND] && item[ALARM_PARAMETER_KEY_SOUND_FILENAME]) {
-        _item[ALARM_ITEM_KEY_SOUND] = item[ALARM_PARAMETER_KEY_SOUND];
-        _item[ALARM_ITEM_KEY_SOUND_FILENAME] = item[ALARM_PARAMETER_KEY_SOUND_FILENAME];
+    if ([item.soundFiles count] > 0) {
+        _item.soundFiles = item.soundFiles;
     }
     
     [_tableView reloadData];
@@ -172,7 +184,7 @@
         vc.cellIdentifier = ALARM_DETAIL_OPTION_CELL_IDENTIFIER_SOUND;
     } else if ([segue.identifier isEqualToString:ALARM_PARAMETER_KEY_REPEAT]) {
         vc.cellIdentifier = ALARM_DETAIL_OPTION_CELL_IDENTIFIER_REPEAT;
-        vc.selectItems = [NSMutableArray arrayWithArray:_item[ALARM_ITEM_KEY_REPEAT]];
+        vc.selectItems = [NSMutableArray arrayWithArray:_item.repeatTimes];
     }
 }
 
