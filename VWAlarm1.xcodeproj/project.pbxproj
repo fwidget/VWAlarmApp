@@ -27,7 +27,7 @@
 		040890121AEABF5D009FCCD4 /* tstorm1_night.png in Resources */ = {isa = PBXBuildFile; fileRef = 040890021AEABF5D009FCCD4 /* tstorm1_night.png */; };
 		040890131AEABF5D009FCCD4 /* tstorm1.png in Resources */ = {isa = PBXBuildFile; fileRef = 040890031AEABF5D009FCCD4 /* tstorm1.png */; };
 		040890141AEABF5D009FCCD4 /* tstorm3.png in Resources */ = {isa = PBXBuildFile; fileRef = 040890041AEABF5D009FCCD4 /* tstorm3.png */; };
-		040890181AEAC2DB009FCCD4 /* WeatherServiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 040890171AEAC2DB009FCCD4 /* WeatherServiece.m */; };
+		040890181AEAC2DB009FCCD4 /* VWAWeatherManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 040890171AEAC2DB009FCCD4 /* VWAWeatherManager.m */; };
 		045460661AEAB0A900308E02 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045460651AEAB0A900308E02 /* CoreLocation.framework */; };
 		045E0FE01AD41C2D00EAD210 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E0FDF1AD41C2D00EAD210 /* main.m */; };
 		045E0FE31AD41C2D00EAD210 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E0FE21AD41C2D00EAD210 /* AppDelegate.m */; };
@@ -53,8 +53,13 @@
 		049349141AE7D9B6007EF6C7 /* G2SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 049349131AE7D9B6007EF6C7 /* G2SoundManager.m */; };
 		049349181AE7F0AD007EF6C7 /* WeatherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049349171AE7F0AD007EF6C7 /* WeatherCell.m */; };
 		0493491B1AE7F2AB007EF6C7 /* WeatherDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493491A1AE7F2AB007EF6C7 /* WeatherDetailVC.m */; };
-		04BE604C1AF4DAC800D9FBC3 /* AlarmItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE604B1AF4DAC800D9FBC3 /* AlarmItem.m */; };
-		04BE604F1AF4DCB100D9FBC3 /* WeatherItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE604E1AF4DCB100D9FBC3 /* WeatherItem.m */; };
+		04BE60581AF4ECCB00D9FBC3 /* VWAlarmModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04BE60561AF4ECCB00D9FBC3 /* VWAlarmModel.xcdatamodeld */; };
+		04BE60651AF4F09A00D9FBC3 /* G2CoreDataDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE60641AF4F09A00D9FBC3 /* G2CoreDataDelegate.m */; };
+		04BE609E1AF51CEF00D9FBC3 /* VWAAlarmManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE609D1AF51CEF00D9FBC3 /* VWAAlarmManager.m */; };
+		04BE60A21AF5203A00D9FBC3 /* VWADataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE60A11AF5203A00D9FBC3 /* VWADataManager.m */; };
+		04BE60AE1AF5BF2200D9FBC3 /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE60AD1AF5BF2200D9FBC3 /* Weather.m */; };
+		04BE60B41AF5BF2300D9FBC3 /* Setting.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE60B31AF5BF2300D9FBC3 /* Setting.m */; };
+		04BE60BD1AF5CD3500D9FBC3 /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE60BC1AF5CD3500D9FBC3 /* Alarm.m */; };
 		C887E2AD987DD7DC97C96474 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E30D5092D3CCA77046DF1D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -90,8 +95,8 @@
 		040890021AEABF5D009FCCD4 /* tstorm1_night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tstorm1_night.png; sourceTree = "<group>"; };
 		040890031AEABF5D009FCCD4 /* tstorm1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tstorm1.png; sourceTree = "<group>"; };
 		040890041AEABF5D009FCCD4 /* tstorm3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tstorm3.png; sourceTree = "<group>"; };
-		040890161AEAC2DB009FCCD4 /* WeatherServiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherServiece.h; sourceTree = "<group>"; };
-		040890171AEAC2DB009FCCD4 /* WeatherServiece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherServiece.m; sourceTree = "<group>"; };
+		040890161AEAC2DB009FCCD4 /* VWAWeatherManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWAWeatherManager.h; sourceTree = "<group>"; };
+		040890171AEAC2DB009FCCD4 /* VWAWeatherManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWAWeatherManager.m; sourceTree = "<group>"; };
 		045460651AEAB0A900308E02 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		045E0FDA1AD41C2D00EAD210 /* VWAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VWAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		045E0FDE1AD41C2D00EAD210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -133,7 +138,7 @@
 		04745DF71ADEADE800C9711B /* AlarmVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlarmVC.m; path = Classes/AlarmVC.m; sourceTree = "<group>"; };
 		04745DFB1ADEADF400C9711B /* SettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingVC.h; path = Classes/SettingVC.h; sourceTree = "<group>"; };
 		04745DFC1ADEADF400C9711B /* SettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingVC.m; path = Classes/SettingVC.m; sourceTree = "<group>"; };
-		047D9E9E1ADEBA5000BB3407 /* Alarm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Alarm.h; sourceTree = "<group>"; };
+		047D9E9E1ADEBA5000BB3407 /* AlarmUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlarmUtility.h; sourceTree = "<group>"; };
 		047D9EA21ADFDFD600BB3407 /* G2NotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = G2NotificationManager.h; sourceTree = "<group>"; };
 		047D9EA31ADFDFD600BB3407 /* G2NotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G2NotificationManager.m; sourceTree = "<group>"; };
 		047D9EA61AE00D9800BB3407 /* NSDate+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extras.h"; sourceTree = "<group>"; };
@@ -144,11 +149,20 @@
 		049349171AE7F0AD007EF6C7 /* WeatherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherCell.m; sourceTree = "<group>"; };
 		049349191AE7F2AB007EF6C7 /* WeatherDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherDetailVC.h; sourceTree = "<group>"; };
 		0493491A1AE7F2AB007EF6C7 /* WeatherDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherDetailVC.m; sourceTree = "<group>"; };
-		0493491F1AE7F331007EF6C7 /* Weather.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
-		04BE604A1AF4DAC800D9FBC3 /* AlarmItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmItem.h; sourceTree = "<group>"; };
-		04BE604B1AF4DAC800D9FBC3 /* AlarmItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmItem.m; sourceTree = "<group>"; };
-		04BE604D1AF4DCB100D9FBC3 /* WeatherItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherItem.h; sourceTree = "<group>"; };
-		04BE604E1AF4DCB100D9FBC3 /* WeatherItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherItem.m; sourceTree = "<group>"; };
+		0493491F1AE7F331007EF6C7 /* WeatherUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherUtility.h; sourceTree = "<group>"; };
+		04BE60571AF4ECCB00D9FBC3 /* VWAlarmModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VWAlarmModel.xcdatamodel; sourceTree = "<group>"; };
+		04BE60631AF4F09A00D9FBC3 /* G2CoreDataDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = G2CoreDataDelegate.h; sourceTree = "<group>"; };
+		04BE60641AF4F09A00D9FBC3 /* G2CoreDataDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G2CoreDataDelegate.m; sourceTree = "<group>"; };
+		04BE609C1AF51CEF00D9FBC3 /* VWAAlarmManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWAAlarmManager.h; sourceTree = "<group>"; };
+		04BE609D1AF51CEF00D9FBC3 /* VWAAlarmManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWAAlarmManager.m; sourceTree = "<group>"; };
+		04BE60A01AF5203A00D9FBC3 /* VWADataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWADataManager.h; sourceTree = "<group>"; };
+		04BE60A11AF5203A00D9FBC3 /* VWADataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWADataManager.m; sourceTree = "<group>"; };
+		04BE60AC1AF5BF2200D9FBC3 /* Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
+		04BE60AD1AF5BF2200D9FBC3 /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
+		04BE60B21AF5BF2300D9FBC3 /* Setting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Setting.h; sourceTree = "<group>"; };
+		04BE60B31AF5BF2300D9FBC3 /* Setting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Setting.m; sourceTree = "<group>"; };
+		04BE60BB1AF5CD3500D9FBC3 /* Alarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alarm.h; sourceTree = "<group>"; };
+		04BE60BC1AF5CD3500D9FBC3 /* Alarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alarm.m; sourceTree = "<group>"; };
 		E02331D468846E6CE39B5644 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E8E30D5092D3CCA77046DF1D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -206,13 +220,18 @@
 			name = Weather;
 			sourceTree = "<group>";
 		};
-		040890151AEAC2AD009FCCD4 /* WeatherService */ = {
+		040890151AEAC2AD009FCCD4 /* VWAManager */ = {
 			isa = PBXGroup;
 			children = (
-				040890161AEAC2DB009FCCD4 /* WeatherServiece.h */,
-				040890171AEAC2DB009FCCD4 /* WeatherServiece.m */,
+				04BE60621AF4EEDF00D9FBC3 /* CoreData */,
+				04BE609C1AF51CEF00D9FBC3 /* VWAAlarmManager.h */,
+				04BE609D1AF51CEF00D9FBC3 /* VWAAlarmManager.m */,
+				040890161AEAC2DB009FCCD4 /* VWAWeatherManager.h */,
+				040890171AEAC2DB009FCCD4 /* VWAWeatherManager.m */,
+				04BE60A01AF5203A00D9FBC3 /* VWADataManager.h */,
+				04BE60A11AF5203A00D9FBC3 /* VWADataManager.m */,
 			);
-			name = WeatherService;
+			name = VWAManager;
 			sourceTree = "<group>";
 		};
 		042CA0EE1ADE9A0F00F8F183 /* Manager */ = {
@@ -291,8 +310,7 @@
 				045E0FEF1AD41C2D00EAD210 /* LaunchScreen.xib */,
 				045E0FE11AD41C2D00EAD210 /* AppDelegate.h */,
 				045E0FE21AD41C2D00EAD210 /* AppDelegate.m */,
-				04BE60491AF4DAAF00D9FBC3 /* model */,
-				040890151AEAC2AD009FCCD4 /* WeatherService */,
+				040890151AEAC2AD009FCCD4 /* VWAManager */,
 				042CA0F21ADE9B6600F8F183 /* Common */,
 				048CD89E1ADC176600C91CFE /* Top */,
 				048CD8A21ADC258900C91CFE /* Alarm */,
@@ -363,7 +381,7 @@
 		048CD8A21ADC258900C91CFE /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
-				047D9E9E1ADEBA5000BB3407 /* Alarm.h */,
+				047D9E9E1ADEBA5000BB3407 /* AlarmUtility.h */,
 				04745DF61ADEADE800C9711B /* AlarmVC.h */,
 				04745DF71ADEADE800C9711B /* AlarmVC.m */,
 				04745DF41ADEADE800C9711B /* AlarmDetailVC.h */,
@@ -378,7 +396,7 @@
 		048CD8A31ADC260300C91CFE /* Weather */ = {
 			isa = PBXGroup;
 			children = (
-				0493491F1AE7F331007EF6C7 /* Weather.h */,
+				0493491F1AE7F331007EF6C7 /* WeatherUtility.h */,
 				04745DE81ADEADBB00C9711B /* WeatherVC.h */,
 				04745DE91ADEADBB00C9711B /* WeatherVC.m */,
 				049349191AE7F2AB007EF6C7 /* WeatherDetailVC.h */,
@@ -407,15 +425,21 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
-		04BE60491AF4DAAF00D9FBC3 /* model */ = {
+		04BE60621AF4EEDF00D9FBC3 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				04BE604A1AF4DAC800D9FBC3 /* AlarmItem.h */,
-				04BE604B1AF4DAC800D9FBC3 /* AlarmItem.m */,
-				04BE604D1AF4DCB100D9FBC3 /* WeatherItem.h */,
-				04BE604E1AF4DCB100D9FBC3 /* WeatherItem.m */,
+				04BE60561AF4ECCB00D9FBC3 /* VWAlarmModel.xcdatamodeld */,
+				04BE60BB1AF5CD3500D9FBC3 /* Alarm.h */,
+				04BE60BC1AF5CD3500D9FBC3 /* Alarm.m */,
+				04BE60B21AF5BF2300D9FBC3 /* Setting.h */,
+				04BE60B31AF5BF2300D9FBC3 /* Setting.m */,
+				04BE60AC1AF5BF2200D9FBC3 /* Weather.h */,
+				04BE60AD1AF5BF2200D9FBC3 /* Weather.m */,
+				04BE60631AF4F09A00D9FBC3 /* G2CoreDataDelegate.h */,
+				04BE60641AF4F09A00D9FBC3 /* G2CoreDataDelegate.m */,
 			);
-			name = model;
+			name = CoreData;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		91BBB17AF28BE6D3CC989F2E /* Pods */ = {
@@ -594,22 +618,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				040890181AEAC2DB009FCCD4 /* WeatherServiece.m in Sources */,
+				04BE60651AF4F09A00D9FBC3 /* G2CoreDataDelegate.m in Sources */,
+				040890181AEAC2DB009FCCD4 /* VWAWeatherManager.m in Sources */,
 				04745DF91ADEADE800C9711B /* AlarmDetailVC.m in Sources */,
 				04745DD91ADEAD9A00C9711B /* G2DataManager.m in Sources */,
 				045E0FE31AD41C2D00EAD210 /* AppDelegate.m in Sources */,
-				04BE604C1AF4DAC800D9FBC3 /* AlarmItem.m in Sources */,
+				04BE60581AF4ECCB00D9FBC3 /* VWAlarmModel.xcdatamodeld in Sources */,
 				04745DD81ADEAD9A00C9711B /* G2CacheManager.m in Sources */,
 				04745DEF1ADEADC800C9711B /* G2LineView.m in Sources */,
 				049349141AE7D9B6007EF6C7 /* G2SoundManager.m in Sources */,
 				04745DFA1ADEADE800C9711B /* AlarmVC.m in Sources */,
+				04BE60A21AF5203A00D9FBC3 /* VWADataManager.m in Sources */,
 				045E0FE01AD41C2D00EAD210 /* main.m in Sources */,
+				04BE609E1AF51CEF00D9FBC3 /* VWAAlarmManager.m in Sources */,
+				04BE60B41AF5BF2300D9FBC3 /* Setting.m in Sources */,
 				04745DE51ADEADAC00C9711B /* TopVC.m in Sources */,
+				04BE60BD1AF5CD3500D9FBC3 /* Alarm.m in Sources */,
 				0493491B1AE7F2AB007EF6C7 /* WeatherDetailVC.m in Sources */,
 				047D9EA41ADFDFD600BB3407 /* G2NotificationManager.m in Sources */,
 				04745DF81ADEADE800C9711B /* AlarmDetailOptionVC.m in Sources */,
-				04BE604F1AF4DCB100D9FBC3 /* WeatherItem.m in Sources */,
 				04745DDA1ADEAD9A00C9711B /* G2DateManager.m in Sources */,
+				04BE60AE1AF5BF2200D9FBC3 /* Weather.m in Sources */,
 				04602E4A1AF09F8F00FF399B /* G2MediaManager.m in Sources */,
 				04745DF01ADEADC800C9711B /* G2NoticeView.m in Sources */,
 				04745DFD1ADEADF400C9711B /* SettingVC.m in Sources */,
@@ -831,6 +860,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		04BE60561AF4ECCB00D9FBC3 /* VWAlarmModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				04BE60571AF4ECCB00D9FBC3 /* VWAlarmModel.xcdatamodel */,
+			);
+			currentVersion = 04BE60571AF4ECCB00D9FBC3 /* VWAlarmModel.xcdatamodel */;
+			path = VWAlarmModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 045E0FD21AD41C2D00EAD210 /* Project object */;
 }

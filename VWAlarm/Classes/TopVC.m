@@ -7,7 +7,7 @@
 //
 
 #import "TopVC.h"
-#import "WeatherServiece.h"
+#import "VWAWeatherManager.h"
 #import <CoreLocation/CoreLocation.h>
 
 @interface TopVC () <WeatherServieceDelegate>
@@ -70,7 +70,7 @@
     [self localNameWithCoordinate:location.coordinate];
 
     // 날씨 정보 설정
-    WeatherServiece *weatherService = [[WeatherServiece alloc] init];
+    VWAWeatherManager *weatherService = [[VWAWeatherManager alloc] init];
     weatherService.deleage = self;
     [weatherService currentWeatherByCoordinate:location.coordinate withCallback:nil];
     

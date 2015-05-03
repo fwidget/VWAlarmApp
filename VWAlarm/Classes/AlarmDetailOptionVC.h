@@ -7,13 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AlarmUtility.h"
+#import "Alarm.h"
+
 @protocol AlarmDetailOptionDelegate <NSObject>
-- (void)sendItem:(id)item;
+- (void)sendSelectOptionItem:(Alarm *)item;
 @end
 
 @interface AlarmDetailOptionVC : UIViewController < UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate >
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) AlarmItem *item;
+@property (strong, nonatomic) Alarm *item;
 @property (strong, nonatomic) NSMutableArray *selectItems;
 @property (strong, nonatomic) NSString *cellIdentifier;
 @property (weak, nonatomic) id<AlarmDetailOptionDelegate> delegate;

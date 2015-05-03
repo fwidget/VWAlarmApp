@@ -7,8 +7,9 @@
 //
 
 #import "AlarmVC.h"
-#import "Alarm.h"
+#import "AlarmUtility.h"
 #import "AlarmCell.h"
+#import "AlarmDetailVC.h"
 
 @interface AlarmVC ()
 @property (nonatomic) NSIndexPath *selectIndexPath;
@@ -19,10 +20,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _items = [[G2DataManager sharedInstance] loadDataForName:ALARM_DATA_KEY];
+    NSArray *arr = [VWADataManager selectDataWithEntity:VWAEntityOfAlarm];
+    _items = [NSMutableArray arrayWithArray:arr];
     self.navigationItem.leftBarButtonItem = [self barButton];
 }
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationItem.leftBarButtonItem = [self barButton];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -39,12 +45,18 @@
 - (UIBarButtonItem *)barButton
 {
     UIBarButtonItem *barButton;
-    if (_tableView.editing) {
-        barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButton:)];
+    if (_items.count > 0) {
+        if (_tableView.editing) {
+            barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButton:)];
+        } else {
+            barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editButton:)];
+        }
     } else {
         barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editButton:)];
     }
     
+    barButton.enabled = (_items.count > 0) ? YES : NO;
+
     return barButton;
 }
 
@@ -63,15 +75,16 @@
 
 - (IBAction)addAlarm:(id)sender
 {
-    [self presentAlarmWithItem:nil];
+    [self presentAlarmWithItem:(Alarm *)[VWADataManager initDataWithEntity:VWAEntityOfAlarm] isAdd:YES];
 }
 
-- (void)presentAlarmWithItem:(NSDictionary *)item
+- (void)presentAlarmWithItem:(Alarm *)item isAdd:(BOOL)isAdd
 {
     UINavigationController *navi = [self.storyboard instantiateViewControllerWithIdentifier:ALARM_STORYBOARD_ID_ALARM_DETAILNAVI];
     AlarmDetailVC *vc = navi.viewControllers.firstObject;
     vc.delegate = self;
-    if (item) vc.item = [NSMutableDictionary dictionaryWithDictionary:item];
+    vc.item = item;
+    vc.isAdd = isAdd;
     [self presentViewController:navi animated:YES completion:nil];
 }
 
@@ -98,20 +111,23 @@
 
 - (void)configuration:(AlarmCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    cell.item = _items[indexPath.row];
-    cell.titleLb.text = _items[indexPath.row][ALARM_ITEM_KEY_TITLE];
-    NSString *time = [G2DateManager timeStrFromDate:_items[indexPath.row][ALARM_ITEM_KEY_DATE]];
+    Alarm *item = (Alarm *)_items[indexPath.row];
+    
+    cell.item = item;
+    cell.titleLb.text = item.title;
+    NSString *time = [G2DateManager timeStrFromDate:item.date];
     NSString *ampm = ALARM_CLOCK_AM;
     if ([[time substringWithRange:NSMakeRange(0, 2)] integerValue] > 12) ampm = ALARM_CLOCK_PM;
     
-    cell.alarmLb.text = [NSString stringWithFormat:@"%@", [G2DateManager strFromDate:_items[indexPath.row][ALARM_ITEM_KEY_DATE] format:@"hh:mm"]];
+    cell.alarmLb.text = [NSString stringWithFormat:@"%@", [G2DateManager strFromDate:item.date format:@"hh:mm"]];
     cell.ampmLb.text = ampm;
-    cell.repeatLb.text = [self repeateWithItems:_items[indexPath.row][ALARM_ITEM_KEY_REPEAT]];
-    cell.activeSwitch.on = ([_items[indexPath.row][ALARM_ITEM_KEY_ACTIVE] integerValue] == 1 ) ? YES : NO;
+    cell.repeatLb.text = [self repeateWithItems:item.repeatTimes];
+    cell.activeSwitch.on = ([item.active integerValue] == 1 ) ? YES : NO;
 }
 
 - (NSString *)repeateWithItems:(NSArray *)items
 {
+
     NSString *repeatStr = @"";
     for (NSNumber *number in items) {
         if (repeatStr.length == 0) {
@@ -137,7 +153,7 @@
 {
     if (!_tableView.editing) return;
     _selectIndexPath = indexPath;
-    [self presentAlarmWithItem:_items[indexPath.row]];
+    [self presentAlarmWithItem:_items[indexPath.row] isAdd:NO];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -147,11 +163,17 @@
 
 - (void)deleteRowItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [_items removeObjectAtIndex:indexPath.row];
+    Alarm *item = (Alarm *)_items[indexPath.row];
+    BOOL success = [VWADataManager deleteDataWithEntity:VWAEntityOfAlarm indexId:item.indexId];
+    if (success) {
+        [_items removeObjectAtIndex:indexPath.row];
+    } else {
+        [VWAAlarmManager simpleAlertMessage:LSTR(@"削除に失敗しました")];
+    }
 }
 
 #pragma mark - AlarmDetailDelegate
-- (void)deleteAlarmDetail:(NSMutableDictionary *)item
+- (void)deleteAlarmDetail:(Alarm *)item
 {
     [self deleteRowItemAtIndexPath:_selectIndexPath];
     [_tableView beginUpdates];
@@ -159,34 +181,29 @@
     [_tableView endUpdates];
 }
 
-- (void)saveAlarmDetail:(AlarmItem *)item isAdd:(BOOL)isAdd
+- (void)saveAlarmDetail:(Alarm *)item isAdd:(BOOL)isAdd
 {
     NSLog(@"item %@", item);
-    if (item && isAdd) {
-        if (!_items) _items = [NSMutableArray array];
-        [_items addObject:item];
-    } else if (_selectIndexPath) {
-        [_items replaceObjectAtIndex:_selectIndexPath.row withObject:item];
+    if (!item) {
+        NSLog(@"%s", __func__);
+        return;
+    }
+    if ([VWADataManager saveDataWithEntity:VWAEntityOfAlarm]) {
+        NSArray *arr = [VWADataManager selectDataWithEntity:VWAEntityOfAlarm];
+        _items = [NSMutableArray arrayWithArray:arr];
     }
     [_tableView reloadData];
-    [self saveData];
     [self addNotification:item isAdd:isAdd];
 }
 
 // 알람 등록
-- (void)addNotification:(AlarmItem *)item isAdd:(BOOL)isAdd
+- (void)addNotification:(Alarm *)item isAdd:(BOOL)isAdd
 {
     if (isAdd) {
-        // 신규
-        [G2NotificationManager addAlarmScheduleLocalNotificationWithDates:item alarmId:item.alarmId repeat:item.repeatTimes];
+        [VWAAlarmManager addAlarmScheduleLocalNotificationWithItem:item];
     } else {
-        // 알람 수정
+        [VWAAlarmManager updateAlarmScheduleLocalNotificationWithItem:item];
     }
-}
-
-- (void)saveData
-{
-    [[G2DataManager sharedInstance] updateData:_items forName:ALARM_DATA_KEY];
 }
 
 @end

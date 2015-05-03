@@ -27,7 +27,8 @@
 #import "G2SoundManager.h"
 #import "G2NotificationManager.h"
 #import "G2Utility.h"
-#import "AlarmItem.h"
+#import "VWAAlarmManager.h"
+#import "VWADataManager.h"
 #endif
 
 #endif

@@ -23,10 +23,12 @@
 #define ALARM_CELL_IDENTIFIER_SONOOZE                             @"AlarmSnoozeCell"
 
 #define ALARM_DETAIL_OPTION_CELL_IDENTIFIER_REPEAT                            @"repeatCell"
-#define ALARM_DETAIL_OPTION_CELL_IDENTIFIER_LABEL                            @"labelCell"
-#define ALARM_DETAIL_OPTION_CELL_IDENTIFIER_SOUND                           @"soundCell"
+#define ALARM_DETAIL_OPTION_CELL_IDENTIFIER_SNOOSE                            @"snooseCell"
+#define ALARM_DETAIL_OPTION_CELL_IDENTIFIER_LABEL                             @"labelCell"
+#define ALARM_DETAIL_OPTION_CELL_IDENTIFIER_SOUND                             @"soundCell"
 
 // display
+#define SNOOSECELL_TYPE     @[LSTR(@"1分"), LSTR(@"5分"), LSTR(@"10分"), LSTR(@"30分")]
 #define REPEATCELL_WEEK     @[LSTR(@"月"), LSTR(@"火"), LSTR(@"水"), LSTR(@"木"), LSTR(@"金"), LSTR(@"土"), LSTR(@"日")]
 #define REPEATCELL_WEEK_INDEX(index) REPEATCELL_WEEK[index]
 
@@ -41,6 +43,7 @@
 #define ALARM_PARAMETER_KEY_LABEL               @"label"
 #define ALARM_PARAMETER_KEY_SOUND               @"sound"
 #define ALARM_PARAMETER_KEY_SOUND_FILENAME      @"sound_filename"
+#define ALARM_PARAMETER_KEY_SNOOSE              @"snoose"
 
 // data key
 #define ALARM_DATA_KEY                  @"alarm"
@@ -58,10 +61,5 @@
 // item viewWithTag
 #define VIEW_WITH_TAG_SNOOSE_SWITCH           111
 #define VIEW_WITH_TAG_DELETE_LABEL            111
-
-#import "AlarmDetailOptionVC.h"
-#import "AlarmDetailVC.h"
-#import "AlarmVC.h"
-
 
 #endif

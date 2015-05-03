@@ -9,15 +9,15 @@
 
 #define APIKeys @[@"b679f6c90a21d8c40513078a40bc19b8", @"b679f6c90a21d8c40513078a40bc19b8", @"b679f6c90a21d8c40513078a40bc19b8"]
 
-#import "WeatherServiece.h"
+#import "VWAWeatherManager.h"
 
-@implementation WeatherServiece
-+ (WeatherServiece *)sharedInstance
+@implementation VWAWeatherManager
++ (VWAWeatherManager *)sharedInstance
 {
-    static WeatherServiece *sharedInstance;
+    static VWAWeatherManager *sharedInstance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[WeatherServiece alloc] init];
+        sharedInstance = [[VWAWeatherManager alloc] init];
     });
     return sharedInstance;
 }

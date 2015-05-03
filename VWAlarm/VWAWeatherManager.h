@@ -13,8 +13,8 @@
 - (void)weatherInfo:(NSDictionary *)info;
 @end
 
-@interface WeatherServiece : NSObject <CLLocationManagerDelegate>
-+ (WeatherServiece *)sharedInstance;
+@interface VWAWeatherManager : NSObject <CLLocationManagerDelegate>
++ (VWAWeatherManager *)sharedInstance;
 @property (nonatomic) NSInteger apiKey;
 @property (strong, nonatomic) OWMWeatherAPI *weatherAPI;
 @property (strong, nonatomic) NSDictionary *weatherInfo;

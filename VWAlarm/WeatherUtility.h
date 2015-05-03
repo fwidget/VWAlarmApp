@@ -20,4 +20,6 @@
 // data key
 #define WEATHER_DATA_KEY                  @"weather"
 
+
+#import "Weather.h"
 #endif

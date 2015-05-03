@@ -7,7 +7,7 @@
 //
 
 #import "AlarmDetailVC.h"
-#import "Alarm.h"
+#import "AlarmUtility.h"
 
 #define TABLEVIEW_CELL_INDENTIFIERS @[@[ALARM_CELL_IDENTIFIER_LABEL, ALARM_CELL_IDENTIFIER_REPEAT, ALARM_CELL_IDENTIFIER_SOUND, ALARM_CELL_IDENTIFIER_SONOOZE], @[ALARM_CELL_IDENTIFIER_DELETE]]
 
@@ -18,16 +18,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _isAdd = (_item) ? NO : YES;
-    if (_isAdd) {
-        _item = [[AlarmItem alloc] init];
-    }
     [self initDatePicker];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [_tableView reloadData];
 }
 
 - (void)initDatePicker
 {
-    _datePicker.date = _item.date;
+    _datePicker.date = (_isAdd) ? [NSDate date] : _item.date;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,11 +41,32 @@
 }
 - (IBAction)saveNaviBtn:(id)sender
 {
+    [self checkItemValues:_item];
     // save
-    if ([_delegate respondsToSelector:@selector(saveAlarmDetail:isAdd:)]) {
-        [_delegate saveAlarmDetail:_item isAdd:_isAdd];
+    if ([VWADataManager saveDataWithEntity:VWAEntityOfAlarm]) {
+        if ([_delegate respondsToSelector:@selector(saveAlarmDetail:isAdd:)]) {
+            [_delegate saveAlarmDetail:_item isAdd:_isAdd];
+        }
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        [VWAAlarmManager simpleAlertMessage:LSTR(@"登録に失敗しました")];
     }
-    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)checkItemValues:(Alarm *)item
+{
+    if (!item.indexId) {
+        item.indexId = [NSString stringWithFormat:@"%@", [item objectID]];
+    }
+    if (!item.createDate) {
+        item.createDate = [NSDate date];
+    }
+    if (!item.updateDate) {
+        item.updateDate = [NSDate date];
+    }
+    if (!item.active) {
+        item.active = @(1);
+    }
 }
 
 - (IBAction)alarmdate:(UIDatePicker *)sender
@@ -107,10 +130,7 @@
             cell.detailTextLabel.text = (_item.soundFiles.count > 0) ? [self soundTitleWithItems:_item.soundFiles] : ALARM_NONE_TITLE;
             break;
         case 3:
-        {
-            UISwitch *snoose = (UISwitch *)[cell viewWithTag:VIEW_WITH_TAG_SNOOSE_SWITCH];
-            snoose.on = (_item.snoose) ? YES : NO;
-        }
+            cell.detailTextLabel.text = (_item.snoose.length > 0) ? _item.snoose : ALARM_NONE_TITLE;
             break;
         default:
             break;
@@ -149,9 +169,9 @@
 }
 
 #pragma mark - AlarmDetailOptionDelegate
-- (void)sendItem:(AlarmItem *)item
+- (void)sendSelectOptionItem:(Alarm *)item
 {
-    NSLog(@"sendItem %@",item);
+    NSLog(@"sendSelectOptionItem %@",item);
     if (!item || ![item isKindOfClass:[NSDictionary class]]) {
         return;
     }
@@ -160,12 +180,16 @@
         _item.repeatTimes = item.repeatTimes;
     }
     
-    if (item.title) {
+    if (item.title.length > 0) {
         _item.title = item.title;
     }
     
     if ([item.soundFiles count] > 0) {
         _item.soundFiles = item.soundFiles;
+    }
+    
+    if (item.snoose.length > 0) {
+        _item.snoose = item.snoose;
     }
     
     [_tableView reloadData];
@@ -185,6 +209,8 @@
     } else if ([segue.identifier isEqualToString:ALARM_PARAMETER_KEY_REPEAT]) {
         vc.cellIdentifier = ALARM_DETAIL_OPTION_CELL_IDENTIFIER_REPEAT;
         vc.selectItems = [NSMutableArray arrayWithArray:_item.repeatTimes];
+    } else if ([segue.identifier isEqualToString:ALARM_PARAMETER_KEY_SNOOSE]) {
+        vc.cellIdentifier = ALARM_DETAIL_OPTION_CELL_IDENTIFIER_SNOOSE;
     }
 }
 

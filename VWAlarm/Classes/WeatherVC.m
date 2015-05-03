@@ -7,7 +7,7 @@
 //
 
 #import "WeatherVC.h"
-#import "Weather.h"
+#import "WeatherUtility.h"
 #import "WeatherDetailVC.h"
 #import "WeatherCell.h"
 #import "OWMWeatherAPI.h"
@@ -139,11 +139,11 @@
 
 - (void)presentWeatherWithItem:(NSDictionary *)item
 {
-    UINavigationController *navi = [self.storyboard instantiateViewControllerWithIdentifier:@"WeatherDetailNavi"];
-    WeatherDetailVC *vc = navi.viewControllers.firstObject;
+//    UINavigationController *navi = [self.storyboard instantiateViewControllerWithIdentifier:@"WeatherDetailNavi"];
+//    WeatherDetailVC *vc = navi.viewControllers.firstObject;
 //    vc.delegate = self;
 //    if (item) vc.item = [NSMutableDictionary dictionaryWithDictionary:item];
-    [self presentViewController:navi animated:YES completion:nil];
+//    [self presentViewController:navi animated:YES completion:nil];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

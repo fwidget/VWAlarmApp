@@ -7,7 +7,7 @@
 //
 
 #import "AlarmDetailOptionVC.h"
-#import "Alarm.h"
+#import "AlarmUtility.h"
 
 @interface AlarmDetailOptionVC ()
 @end
@@ -16,16 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (!_item) {
-        _item = [[AlarmItem alloc] init];
-    }
     [self initTableView];
     // Do any additional setup after loading the view.
 }
 
 - (void)initTableView
 {
-    if ([_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_REPEAT]) {
+    if ([_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_REPEAT] || [_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_SNOOSE]) {
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     } else {
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -46,6 +43,8 @@
 {
     if ([_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_REPEAT]) {
         return [REPEATCELL_WEEK count];
+    } else if ([_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_SNOOSE]) {
+        return [SNOOSECELL_TYPE count];
     }
     return 1;
 }
@@ -66,6 +65,14 @@
         } else {
             cell.accessoryType = UITableViewCellAccessoryNone;
         }
+    } else if ([_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_SNOOSE]) {
+        cell.selectionStyle = UITableViewCellSeparatorStyleSingleLine;
+        cell.textLabel.text = SNOOSECELL_TYPE[indexPath.row];
+        if (_item.snoose.length > 0 && [SNOOSECELL_TYPE[indexPath.row] isEqualToString:_item.snoose]) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
     } else if ([_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_LABEL]) {
         cell.selectionStyle = UITableViewCellSeparatorStyleNone;
     }
@@ -77,20 +84,24 @@
     weekStr = [NSString stringWithFormat:@"%@%@", weekStr, LSTR(@"曜日")];
     return weekStr;
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (![_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_REPEAT]) return;
-    
-    if (!_selectItems) _selectItems = [NSMutableArray array];
-    if ([_selectItems containsObject:@(indexPath.row)]) {
-        [_selectItems removeObject:@(indexPath.row)];
-    } else {
-        [_selectItems addObject:@(indexPath.row)];
+    if ([_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_REPEAT]) {
+        if (!_selectItems) _selectItems = [NSMutableArray array];
+        if ([_selectItems containsObject:@(indexPath.row)]) {
+            [_selectItems removeObject:@(indexPath.row)];
+        } else {
+            [_selectItems addObject:@(indexPath.row)];
+        }
+        [tableView reloadData];
+        _item.repeatTimes = _selectItems;
+        [self selectItem:_item];
+    } else if ([_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_SNOOSE]) {
+        _item.snoose = SNOOSECELL_TYPE[indexPath.row];
+        [tableView reloadData];
+        [self selectItem:_item];
     }
-    _item.repeatTimes = _selectItems;
-    [tableView reloadData];
-    [self sortingItems:_selectItems];
-    [self sendItem:_item];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -103,14 +114,14 @@
 {
     if (textField.text.length > 0) {
         _item.title = textField.text;
-        [self sendItem:_item];
+        [self selectItem:_item];
     }
 }
 
-- (void)sendItem:(AlarmItem *)item
+- (void)selectItem:(Alarm *)item
 {
-    if ([_delegate respondsToSelector:@selector(sendItem:)]) {
-        [_delegate sendItem:item];
+    if ([_delegate respondsToSelector:@selector(sendSelectOptionItem:)]) {
+        [_delegate sendSelectOptionItem:item];
     }
 }
 
