@@ -154,6 +154,8 @@
                 NSLog(@"address:%@%@%@%@%@", placemark.country, placemark.administrativeArea, placemark.locality, placemark.thoroughfare, placemark.subThoroughfare);
                 _localLb.text = [NSString stringWithFormat:@"%@", placemark.locality];
                 
+                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                
             }
         }
     }];

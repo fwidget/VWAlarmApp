@@ -7,7 +7,6 @@
 //
 
 #import "AlarmDetailOptionVC.h"
-#import "AlarmUtility.h"
 
 @interface AlarmDetailOptionVC ()
 @end

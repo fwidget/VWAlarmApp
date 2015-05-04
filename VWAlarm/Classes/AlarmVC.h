@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AlarmUtility.h"
 #import "AlarmDetailVC.h"
 
 @interface AlarmVC : UIViewController < UITableViewDataSource, UITableViewDelegate, AlarmDetailDelegate >

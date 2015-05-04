@@ -7,7 +7,6 @@
 //
 
 #import "WeatherVC.h"
-#import "WeatherUtility.h"
 #import "WeatherDetailVC.h"
 #import "WeatherCell.h"
 #import "OWMWeatherAPI.h"

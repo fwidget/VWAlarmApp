@@ -30,6 +30,7 @@
 #import "G2Utility.h"
 #import "G2UIUtility.h"
 #import "G2LayoutUtility.h"
+#import "VWAUtility.h"
 #import "VWAAlarmManager.h"
 #import "VWADataManager.h"
 #import "BEMAnalogClockView.h"
