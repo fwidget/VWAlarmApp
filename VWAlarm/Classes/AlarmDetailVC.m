@@ -44,19 +44,36 @@
     [self checkItemValues:_item];
     // save
     if ([VWADataManager saveDataWithEntity:VWAEntityOfAlarm]) {
+        [self addNotification:_item isAdd:_isAdd]; // noti 등록
+        
         if ([_delegate respondsToSelector:@selector(saveAlarmDetail:isAdd:)]) {
             [_delegate saveAlarmDetail:_item isAdd:_isAdd];
         }
-        [self dismissViewControllerAnimated:YES completion:nil];
+ 
+        [self dismissViewControllerAnimated:YES completion:^{
+
+        }];
     } else {
         [VWAAlarmManager simpleAlertMessage:LSTR(@"登録に失敗しました")];
     }
 }
 
+// 알람 등록
+- (void)addNotification:(Alarm *)item isAdd:(BOOL)isAdd
+{
+    if (isAdd) {
+        [VWAAlarmManager addAlarmScheduleLocalNotificationWithItem:item];
+    } else {
+        [VWAAlarmManager updateAlarmScheduleLocalNotificationWithItem:item];
+    }
+}
+
+//TODO:사운드 부분 수정 필요
 - (void)checkItemValues:(Alarm *)item
 {
-    if (!item.indexId) {
-        item.indexId = [NSString stringWithFormat:@"%@", [item objectID]];
+    if (!item.indexId.length > 0) {
+        NSURL *url = [[item objectID] URIRepresentation];
+        item.indexId = [url absoluteString];
     }
     if (!item.createDate) {
         item.createDate = [NSDate date];
@@ -66,6 +83,10 @@
     }
     if (!item.active) {
         item.active = @(1);
+    }
+    // test
+    if (!item.soundFiles) {
+        item.soundFiles = @[@"get01", @"get02", @"get03"];
     }
 }
 

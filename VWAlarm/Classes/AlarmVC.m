@@ -167,6 +167,7 @@
     BOOL success = [VWADataManager deleteDataWithEntity:VWAEntityOfAlarm indexId:item.indexId];
     if (success) {
         [_items removeObjectAtIndex:indexPath.row];
+        [VWAAlarmManager cancelAlarmScheduleLocalNotificationWithItem:item]; // cancel noti 
     } else {
         [VWAAlarmManager simpleAlertMessage:LSTR(@"削除に失敗しました")];
     }
@@ -193,17 +194,6 @@
         _items = [NSMutableArray arrayWithArray:arr];
     }
     [_tableView reloadData];
-    [self addNotification:item isAdd:isAdd];
-}
-
-// 알람 등록
-- (void)addNotification:(Alarm *)item isAdd:(BOOL)isAdd
-{
-    if (isAdd) {
-        [VWAAlarmManager addAlarmScheduleLocalNotificationWithItem:item];
-    } else {
-        [VWAAlarmManager updateAlarmScheduleLocalNotificationWithItem:item];
-    }
 }
 
 @end

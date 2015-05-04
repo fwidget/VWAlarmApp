@@ -7,6 +7,7 @@
 //
 
 #import "VWAAlarmManager.h"
+#import "VWAWeatherManager.h"
 #import "Alarm.h"
 
 #define LOCAL_NOTIFICATION_USERINFO_KEY_ALARMS          @"alarms"
@@ -20,7 +21,7 @@
     } else {
         noti = [G2NotificationManager localNotificationWithFireDate:item.date timeZone:nil alertTitle:nil alertBody:item.title alertAction:LSTR(@"スヌース")];
     }
-    [noti.userInfo setValue:item forKey:item.indexId];
+    noti.userInfo = @{@"soundFiles" : item.soundFiles};
     [G2NotificationManager addScheduleLocalNotification:noti];
 }
 
@@ -33,6 +34,26 @@
 + (void)cancelAlarmScheduleLocalNotificationWithItem:(Alarm *)item
 {
     [G2NotificationManager cancelLocalNotificationKey:LOCAL_NOTIFICATION_USERINFO_KEY_ALARMS cancelId:item.indexId];
+}
+
++ (void)didReceiveLocalNotification:(UILocalNotification *)noti applicationState:(UIApplicationState)state
+{
+    if (state == UIApplicationStateActive) {
+        [[G2SoundManager sharedInstance] playSoundFileNames:noti.userInfo[@"soundFiles"]];
+        //TODO:날씨 정보 가져오기
+        [[VWAWeatherManager sharedInstance] currentWeatherByCityName:@"" withCallback:^(NSError *error, NSDictionary *result){
+            if (error) {
+                // 에러 처리
+            } else {
+                // 정상
+            }
+        }];
+        NSLog(@"%@", @"");
+    }
+    if (state == UIApplicationStateInactive) {
+    }
+     
+    [[UIApplication sharedApplication] cancelLocalNotification:noti];
 }
 
 + (void)simpleAlertMessage:(NSString *)msg;

@@ -14,5 +14,6 @@
 + (void)updateAlarmScheduleLocalNotificationWithItem:(Alarm *)item;
 + (void)cancelAlarmScheduleLocalNotificationWithItem:(Alarm *)item;
 + (void)simpleAlertMessage:(NSString *)msg;
++ (void)didReceiveLocalNotification:(UILocalNotification *)noti applicationState:(UIApplicationState)state;
 @end
 

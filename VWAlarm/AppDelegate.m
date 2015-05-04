@@ -16,8 +16,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[G2DataManager sharedInstance] loadData];
-    [G2NotificationManager didFinishLaunchingWithOptions:launchOptions];
+    [G2NotificationManager didFinishLaunchingWithOptions:launchOptions application:application];
     return YES;
 }
 
@@ -32,7 +31,6 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [[G2DataManager sharedInstance] saveData];
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
@@ -47,7 +45,6 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     [super applicationWillTerminate:application];
-    [[G2DataManager sharedInstance] saveData];
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
