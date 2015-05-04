@@ -63,5 +63,11 @@
     return weekDayStr;
 }
 
-
++ (NSDate *)dateFromStr:(NSString *)str format:(NSString *)format
+{
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:format];
+    NSDate *date = [df dateFromString:str];
+    return date;
+}
 @end
