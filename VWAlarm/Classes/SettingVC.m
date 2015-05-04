@@ -10,10 +10,7 @@
 #import "Line.h"
 #import "LKLineActivity.h"
 
-#define SHARE_MESSAGE_MAIL_TITLE     @"あなたに声で教えてくれる天気アプリ"
-#define SHARE_MESSAGE_CONTENT   @"あなたに声で天気を教えてくれるアプリ"
-#define SHARE_MESSAGE_URL       @"https://itun.es/i6B34fX"
-
+#define TABLE_SECTION_TITLES @[@[LSTR(@"天気予報エリア")], @[LSTR(@"友達にシェア"), LSTR(@"サポート"), LSTR(@"このアプリについて")]]
 
 @interface SettingVC ()
 
@@ -23,7 +20,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,16 +27,34 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [TABLE_SECTION_TITLES count];
 }
-*/
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [TABLE_SECTION_TITLES[section] count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SettingCell"];
+    [self configurationCell:cell atIndexPath:indexPath];
+    return cell;
+}
+
+- (void)configurationCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *title = TABLE_SECTION_TITLES[indexPath.section][indexPath.row];
+    cell.textLabel.text = title;
+    if (indexPath.section == 0) {
+        NSDictionary *locationDic = USERDEFAULTS_GET_KEY(LOCATION_KEY);
+        cell.detailTextLabel.text = (locationDic[LOCATION_KEY_NAME]) ? locationDic[LOCATION_KEY_NAME] : LSTR(@"未設定");
+    } else {
+        cell.detailTextLabel.text = @"";
+    }
+}
 
 - (void)openActivity
 {

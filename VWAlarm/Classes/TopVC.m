@@ -154,8 +154,10 @@
                 NSLog(@"address:%@%@%@%@%@", placemark.country, placemark.administrativeArea, placemark.locality, placemark.thoroughfare, placemark.subThoroughfare);
                 _localLb.text = [NSString stringWithFormat:@"%@", placemark.locality];
                 
-                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-                
+                NSDictionary *locationDic = LOCATION_DIC(placemark.locality, @(coordinate.latitude), @(coordinate.longitude));
+                NSLog(@"locationDic : %@", locationDic);
+                USERDEFAULTS_SET_OBJ(LOCATION_KEY, locationDic);
+                [USERDEFAULTS synchronize];
             }
         }
     }];
@@ -175,14 +177,15 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ForecastCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.item = _forecasts[indexPath.row];
-    [self configurationCell:cell id:_forecasts[indexPath.row]];
+    [self configurationCell:cell atIndexPath:indexPath];
     return cell;
 }
 
-- (void)configurationCell:(ForecastCell *)cell id:(id)item
+- (void)configurationCell:(ForecastCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
+    id item = _forecasts[indexPath.row];
     if (item[WEATHER_KEY]) {
+        cell.item = item;
         NSInteger weatherId = [item[WEATHER_KEY][@"id"] integerValue];
         BOOL nightTime = [self isNightTimeOfIcon:item[WEATHER_KEY][@"icon"]];
         cell.imageView.image = [self weatherImageWithWeatherId:weatherId nightTime:nightTime];

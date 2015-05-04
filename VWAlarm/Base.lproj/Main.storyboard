@@ -684,7 +684,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="SCh-T8-EQi">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="SCh-T8-EQi">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SCh-T8-EQi" id="b4N-UL-Xnh">
@@ -692,6 +692,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="0GD-Tk-rba" id="hLa-uS-RuW"/>
+                                    <outlet property="delegate" destination="0GD-Tk-rba" id="2dR-8x-1uX"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -703,6 +707,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Setting" id="Wt3-7D-SCn"/>
+                    <connections>
+                        <outlet property="tableView" destination="lKf-8g-ymX" id="3sR-qb-8VU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ta1-jJ-K1Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

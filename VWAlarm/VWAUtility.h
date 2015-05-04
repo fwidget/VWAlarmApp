@@ -74,4 +74,18 @@
 #define VIEW_WITH_TAG_SNOOSE_SWITCH                                     111
 #define VIEW_WITH_TAG_DELETE_LABEL                                      111
 
+// userdefault key
+#define LOCATION_KEY                                                    @"location"
+#define LOCATION_KEY_NAME                                               @"name"
+#define LOCATION_KEY_LATI                                               @"lati"
+#define LOCATION_KEY_LONGI                                              @"longi"
+#define LOCATION_DIC(name, lati, longi)                                 @{LOCATION_KEY_NAME : name, LOCATION_KEY_LATI : lati, LOCATION_KEY_LONGI : longi}
+
+
+#pragma mark - SHARE MESSAGE
+#define SHARE_MESSAGE_MAIL_TITLE                                        @"あなたに声で教えてくれる天気アプリ"
+#define SHARE_MESSAGE_CONTENT                                           @"あなたに声で天気を教えてくれるアプリ"
+#define SHARE_MESSAGE_URL                                               @"https://itun.es/i6B34fX"
+
+
 #endif

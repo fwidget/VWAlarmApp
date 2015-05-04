@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingVC : UIViewController
-
+@interface SettingVC : UIViewController < UITableViewDataSource, UITableViewDelegate >
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
