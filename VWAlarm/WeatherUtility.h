@@ -17,9 +17,5 @@
 #define WEATHER_CELL_IDENTIFIER_WEATHER                             @"WeatherCell"
 
 
-// data key
-#define WEATHER_DATA_KEY                  @"weather"
-
-
 #import "Weather.h"
 #endif

@@ -23,8 +23,6 @@
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = [self barButton];
     
-    _items = [[G2DataManager sharedInstance] loadDataForName:WEATHER_DATA_KEY];
-    
     _weatherAPI = [[OWMWeatherAPI alloc] initWithAPIKey:@"b679f6c90a21d8c40513078a40bc19b8"];
     [_weatherAPI setLangWithPreferedLanguage];
     [_weatherAPI setTemperatureFormat:kOWMTempCelcius];
