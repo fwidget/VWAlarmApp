@@ -148,6 +148,8 @@
 		047D9EA31ADFDFD600BB3407 /* G2NotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G2NotificationManager.m; sourceTree = "<group>"; };
 		047D9EA61AE00D9800BB3407 /* NSDate+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extras.h"; sourceTree = "<group>"; };
 		047D9EA71AE00D9800BB3407 /* NSDate+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extras.m"; sourceTree = "<group>"; };
+		04927B531AF7C75600972649 /* G2LayoutUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = G2LayoutUtility.h; sourceTree = "<group>"; };
+		04927B551AF7C7B100972649 /* G2UIUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = G2UIUtility.h; sourceTree = "<group>"; };
 		049349121AE7D9B6007EF6C7 /* G2SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = G2SoundManager.h; sourceTree = "<group>"; };
 		049349131AE7D9B6007EF6C7 /* G2SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G2SoundManager.m; sourceTree = "<group>"; };
 		049349161AE7F0AD007EF6C7 /* WeatherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherCell.h; sourceTree = "<group>"; };
@@ -268,7 +270,7 @@
 		042CA0F21ADE9B6600F8F183 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				04745DF11ADEADD200C9711B /* G2Utility.h */,
+				04927B521AF7C6E100972649 /* Util */,
 				04745DCF1ADEACEF00C9711B /* UI */,
 				047D9EA51AE00D3600BB3407 /* Category */,
 				042CA0EE1ADE9A0F00F8F183 /* Manager */,
@@ -429,6 +431,16 @@
 				04745DFC1ADEADF400C9711B /* SettingVC.m */,
 			);
 			name = Setting;
+			sourceTree = "<group>";
+		};
+		04927B521AF7C6E100972649 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				04745DF11ADEADD200C9711B /* G2Utility.h */,
+				04927B551AF7C7B100972649 /* G2UIUtility.h */,
+				04927B531AF7C75600972649 /* G2LayoutUtility.h */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 		049349151AE7F087007EF6C7 /* Cells */ = {

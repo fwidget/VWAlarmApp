@@ -98,9 +98,7 @@
         // 시간별 날씨 정보
         [self forecastWeatherByCoordinate:location.coordinate];
     });
-    
-    NSLog(@"latitude : %+.6f", location.coordinate.latitude);
-    NSLog(@"longitude : %+.6f", location.coordinate.longitude);
+
     [_locationManager stopUpdatingLocation];
 }
 
@@ -155,6 +153,7 @@
                 CLPlacemark *placemark = placemarks.firstObject;
                 NSLog(@"address:%@%@%@%@%@", placemark.country, placemark.administrativeArea, placemark.locality, placemark.thoroughfare, placemark.subThoroughfare);
                 _localLb.text = [NSString stringWithFormat:@"%@", placemark.locality];
+                
             }
         }
     }];

@@ -28,6 +28,8 @@
 #import "G2SoundManager.h"
 #import "G2NotificationManager.h"
 #import "G2Utility.h"
+#import "G2UIUtility.h"
+#import "G2LayoutUtility.h"
 #import "VWAAlarmManager.h"
 #import "VWADataManager.h"
 #import "BEMAnalogClockView.h"
