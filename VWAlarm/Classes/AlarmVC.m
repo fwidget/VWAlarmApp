@@ -79,7 +79,7 @@
 
 - (void)presentAlarmWithItem:(Alarm *)item isAdd:(BOOL)isAdd
 {
-    UINavigationController *navi = [self.storyboard instantiateViewControllerWithIdentifier:ALARM_STORYBOARD_ID_ALARM_DETAILNAVI];
+    UINavigationController *navi = [self.storyboard instantiateViewControllerWithIdentifier:STORYBOARD_ID_ALARM_DETAILNAVI];
     AlarmDetailVC *vc = navi.viewControllers.firstObject;
     vc.delegate = self;
     vc.item = item;
@@ -102,7 +102,7 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = ALARM_CELL_IDENTIFIER_ALARM;
+    static NSString *CellIdentifier = CELL_IDENTIFIER_ALARM;
     AlarmCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     [self configurationCell:cell atIndexPath:indexPath];
     return cell;

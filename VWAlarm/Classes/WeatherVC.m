@@ -160,7 +160,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = WEATHER_CELL_IDENTIFIER_WEATHER;
+    static NSString *CellIdentifier = CELL_IDENTIFIER_WEATHER;
     WeatherCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     cell.weatherLb.text = _items[indexPath.row][@"weather"];
     cell.weatherLowLb.text = _items[indexPath.row][@"minTemp"];

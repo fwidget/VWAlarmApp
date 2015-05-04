@@ -21,7 +21,7 @@
 
 - (void)initTableView
 {
-    if ([_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_REPEAT] || [_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_SNOOSE]) {
+    if ([_cellIdentifier isEqualToString:CELL_IDENTIFIER_ALARM_DETAIL_OPTION_REPEAT] || [_cellIdentifier isEqualToString:CELL_IDENTIFIER_ALARM_DETAIL_OPTION_SNOOSE]) {
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     } else {
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -40,9 +40,9 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if ([_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_REPEAT]) {
+    if ([_cellIdentifier isEqualToString:CELL_IDENTIFIER_ALARM_DETAIL_OPTION_REPEAT]) {
         return [REPEATCELL_WEEK count];
-    } else if ([_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_SNOOSE]) {
+    } else if ([_cellIdentifier isEqualToString:CELL_IDENTIFIER_ALARM_DETAIL_OPTION_SNOOSE]) {
         return [SNOOSECELL_TYPE count];
     }
     return 1;
@@ -56,7 +56,7 @@
 
 - (void)configuration:(UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath
 {
-    if ([_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_REPEAT]) {
+    if ([_cellIdentifier isEqualToString:CELL_IDENTIFIER_ALARM_DETAIL_OPTION_REPEAT]) {
         cell.selectionStyle = UITableViewCellSeparatorStyleSingleLine;
         cell.textLabel.text =  [self weekStrAtIndex:indexPath.row];
         if ([_selectItems containsObject:@(indexPath.row)]) {
@@ -64,7 +64,7 @@
         } else {
             cell.accessoryType = UITableViewCellAccessoryNone;
         }
-    } else if ([_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_SNOOSE]) {
+    } else if ([_cellIdentifier isEqualToString:CELL_IDENTIFIER_ALARM_DETAIL_OPTION_SNOOSE]) {
         cell.selectionStyle = UITableViewCellSeparatorStyleSingleLine;
         cell.textLabel.text = SNOOSECELL_TYPE[indexPath.row];
         if (_item.snoose.length > 0 && [SNOOSECELL_TYPE[indexPath.row] isEqualToString:_item.snoose]) {
@@ -72,7 +72,7 @@
         } else {
             cell.accessoryType = UITableViewCellAccessoryNone;
         }
-    } else if ([_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_LABEL]) {
+    } else if ([_cellIdentifier isEqualToString:CELL_IDENTIFIER_ALARM_DETAIL_OPTION_LABEL]) {
         cell.selectionStyle = UITableViewCellSeparatorStyleNone;
     }
 }
@@ -86,7 +86,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_REPEAT]) {
+    if ([_cellIdentifier isEqualToString:CELL_IDENTIFIER_ALARM_DETAIL_OPTION_REPEAT]) {
         if (!_selectItems) _selectItems = [NSMutableArray array];
         if ([_selectItems containsObject:@(indexPath.row)]) {
             [_selectItems removeObject:@(indexPath.row)];
@@ -96,7 +96,7 @@
         [tableView reloadData];
         _item.repeatTimes = _selectItems;
         [self selectItem:_item];
-    } else if ([_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_SNOOSE]) {
+    } else if ([_cellIdentifier isEqualToString:CELL_IDENTIFIER_ALARM_DETAIL_OPTION_SNOOSE]) {
         _item.snoose = SNOOSECELL_TYPE[indexPath.row];
         [tableView reloadData];
         [self selectItem:_item];

@@ -8,7 +8,7 @@
 
 #import "AlarmDetailVC.h"
 
-#define TABLEVIEW_CELL_INDENTIFIERS @[@[ALARM_CELL_IDENTIFIER_LABEL, ALARM_CELL_IDENTIFIER_REPEAT, ALARM_CELL_IDENTIFIER_SONOOZE], @[ALARM_CELL_IDENTIFIER_DELETE]]
+#define TABLEVIEW_CELL_INDENTIFIERS @[@[CELL_IDENTIFIER_ALARM_LABEL, CELL_IDENTIFIER_ALARM_REPEAT, CELL_IDENTIFIER_ALARM_SONOOZE], @[CELL_IDENTIFIER_ALARM_DELETE]]
 
 @interface AlarmDetailVC ()
 @end
@@ -219,15 +219,13 @@
     vc.delegate = self;
     vc.item = _item;
     
-    if ([segue.identifier isEqualToString:ALARM_PARAMETER_KEY_LABEL]) {
-        vc.cellIdentifier = ALARM_DETAIL_OPTION_CELL_IDENTIFIER_LABEL;
-    } else if ([segue.identifier isEqualToString:ALARM_PARAMETER_KEY_SOUND]) {
-        vc.cellIdentifier = ALARM_DETAIL_OPTION_CELL_IDENTIFIER_SOUND;
-    } else if ([segue.identifier isEqualToString:ALARM_PARAMETER_KEY_REPEAT]) {
-        vc.cellIdentifier = ALARM_DETAIL_OPTION_CELL_IDENTIFIER_REPEAT;
+    if ([segue.identifier isEqualToString:PARAMETER_KEY_ALARM_LABEL]) {
+        vc.cellIdentifier = CELL_IDENTIFIER_ALARM_DETAIL_OPTION_LABEL;
+    } else if ([segue.identifier isEqualToString:PARAMETER_KEY_ALARM_REPEAT]) {
+        vc.cellIdentifier = CELL_IDENTIFIER_ALARM_DETAIL_OPTION_REPEAT;
         vc.selectItems = [NSMutableArray arrayWithArray:_item.repeatTimes];
-    } else if ([segue.identifier isEqualToString:ALARM_PARAMETER_KEY_SNOOSE]) {
-        vc.cellIdentifier = ALARM_DETAIL_OPTION_CELL_IDENTIFIER_SNOOSE;
+    } else if ([segue.identifier isEqualToString:PARAMETER_KEY_ALARM_SNOOSE]) {
+        vc.cellIdentifier = CELL_IDENTIFIER_ALARM_DETAIL_OPTION_SNOOSE;
     }
 }
 
