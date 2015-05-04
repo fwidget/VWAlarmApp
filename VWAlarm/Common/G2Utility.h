@@ -34,4 +34,7 @@
 // NSLocalizedString
 #define LSTR(s) NSLocalizedString((s), nil)
 
-
+// userdefaults
+#define USERDEFAULTS                        [NSUserDefaults standardUserDefaults]
+#define USERDEFAULTS_GET_KEY(key)           [USERDEFAULTS objectForKey:key]
+#define USERDEFAULTS_SET_OBJ(key, obj)      [USERDEFAULTS setObject:obj forKey:key]
