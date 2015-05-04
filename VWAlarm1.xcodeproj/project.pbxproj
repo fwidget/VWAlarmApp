@@ -60,6 +60,11 @@
 		04BE60AE1AF5BF2200D9FBC3 /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE60AD1AF5BF2200D9FBC3 /* Weather.m */; };
 		04BE60B41AF5BF2300D9FBC3 /* Setting.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE60B31AF5BF2300D9FBC3 /* Setting.m */; };
 		04BE60BD1AF5CD3500D9FBC3 /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE60BC1AF5CD3500D9FBC3 /* Alarm.m */; };
+		04BE60C21AF6826100D9FBC3 /* get01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04BE60BF1AF6826100D9FBC3 /* get01.mp3 */; };
+		04BE60C31AF6826100D9FBC3 /* get02.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04BE60C01AF6826100D9FBC3 /* get02.mp3 */; };
+		04BE60C41AF6826100D9FBC3 /* get03.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04BE60C11AF6826100D9FBC3 /* get03.mp3 */; };
+		04BE60C61AF7A03B00D9FBC3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BE60C51AF7A03B00D9FBC3 /* QuartzCore.framework */; };
+		04BE60CC1AF7B00300D9FBC3 /* ForecastCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE60CB1AF7B00300D9FBC3 /* ForecastCell.m */; };
 		C887E2AD987DD7DC97C96474 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E30D5092D3CCA77046DF1D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -163,6 +168,12 @@
 		04BE60B31AF5BF2300D9FBC3 /* Setting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Setting.m; sourceTree = "<group>"; };
 		04BE60BB1AF5CD3500D9FBC3 /* Alarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alarm.h; sourceTree = "<group>"; };
 		04BE60BC1AF5CD3500D9FBC3 /* Alarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alarm.m; sourceTree = "<group>"; };
+		04BE60BF1AF6826100D9FBC3 /* get01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = get01.mp3; sourceTree = "<group>"; };
+		04BE60C01AF6826100D9FBC3 /* get02.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = get02.mp3; sourceTree = "<group>"; };
+		04BE60C11AF6826100D9FBC3 /* get03.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = get03.mp3; sourceTree = "<group>"; };
+		04BE60C51AF7A03B00D9FBC3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		04BE60CA1AF7B00300D9FBC3 /* ForecastCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastCell.h; sourceTree = "<group>"; };
+		04BE60CB1AF7B00300D9FBC3 /* ForecastCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastCell.m; sourceTree = "<group>"; };
 		E02331D468846E6CE39B5644 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E8E30D5092D3CCA77046DF1D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -172,6 +183,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04BE60C61AF7A03B00D9FBC3 /* QuartzCore.framework in Frameworks */,
 				04602E471AF09F6000FF399B /* MediaPlayer.framework in Frameworks */,
 				045460661AEAB0A900308E02 /* CoreLocation.framework in Frameworks */,
 				C887E2AD987DD7DC97C96474 /* libPods.a in Frameworks */,
@@ -314,6 +326,7 @@
 				042CA0F21ADE9B6600F8F183 /* Common */,
 				048CD89E1ADC176600C91CFE /* Top */,
 				048CD8A21ADC258900C91CFE /* Alarm */,
+				048CD8A31ADC260300C91CFE /* Weather */,
 				048CD8A41ADC260F00C91CFE /* Setting */,
 				045E0FDD1AD41C2D00EAD210 /* Supporting Files */,
 			);
@@ -323,6 +336,7 @@
 		045E0FDD1AD41C2D00EAD210 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				04BE60BE1AF681B000D9FBC3 /* sounds */,
 				045E0FED1AD41C2D00EAD210 /* Images.xcassets */,
 				0454606D1AEAB82500308E02 /* images */,
 				045E0FDE1AD41C2D00EAD210 /* Info.plist */,
@@ -374,6 +388,8 @@
 			children = (
 				04745DDE1ADEADAC00C9711B /* TopVC.h */,
 				04745DDF1ADEADAC00C9711B /* TopVC.m */,
+				04BE60CA1AF7B00300D9FBC3 /* ForecastCell.h */,
+				04BE60CB1AF7B00300D9FBC3 /* ForecastCell.m */,
 			);
 			name = Top;
 			sourceTree = "<group>";
@@ -409,7 +425,6 @@
 		048CD8A41ADC260F00C91CFE /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				048CD8A31ADC260300C91CFE /* Weather */,
 				04745DFB1ADEADF400C9711B /* SettingVC.h */,
 				04745DFC1ADEADF400C9711B /* SettingVC.m */,
 			);
@@ -442,6 +457,16 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		04BE60BE1AF681B000D9FBC3 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				04BE60BF1AF6826100D9FBC3 /* get01.mp3 */,
+				04BE60C01AF6826100D9FBC3 /* get02.mp3 */,
+				04BE60C11AF6826100D9FBC3 /* get03.mp3 */,
+			);
+			name = sounds;
+			sourceTree = "<group>";
+		};
 		91BBB17AF28BE6D3CC989F2E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,6 +479,7 @@
 		9C19CE8FCEE99F6AA6E301F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04BE60C51AF7A03B00D9FBC3 /* QuartzCore.framework */,
 				04602E461AF09F6000FF399B /* MediaPlayer.framework */,
 				04602E441AF09F3800FF399B /* MapKit.framework */,
 				045460651AEAB0A900308E02 /* CoreLocation.framework */,
@@ -547,10 +573,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				040890081AEABF5D009FCCD4 /* dunno.png in Resources */,
+				04BE60C31AF6826100D9FBC3 /* get02.mp3 in Resources */,
 				045E0FEC1AD41C2D00EAD210 /* Main.storyboard in Resources */,
 				0408900D1AEABF5D009FCCD4 /* shower3.png in Resources */,
 				04088FF31AEABDA8009FCCD4 /* img_top@3x.png in Resources */,
 				04088FF11AEABDA8009FCCD4 /* img_top.png in Resources */,
+				04BE60C41AF6826100D9FBC3 /* get03.mp3 in Resources */,
 				045E0FF11AD41C2D00EAD210 /* LaunchScreen.xib in Resources */,
 				040890111AEABF5D009FCCD4 /* sunny.png in Resources */,
 				040890121AEABF5D009FCCD4 /* tstorm1_night.png in Resources */,
@@ -566,6 +594,7 @@
 				0408900B1AEABF5D009FCCD4 /* light_rain.png in Resources */,
 				040890101AEABF5D009FCCD4 /* sunny_night.png in Resources */,
 				0408900F1AEABF5D009FCCD4 /* snow5.png in Resources */,
+				04BE60C21AF6826100D9FBC3 /* get01.mp3 in Resources */,
 				040890071AEABF5D009FCCD4 /* cloudy2.png in Resources */,
 				040890091AEABF5D009FCCD4 /* fog_night.png in Resources */,
 			);
@@ -628,6 +657,7 @@
 				04745DEF1ADEADC800C9711B /* G2LineView.m in Sources */,
 				049349141AE7D9B6007EF6C7 /* G2SoundManager.m in Sources */,
 				04745DFA1ADEADE800C9711B /* AlarmVC.m in Sources */,
+				04BE60CC1AF7B00300D9FBC3 /* ForecastCell.m in Sources */,
 				04BE60A21AF5203A00D9FBC3 /* VWADataManager.m in Sources */,
 				045E0FE01AD41C2D00EAD210 /* main.m in Sources */,
 				04BE609E1AF51CEF00D9FBC3 /* VWAAlarmManager.m in Sources */,

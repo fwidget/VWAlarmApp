@@ -21,6 +21,7 @@
 #import <UIKit/UIKit.h>
 #import <UIKit/UIKitDefines.h>
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 #import "G2CacheManager.h"
 #import "G2DataManager.h"
 #import "G2DateManager.h"
@@ -29,6 +30,8 @@
 #import "G2Utility.h"
 #import "VWAAlarmManager.h"
 #import "VWADataManager.h"
+#import "BEMAnalogClockView.h"
+#import "SVProgressHUD.h"
 #endif
 
 #endif
