@@ -50,6 +50,9 @@
 		04745DFD1ADEADF400C9711B /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04745DFC1ADEADF400C9711B /* SettingVC.m */; };
 		047D9EA41ADFDFD600BB3407 /* G2NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D9EA31ADFDFD600BB3407 /* G2NotificationManager.m */; };
 		047D9EA81AE00D9800BB3407 /* NSDate+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D9EA71AE00D9800BB3407 /* NSDate+Extras.m */; };
+		04927B571AF7E17D00972649 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04602E441AF09F3800FF399B /* MapKit.framework */; };
+		04927B5A1AF7E1BB00972649 /* LocationSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04927B591AF7E1BB00972649 /* LocationSettingViewController.m */; };
+		04927B5D1AF7EEFC00972649 /* UIAlertView+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 04927B5C1AF7EEFC00972649 /* UIAlertView+Custom.m */; };
 		049349141AE7D9B6007EF6C7 /* G2SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 049349131AE7D9B6007EF6C7 /* G2SoundManager.m */; };
 		049349181AE7F0AD007EF6C7 /* WeatherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049349171AE7F0AD007EF6C7 /* WeatherCell.m */; };
 		0493491B1AE7F2AB007EF6C7 /* WeatherDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493491A1AE7F2AB007EF6C7 /* WeatherDetailVC.m */; };
@@ -150,6 +153,10 @@
 		04927B531AF7C75600972649 /* G2LayoutUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = G2LayoutUtility.h; sourceTree = "<group>"; };
 		04927B551AF7C7B100972649 /* G2UIUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = G2UIUtility.h; sourceTree = "<group>"; };
 		04927B561AF7CBAC00972649 /* VWAUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWAUtility.h; sourceTree = "<group>"; };
+		04927B581AF7E1BB00972649 /* LocationSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationSettingViewController.h; sourceTree = "<group>"; };
+		04927B591AF7E1BB00972649 /* LocationSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationSettingViewController.m; sourceTree = "<group>"; };
+		04927B5B1AF7EEFC00972649 /* UIAlertView+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Custom.h"; sourceTree = "<group>"; };
+		04927B5C1AF7EEFC00972649 /* UIAlertView+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Custom.m"; sourceTree = "<group>"; };
 		049349121AE7D9B6007EF6C7 /* G2SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = G2SoundManager.h; sourceTree = "<group>"; };
 		049349131AE7D9B6007EF6C7 /* G2SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G2SoundManager.m; sourceTree = "<group>"; };
 		049349161AE7F0AD007EF6C7 /* WeatherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherCell.h; sourceTree = "<group>"; };
@@ -184,6 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04927B571AF7E17D00972649 /* MapKit.framework in Frameworks */,
 				04BE60C61AF7A03B00D9FBC3 /* QuartzCore.framework in Frameworks */,
 				04602E471AF09F6000FF399B /* MediaPlayer.framework in Frameworks */,
 				045460661AEAB0A900308E02 /* CoreLocation.framework in Frameworks */,
@@ -381,6 +389,8 @@
 			children = (
 				047D9EA61AE00D9800BB3407 /* NSDate+Extras.h */,
 				047D9EA71AE00D9800BB3407 /* NSDate+Extras.m */,
+				04927B5B1AF7EEFC00972649 /* UIAlertView+Custom.h */,
+				04927B5C1AF7EEFC00972649 /* UIAlertView+Custom.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -427,6 +437,8 @@
 			children = (
 				04745DFB1ADEADF400C9711B /* SettingVC.h */,
 				04745DFC1ADEADF400C9711B /* SettingVC.m */,
+				04927B581AF7E1BB00972649 /* LocationSettingViewController.h */,
+				04927B591AF7E1BB00972649 /* LocationSettingViewController.m */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -657,6 +669,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04927B5D1AF7EEFC00972649 /* UIAlertView+Custom.m in Sources */,
 				04BE60651AF4F09A00D9FBC3 /* G2CoreDataDelegate.m in Sources */,
 				040890181AEAC2DB009FCCD4 /* VWAWeatherManager.m in Sources */,
 				04745DF91ADEADE800C9711B /* AlarmDetailVC.m in Sources */,
@@ -677,6 +690,7 @@
 				0493491B1AE7F2AB007EF6C7 /* WeatherDetailVC.m in Sources */,
 				047D9EA41ADFDFD600BB3407 /* G2NotificationManager.m in Sources */,
 				04745DF81ADEADE800C9711B /* AlarmDetailOptionVC.m in Sources */,
+				04927B5A1AF7E1BB00972649 /* LocationSettingViewController.m in Sources */,
 				04745DDA1ADEAD9A00C9711B /* G2DateManager.m in Sources */,
 				04BE60AE1AF5BF2200D9FBC3 /* Weather.m in Sources */,
 				04602E4A1AF09F8F00FF399B /* G2MediaManager.m in Sources */,

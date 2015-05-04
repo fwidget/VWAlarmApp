@@ -53,7 +53,7 @@
 
         }];
     } else {
-        [VWAAlarmManager simpleAlertMessage:LSTR(@"登録に失敗しました")];
+        [UIAlertView simpleAlertMessage:LSTR(@"登録に失敗しました")];
     }
 }
 

@@ -72,11 +72,11 @@
     [VWAAlarmManager didReceiveLocalNotification:noti applicationState:state];
     
     if (state == UIApplicationStateActive) {
-        [VWAAlarmManager simpleAlertMessage:@"UIApplicationStateActive"];
+        [UIAlertView simpleAlertMessage:@"UIApplicationStateActive"];
     }
     
     if (state == UIApplicationStateInactive) {
-        [VWAAlarmManager simpleAlertMessage:@"UIApplicationStateInactive"];
+        [UIAlertView simpleAlertMessage:@"UIApplicationStateInactive"];
     }
     
     [[UIApplication sharedApplication] cancelLocalNotification:noti];

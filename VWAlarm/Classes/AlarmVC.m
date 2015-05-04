@@ -168,7 +168,7 @@
         [_items removeObjectAtIndex:indexPath.row];
         [VWAAlarmManager cancelAlarmScheduleLocalNotificationWithItem:item]; // cancel noti 
     } else {
-        [VWAAlarmManager simpleAlertMessage:LSTR(@"削除に失敗しました")];
+        [UIAlertView simpleAlertMessage:LSTR(@"削除に失敗しました")];
     }
 }
 

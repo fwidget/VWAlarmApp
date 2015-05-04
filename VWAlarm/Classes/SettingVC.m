@@ -22,6 +22,12 @@
     [super viewDidLoad];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [_tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -39,7 +45,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SettingCell"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:(indexPath.section == 0) ? @"SettingCell" : @"Cell"];
     [self configurationCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -51,8 +57,6 @@
     if (indexPath.section == 0) {
         NSDictionary *locationDic = USERDEFAULTS_GET_KEY(LOCATION_KEY);
         cell.detailTextLabel.text = (locationDic[LOCATION_KEY_NAME]) ? locationDic[LOCATION_KEY_NAME] : LSTR(@"未設定");
-    } else {
-        cell.detailTextLabel.text = @"";
     }
 }
 

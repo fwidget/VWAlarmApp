@@ -56,9 +56,4 @@
     [[UIApplication sharedApplication] cancelLocalNotification:noti];
 }
 
-+ (void)simpleAlertMessage:(NSString *)msg;
-{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:msg delegate:nil cancelButtonTitle:LSTR(@"確認") otherButtonTitles:nil];
-    [alert show];
-}
 @end

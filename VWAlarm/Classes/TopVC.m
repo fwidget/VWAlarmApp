@@ -16,23 +16,42 @@
 @end
 
 @implementation TopVC
+{
+    BOOL _hasLocationInfo;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initClock];
+    [self initDisplay];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self initDisplay];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self initDisplay];
+    [self initClock];
 }
 
 - (void)initDisplay
 {
+    NSDictionary *locationDic = USERDEFAULTS_GET_KEY(LOCATION_KEY);
+    if (locationDic) {
+        _hasLocationInfo = YES;
+    }
     [self initNowDate];
-    [self initClock];
-    [self initWeatherInfo];
+    if (!_hasLocationInfo) {
+        [self initWeatherInfo];
+    } else {
+        NSDictionary *locationDic = USERDEFAULTS_GET_KEY(LOCATION_KEY);
+        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([locationDic[LOCATION_KEY_LATI] floatValue], [locationDic[LOCATION_KEY_LONGI] floatValue]);
+        [self updateWeatherWithCoordinate:coordinate];
+    }
 }
 
 - (void)initClock
@@ -49,6 +68,24 @@
 - (void)initWeatherInfo
 {
     [self startLocation];
+}
+
+- (void)updateWeatherWithCoordinate:(CLLocationCoordinate2D)coordinate
+{
+    // 화면 설정
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // 지역명 설정
+        if (!_hasLocationInfo) {
+            [self localNameWithCoordinate:coordinate];
+        } else {
+            _localLb.text = [NSString stringWithFormat:@"%@", USERDEFAULTS_GET_KEY(LOCATION_KEY)[LOCATION_KEY_NAME]];
+            [_localIndicatorView stopAnimating];
+        }
+        // 날씨 정보 설정
+        [self currentWatherByCoordinate:coordinate];
+        // 시간별 날씨 정보
+        [self forecastWeatherByCoordinate:coordinate];
+    });
 }
 
 - (void)initNowDate
@@ -88,17 +125,9 @@
 #pragma mark - CLLocationManagerDelegate
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
+    if (_hasLocationInfo) return;
     CLLocation *location = locations.lastObject;
-    // 화면 설정
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        // 지역명 설정
-        [self localNameWithCoordinate:location.coordinate];
-        // 날씨 정보 설정
-        [self currentWatherByCoordinate:location.coordinate];
-        // 시간별 날씨 정보
-        [self forecastWeatherByCoordinate:location.coordinate];
-    });
-
+    [self updateWeatherWithCoordinate:location.coordinate];
     [_locationManager stopUpdatingLocation];
 }
 
@@ -151,7 +180,6 @@
         } else {
             if (placemarks.count > 0) {
                 CLPlacemark *placemark = placemarks.firstObject;
-                NSLog(@"address:%@%@%@%@%@", placemark.country, placemark.administrativeArea, placemark.locality, placemark.thoroughfare, placemark.subThoroughfare);
                 _localLb.text = [NSString stringWithFormat:@"%@", placemark.locality];
                 
                 NSDictionary *locationDic = LOCATION_DIC(placemark.locality, @(coordinate.latitude), @(coordinate.longitude));

@@ -73,6 +73,7 @@
 // item viewWithTag
 #define VIEW_WITH_TAG_SNOOSE_SWITCH                                     111
 #define VIEW_WITH_TAG_DELETE_LABEL                                      111
+#define VIEW_WITH_TAG_DELETE_BUTTON                                     112
 
 // userdefault key
 #define LOCATION_KEY                                                    @"location"
