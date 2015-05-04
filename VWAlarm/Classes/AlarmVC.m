@@ -105,11 +105,11 @@
 {
     static NSString *CellIdentifier = ALARM_CELL_IDENTIFIER_ALARM;
     AlarmCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    [self configuration:cell atIndexPath:indexPath];
+    [self configurationCell:cell atIndexPath:indexPath];
     return cell;
 }
 
-- (void)configuration:(AlarmCell *)cell atIndexPath:(NSIndexPath *)indexPath
+- (void)configurationCell:(AlarmCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     Alarm *item = (Alarm *)_items[indexPath.row];
     

@@ -99,7 +99,6 @@
         [self forecastWeatherByCoordinate:location.coordinate];
     });
     
-    
     NSLog(@"latitude : %+.6f", location.coordinate.latitude);
     NSLog(@"longitude : %+.6f", location.coordinate.longitude);
     [_locationManager stopUpdatingLocation];
