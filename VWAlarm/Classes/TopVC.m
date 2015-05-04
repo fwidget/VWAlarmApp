@@ -35,7 +35,6 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self initClock];
 }
 
 - (void)initDisplay

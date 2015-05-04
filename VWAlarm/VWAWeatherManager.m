@@ -29,10 +29,12 @@
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
         if (error) {
+            NSLog(@"error : %@", error);
             [self currentWeatherByCityName:name withCallback:callback];
         } else {
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
             if (error) {
+                NSLog(@"error : %@", error);
                 [self currentWeatherByCityName:name withCallback:callback];
             } else {
                 NSLog(@"json %@", json);
@@ -51,10 +53,12 @@
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
         if (error) {
+            NSLog(@"error : %@", error);
             [self currentWeatherByCoordinate:coordinate withCallback:callback];
         } else {
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
             if (error) {
+                NSLog(@"error : %@", error);
                 [self currentWeatherByCoordinate:coordinate withCallback:callback];
             } else {
                 NSLog(@"json %@", json);
@@ -75,10 +79,12 @@
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
         if (error) {
+            NSLog(@"error : %@", error);
             [self forecastWeatherByCoordinate:coordinate withCallback:callback];
         } else {
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
             if (error) {
+                NSLog(@"error : %@", error);
                 [self forecastWeatherByCoordinate:coordinate withCallback:callback];
             } else {
                 NSLog(@"json %@", json);
@@ -97,10 +103,12 @@
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
         if (error) {
+            NSLog(@"error : %@", error);
             [self currentWeatherByCityId:cityId withCallback:callback];
         } else {
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
             if (error) {
+                NSLog(@"error : %@", error);
                 [self currentWeatherByCityId:cityId withCallback:callback];
             } else {
                 NSLog(@"json %@", json);
