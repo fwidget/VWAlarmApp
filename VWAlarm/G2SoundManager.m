@@ -45,10 +45,11 @@
         NSData *fileData = [NSData dataWithContentsOfFile:filePath];
         NSError *error = nil;
         AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithData:fileData error:&error];
+        player.delegate = self;
         if (!_players) _players = [NSMutableArray array];
         [_players addObject:player];
     }
-    
+    [self startPlaySounds];
 }
 
 - (void)startPlaySounds
@@ -83,7 +84,7 @@
 
 - (void)nextPlay
 {
-    if (_players.count > 0 && _playIndex < _players.count) {
+    if (_players.count > 0 && _playIndex+1 < _players.count) {
         _playIndex = _playIndex + 1;
         [self playSoundAtIndex:_playIndex];
     }
