@@ -13,6 +13,7 @@
 + (G2NotificationManager *)sharedInstance;
 
 + (void)didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
++ (void)didFinishLaunchingWithOptions:(NSDictionary *)launchOptions application:(UIApplication *)application;
 + (void)didReceiveLocalNotification:(UILocalNotification *)noti applicationState:(UIApplicationState)state;
 
 + (void)cancelLocalNotificationKey:(NSString *)key;

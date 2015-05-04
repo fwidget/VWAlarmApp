@@ -36,7 +36,7 @@
     NSArray *notifications = [self localNotifications];
     for (UILocalNotification *noti in notifications) {
         if (noti.userInfo[key]) {
-            if (cancelId && cancelId.length > 0 && noti.userInfo[key][cancelId]) {
+            if (cancelId && cancelId.length > 0 && noti.userInfo[key]) {
                 [[UIApplication sharedApplication] cancelLocalNotification:noti];
             }
         }
@@ -57,14 +57,26 @@
     }
 }
 
++ (void)didFinishLaunchingWithOptions:(NSDictionary *)launchOptions application:(UIApplication *)application
+{
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeSound categories:nil];
+        [application registerUserNotificationSettings:settings];
+    }
+    
+    [self didFinishLaunchingWithOptions:launchOptions];
+}
+
 + (void)didReceiveLocalNotification:(UILocalNotification *)noti applicationState:(UIApplicationState)state
 {
+    [VWAAlarmManager didReceiveLocalNotification:noti applicationState:state];
+    
     if (state == UIApplicationStateActive) {
-        
+        [VWAAlarmManager simpleAlertMessage:@"UIApplicationStateActive"];
     }
     
     if (state == UIApplicationStateInactive) {
-        
+        [VWAAlarmManager simpleAlertMessage:@"UIApplicationStateInactive"];
     }
     
     [[UIApplication sharedApplication] cancelLocalNotification:noti];
@@ -74,7 +86,7 @@
 {
     UILocalNotification *noti = [[UILocalNotification alloc] init];
     noti.fireDate = date;
-    noti.timeZone = (timeZone) ? timeZone : [NSTimeZone localTimeZone];
+    noti.timeZone = [NSTimeZone localTimeZone];
     noti.alertTitle = alertTitle;
     noti.alertBody = alertBody;
     noti.alertAction = alertAction;
