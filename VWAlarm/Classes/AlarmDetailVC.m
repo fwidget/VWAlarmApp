@@ -9,7 +9,7 @@
 #import "AlarmDetailVC.h"
 #import "AlarmUtility.h"
 
-#define TABLEVIEW_CELL_INDENTIFIERS @[@[ALARM_CELL_IDENTIFIER_LABEL, ALARM_CELL_IDENTIFIER_REPEAT, ALARM_CELL_IDENTIFIER_SOUND, ALARM_CELL_IDENTIFIER_SONOOZE], @[ALARM_CELL_IDENTIFIER_DELETE]]
+#define TABLEVIEW_CELL_INDENTIFIERS @[@[ALARM_CELL_IDENTIFIER_LABEL, ALARM_CELL_IDENTIFIER_REPEAT, ALARM_CELL_IDENTIFIER_SONOOZE], @[ALARM_CELL_IDENTIFIER_DELETE]]
 
 @interface AlarmDetailVC ()
 @end
@@ -148,9 +148,6 @@
             cell.detailTextLabel.text = (_item.repeatTimes.count > 0) ? [self repeateWithItems:_item.repeatTimes] : ALARM_NONE_TITLE;
             break;
         case 2:
-            cell.detailTextLabel.text = (_item.soundFiles.count > 0) ? [self soundTitleWithItems:_item.soundFiles] : ALARM_NONE_TITLE;
-            break;
-        case 3:
             cell.detailTextLabel.text = (_item.snoose.length > 0) ? _item.snoose : ALARM_NONE_TITLE;
             break;
         default:

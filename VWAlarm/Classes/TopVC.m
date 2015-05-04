@@ -16,21 +16,23 @@
 @end
 
 @implementation TopVC
-{
-    BOOL _initLocation;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initNowDate];
-    [self initClock];
-    [self initWeatherInfo];
+    [self initDisplay];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self updateClock];
+    [self initDisplay];
+}
+
+- (void)initDisplay
+{
+    [self initNowDate];
+    [self initClock];
+    [self initWeatherInfo];
 }
 
 - (void)initClock
@@ -41,10 +43,6 @@
     _clockView.enableDigit = YES;
     _clockView.faceBackgroundAlpha = 0.0;
     _clockView.faceBackgroundColor = [UIColor clearColor];
-}
-
-- (void)updateClock
-{
     [_clockView updateTimeAnimated:YES];
 }
 
@@ -90,10 +88,7 @@
 #pragma mark - CLLocationManagerDelegate
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    if (_initLocation) return;
-    _initLocation = YES;
     CLLocation *location = locations.lastObject;
-    
     // 화면 설정
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // 지역명 설정
@@ -197,8 +192,6 @@
         cell.label.text = [NSString stringWithFormat:@"%@/%.1f%@", time, [item[WEATHER_TEMP_CURRENT_KEY] floatValue], LSTR(@"度")];
     }
 }
-
-
 
 #pragma mark - WeatherServieceDelegate
 - (void)weatherInfo:(NSDictionary *)info
