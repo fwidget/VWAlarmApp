@@ -28,6 +28,9 @@
 		040890131AEABF5D009FCCD4 /* tstorm1.png in Resources */ = {isa = PBXBuildFile; fileRef = 040890031AEABF5D009FCCD4 /* tstorm1.png */; };
 		040890141AEABF5D009FCCD4 /* tstorm3.png in Resources */ = {isa = PBXBuildFile; fileRef = 040890041AEABF5D009FCCD4 /* tstorm3.png */; };
 		040890181AEAC2DB009FCCD4 /* VWAWeatherManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 040890171AEAC2DB009FCCD4 /* VWAWeatherManager.m */; };
+		043270A41AF86BCF00464807 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 043270A11AF86BCF00464807 /* logo.png */; };
+		043270A51AF86BCF00464807 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 043270A21AF86BCF00464807 /* logo@2x.png */; };
+		043270A61AF86BCF00464807 /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 043270A31AF86BCF00464807 /* logo@3x.png */; };
 		045460661AEAB0A900308E02 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045460651AEAB0A900308E02 /* CoreLocation.framework */; };
 		045E0FE01AD41C2D00EAD210 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E0FDF1AD41C2D00EAD210 /* main.m */; };
 		045E0FE31AD41C2D00EAD210 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E0FE21AD41C2D00EAD210 /* AppDelegate.m */; };
@@ -105,6 +108,9 @@
 		040890041AEABF5D009FCCD4 /* tstorm3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tstorm3.png; sourceTree = "<group>"; };
 		040890161AEAC2DB009FCCD4 /* VWAWeatherManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWAWeatherManager.h; sourceTree = "<group>"; };
 		040890171AEAC2DB009FCCD4 /* VWAWeatherManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWAWeatherManager.m; sourceTree = "<group>"; };
+		043270A11AF86BCF00464807 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		043270A21AF86BCF00464807 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		043270A31AF86BCF00464807 /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
 		045460651AEAB0A900308E02 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		045E0FDA1AD41C2D00EAD210 /* VWAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VWAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		045E0FDE1AD41C2D00EAD210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -289,6 +295,9 @@
 		0432709C1AF8696300464807 /* LanuchScreen */ = {
 			isa = PBXGroup;
 			children = (
+				043270A11AF86BCF00464807 /* logo.png */,
+				043270A21AF86BCF00464807 /* logo@2x.png */,
+				043270A31AF86BCF00464807 /* logo@3x.png */,
 			);
 			name = LanuchScreen;
 			sourceTree = "<group>";
@@ -602,6 +611,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043270A41AF86BCF00464807 /* logo.png in Resources */,
 				040890081AEABF5D009FCCD4 /* dunno.png in Resources */,
 				04BE60C31AF6826100D9FBC3 /* get02.mp3 in Resources */,
 				045E0FEC1AD41C2D00EAD210 /* Main.storyboard in Resources */,
@@ -617,6 +627,7 @@
 				040890131AEABF5D009FCCD4 /* tstorm1.png in Resources */,
 				0408900E1AEABF5D009FCCD4 /* snow4.png in Resources */,
 				0408900C1AEABF5D009FCCD4 /* overcast.png in Resources */,
+				043270A51AF86BCF00464807 /* logo@2x.png in Resources */,
 				0408900A1AEABF5D009FCCD4 /* fog.png in Resources */,
 				045E0FEE1AD41C2D00EAD210 /* Images.xcassets in Resources */,
 				040890051AEABF5D009FCCD4 /* Cloud-Refresh.png in Resources */,
@@ -626,6 +637,7 @@
 				0408900F1AEABF5D009FCCD4 /* snow5.png in Resources */,
 				04BE60C21AF6826100D9FBC3 /* get01.mp3 in Resources */,
 				040890071AEABF5D009FCCD4 /* cloudy2.png in Resources */,
+				043270A61AF86BCF00464807 /* logo@3x.png in Resources */,
 				040890091AEABF5D009FCCD4 /* fog_night.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
