@@ -17,7 +17,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="lOp-oo-817">
-                    <rect key="frame" x="0.0" y="92" width="480" height="296"/>
+                    <rect key="frame" x="0.0" y="-57" width="480" height="594"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -36,6 +36,6 @@
         </view>
     </objects>
     <resources>
-        <image name="logo.png" width="431" height="296"/>
+        <image name="logo.png" width="862" height="593"/>
     </resources>
 </document>

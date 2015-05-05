@@ -41,13 +41,6 @@
     if (state == UIApplicationStateActive) {
         [[G2SoundManager sharedInstance] playSoundFileNames:noti.userInfo[@"soundFiles"]];
         //TODO:날씨 정보 가져오기
-        [[VWAWeatherManager sharedInstance] currentWeatherByCityName:@"" withCallback:^(NSError *error, NSDictionary *result){
-            if (error) {
-                // 에러 처리
-            } else {
-                // 정상
-            }
-        }];
         NSLog(@"%@", @"");
     }
     if (state == UIApplicationStateInactive) {
