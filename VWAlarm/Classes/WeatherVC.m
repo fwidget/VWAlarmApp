@@ -7,7 +7,6 @@
 //
 
 #import "WeatherVC.h"
-#import "Weather.h"
 #import "WeatherDetailVC.h"
 #import "WeatherCell.h"
 #import "OWMWeatherAPI.h"
@@ -22,8 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = [self barButton];
-    
-    _items = [[G2DataManager sharedInstance] loadDataForName:WEATHER_DATA_KEY];
     
     _weatherAPI = [[OWMWeatherAPI alloc] initWithAPIKey:@"b679f6c90a21d8c40513078a40bc19b8"];
     [_weatherAPI setLangWithPreferedLanguage];
@@ -139,11 +136,11 @@
 
 - (void)presentWeatherWithItem:(NSDictionary *)item
 {
-    UINavigationController *navi = [self.storyboard instantiateViewControllerWithIdentifier:@"WeatherDetailNavi"];
-    WeatherDetailVC *vc = navi.viewControllers.firstObject;
+//    UINavigationController *navi = [self.storyboard instantiateViewControllerWithIdentifier:@"WeatherDetailNavi"];
+//    WeatherDetailVC *vc = navi.viewControllers.firstObject;
 //    vc.delegate = self;
 //    if (item) vc.item = [NSMutableDictionary dictionaryWithDictionary:item];
-    [self presentViewController:navi animated:YES completion:nil];
+//    [self presentViewController:navi animated:YES completion:nil];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -163,7 +160,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = WEATHER_CELL_IDENTIFIER_WEATHER;
+    static NSString *CellIdentifier = CELL_IDENTIFIER_WEATHER;
     WeatherCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     cell.weatherLb.text = _items[indexPath.row][@"weather"];
     cell.weatherLowLb.text = _items[indexPath.row][@"minTemp"];

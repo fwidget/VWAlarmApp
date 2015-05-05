@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#define LOCAL_NOTIFICATION_USERINFO_KEY_ALARMS          @"alarms"
 
 @interface G2NotificationManager : NSObject
 @property (strong, nonatomic) UILocalNotification *notification;
 + (G2NotificationManager *)sharedInstance;
 
 + (void)didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
++ (void)didFinishLaunchingWithOptions:(NSDictionary *)launchOptions application:(UIApplication *)application;
 + (void)didReceiveLocalNotification:(UILocalNotification *)noti applicationState:(UIApplicationState)state;
 
 + (void)cancelLocalNotificationKey:(NSString *)key;
@@ -21,9 +21,7 @@
 + (void)cancelAllLocalNotification;
 
 + (void)addScheduleLocalNotification:(UILocalNotification *)noti;
-+ (void)addAlarmScheduleLocalNotificationWithDates:(NSArray *)dates alarmId:(NSString *)alarmId repeat:(BOOL)repeat; // alarm용
 
-+ (UILocalNotification *)localNotificationOfRepeatIntervalUnit:(NSCalendarUnit)repeatIntervalUnit notification:(UILocalNotification *)noti;
 + (UILocalNotification *)localNotificationWithFireDate:(NSDate *)date timeZone:(NSTimeZone *)timeZone alertTitle:(NSString *)alertTitle alertBody:(NSString *)alertBody alertAction:(NSString *)alertAction;
-
++ (UILocalNotification *)localNotificationWithFireDate:(NSDate *)date timeZone:(NSTimeZone *)timeZone alertTitle:(NSString *)alertTitle alertBody:(NSString *)alertBody alertAction:(NSString *)alertAction repeatIntervalUnit:(NSCalendarUnit)repeatIntervalUnit;
 @end

@@ -36,7 +36,7 @@
     return str;
 }
 
-+ (NSString *)timeStrFromDate:(NSDate *)date format:(NSString *)format
++ (NSString *)strFromDate:(NSDate *)date format:(NSString *)format
 {
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:format];
@@ -50,4 +50,24 @@
     return [date oneWeekDateWithEnableWeekdayType:type];
 }
 
++ (NSString *)strWeekdayFromDate:(NSDate *)date localeIdentifier:(NSString *)localeIdentifier
+{
+    NSCalendar* calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents* comps = [calendar components:NSCalendarUnitWeekday
+                                          fromDate:date];
+    
+    NSDateFormatter* df = [[NSDateFormatter alloc] init];
+    df.locale = [[NSLocale alloc] initWithLocaleIdentifier:localeIdentifier];
+    
+    NSString* weekDayStr = df.shortWeekdaySymbols[comps.weekday-1];
+    return weekDayStr;
+}
+
++ (NSDate *)dateFromStr:(NSString *)str format:(NSString *)format
+{
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:format];
+    NSDate *date = [df dateFromString:str];
+    return date;
+}
 @end

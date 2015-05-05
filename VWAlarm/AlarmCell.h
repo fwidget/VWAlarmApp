@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Alarm.h"
 
 @interface AlarmCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLb;
@@ -14,5 +15,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *ampmLb;
 @property (weak, nonatomic) IBOutlet UILabel *repeatLb;
 @property (weak, nonatomic) IBOutlet UISwitch *activeSwitch;
-@property (strong, nonatomic) NSDictionary *item;
+@property (strong, nonatomic) Alarm *item;
 @end

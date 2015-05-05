@@ -1,13 +1,22 @@
 PODS:
   - AFNetworking (1.3.4)
+  - BEMAnalogClock (1.4)
+  - LineKit (1.4.1)
   - OpenWeatherMapAPI (0.0.5):
     - AFNetworking (~> 1.3.1)
+  - SVProgressHUD (1.1.3)
 
 DEPENDENCIES:
+  - BEMAnalogClock
+  - LineKit
   - OpenWeatherMapAPI (~> 0.0.5)
+  - SVProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: cf8e418e16f0c9c7e5c3150d019a3c679d015018
+  BEMAnalogClock: 88786eba7763d63abd5a9956c2d1106f30c7f251
+  LineKit: 3c3ff477614c4d947d651560119c5176afc72951
   OpenWeatherMapAPI: 53613bba3dffc948f852a66a25f512f7a16643e7
+  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
 
 COCOAPODS: 0.36.0

@@ -7,16 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Alarm.h"
 #import "AlarmDetailOptionVC.h"
+
 @protocol AlarmDetailDelegate <NSObject>
-- (void)saveAlarmDetail:(NSMutableDictionary *)item isAdd:(BOOL)isAdd;
-- (void)deleteAlarmDetail:(NSMutableDictionary *)item;
+- (void)saveAlarmDetail:(Alarm *)item isAdd:(BOOL)isAdd;
+- (void)deleteAlarmDetail:(Alarm *)item;
 @end
 
-@interface AlarmDetailVC : UIViewController < UITableViewDelegate, UITableViewDataSource, AlarmDetailOptionDelegate >
+@interface AlarmDetailVC : UIViewController <UITableViewDataSource, UITableViewDelegate, AlarmDetailOptionDelegate>
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSMutableDictionary *item;
+@property (strong, nonatomic) Alarm *item;
 @property (nonatomic) BOOL isAdd;
 @property (weak, nonatomic) id<AlarmDetailDelegate> delegate;
 @end

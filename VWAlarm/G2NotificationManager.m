@@ -12,31 +12,15 @@
 + (G2NotificationManager *)sharedInstance
 {
     static dispatch_once_t pred;
-    static G2NotificationManager *sharedSoundManager = nil;
+    static G2NotificationManager *sharedInstance = nil;
     dispatch_once(&pred, ^{
-        sharedSoundManager = [[self alloc] init];
+        sharedInstance = [[self alloc] init];
     });  
-    return sharedSoundManager;
+    return sharedInstance;
 }
 
 
 #pragma mark - public method
-// alarm용
-+ (void)addAlarmScheduleLocalNotificationWithDates:(NSArray *)dates alarmId:(NSString *)alarmId repeat:(BOOL)repeat
-{
-    // alarm  :   NSCalendarUnitWeekOfMonth
-    for (NSDate *date in dates) {
-        UILocalNotification *noti = [self localNotificationWithFireDate:date timeZone:[NSTimeZone localTimeZone] alertTitle:@"" alertBody:@"" alertAction:@""];
-        if (repeat) {
-            noti = [self localNotificationOfRepeatIntervalUnit:NSCalendarUnitWeekOfMonth notification:noti];
-        }
-        if (alarmId && alarmId.length > 0) {
-            [noti.userInfo setValue:alarmId forKey:LOCAL_NOTIFICATION_USERINFO_KEY_ALARMS];
-        }
-        [self addScheduleLocalNotification:noti];
-    }
-}
-
 + (void)addScheduleLocalNotification:(UILocalNotification *)noti
 {
     [[UIApplication sharedApplication] scheduleLocalNotification:noti];
@@ -52,14 +36,11 @@
     NSArray *notifications = [self localNotifications];
     for (UILocalNotification *noti in notifications) {
         if (noti.userInfo[key]) {
-            if (cancelId && cancelId.length > 0 && [noti.userInfo[key] isEqualToString:cancelId]) {
-                [[UIApplication sharedApplication] cancelLocalNotification:noti];
-            } else {
+            if (cancelId && cancelId.length > 0 && noti.userInfo[key]) {
                 [[UIApplication sharedApplication] cancelLocalNotification:noti];
             }
         }
     }
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
 
 + (void)cancelAllLocalNotification
@@ -76,14 +57,26 @@
     }
 }
 
++ (void)didFinishLaunchingWithOptions:(NSDictionary *)launchOptions application:(UIApplication *)application
+{
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeSound categories:nil];
+        [application registerUserNotificationSettings:settings];
+    }
+    
+    [self didFinishLaunchingWithOptions:launchOptions];
+}
+
 + (void)didReceiveLocalNotification:(UILocalNotification *)noti applicationState:(UIApplicationState)state
 {
+    [VWAAlarmManager didReceiveLocalNotification:noti applicationState:state];
+    
     if (state == UIApplicationStateActive) {
-        
+        [UIAlertView simpleAlertMessage:@"UIApplicationStateActive"];
     }
     
     if (state == UIApplicationStateInactive) {
-        
+        [UIAlertView simpleAlertMessage:@"UIApplicationStateInactive"];
     }
     
     [[UIApplication sharedApplication] cancelLocalNotification:noti];
@@ -93,7 +86,7 @@
 {
     UILocalNotification *noti = [[UILocalNotification alloc] init];
     noti.fireDate = date;
-    noti.timeZone = (timeZone) ? timeZone : [NSTimeZone localTimeZone];
+    noti.timeZone = [NSTimeZone localTimeZone];
     noti.alertTitle = alertTitle;
     noti.alertBody = alertBody;
     noti.alertAction = alertAction;
@@ -101,8 +94,15 @@
     return noti;
 }
 
-+ (UILocalNotification *)localNotificationOfRepeatIntervalUnit:(NSCalendarUnit)repeatIntervalUnit notification:(UILocalNotification *)noti;
++ (UILocalNotification *)localNotificationWithFireDate:(NSDate *)date timeZone:(NSTimeZone *)timeZone alertTitle:(NSString *)alertTitle alertBody:(NSString *)alertBody alertAction:(NSString *)alertAction repeatIntervalUnit:(NSCalendarUnit)repeatIntervalUnit
 {
+    UILocalNotification *noti = [[UILocalNotification alloc] init];
+    noti.fireDate = date;
+    noti.timeZone = (timeZone) ? timeZone : [NSTimeZone localTimeZone];
+    noti.alertTitle = alertTitle;
+    noti.alertBody = alertBody;
+    noti.alertAction = alertAction;
+    noti.soundName = UILocalNotificationDefaultSoundName;
     noti.repeatCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     noti.repeatInterval = repeatIntervalUnit;
     return noti;

@@ -7,7 +7,6 @@
 //
 
 #import "AlarmDetailOptionVC.h"
-#import "Alarm.h"
 
 @interface AlarmDetailOptionVC ()
 @end
@@ -22,7 +21,7 @@
 
 - (void)initTableView
 {
-    if ([_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_REPEAT]) {
+    if ([_cellIdentifier isEqualToString:CELL_IDENTIFIER_ALARM_DETAIL_OPTION_REPEAT] || [_cellIdentifier isEqualToString:CELL_IDENTIFIER_ALARM_DETAIL_OPTION_SNOOSE]) {
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     } else {
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -41,8 +40,10 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if ([_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_REPEAT]) {
+    if ([_cellIdentifier isEqualToString:CELL_IDENTIFIER_ALARM_DETAIL_OPTION_REPEAT]) {
         return [REPEATCELL_WEEK count];
+    } else if ([_cellIdentifier isEqualToString:CELL_IDENTIFIER_ALARM_DETAIL_OPTION_SNOOSE]) {
+        return [SNOOSECELL_TYPE count];
     }
     return 1;
 }
@@ -55,7 +56,7 @@
 
 - (void)configuration:(UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath
 {
-    if ([_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_REPEAT]) {
+    if ([_cellIdentifier isEqualToString:CELL_IDENTIFIER_ALARM_DETAIL_OPTION_REPEAT]) {
         cell.selectionStyle = UITableViewCellSeparatorStyleSingleLine;
         cell.textLabel.text =  [self weekStrAtIndex:indexPath.row];
         if ([_selectItems containsObject:@(indexPath.row)]) {
@@ -63,7 +64,15 @@
         } else {
             cell.accessoryType = UITableViewCellAccessoryNone;
         }
-    } else if ([_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_LABEL]) {
+    } else if ([_cellIdentifier isEqualToString:CELL_IDENTIFIER_ALARM_DETAIL_OPTION_SNOOSE]) {
+        cell.selectionStyle = UITableViewCellSeparatorStyleSingleLine;
+        cell.textLabel.text = SNOOSECELL_TYPE[indexPath.row];
+        if (_item.snoose.length > 0 && [SNOOSECELL_TYPE[indexPath.row] isEqualToString:_item.snoose]) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+    } else if ([_cellIdentifier isEqualToString:CELL_IDENTIFIER_ALARM_DETAIL_OPTION_LABEL]) {
         cell.selectionStyle = UITableViewCellSeparatorStyleNone;
     }
 }
@@ -74,19 +83,24 @@
     weekStr = [NSString stringWithFormat:@"%@%@", weekStr, LSTR(@"曜日")];
     return weekStr;
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (![_cellIdentifier isEqualToString:ALARM_DETAIL_OPTION_CELL_IDENTIFIER_REPEAT]) return;
-    
-    if (!_selectItems) _selectItems = [NSMutableArray array];
-    if ([_selectItems containsObject:@(indexPath.row)]) {
-        [_selectItems removeObject:@(indexPath.row)];
-    } else {
-        [_selectItems addObject:@(indexPath.row)];
+    if ([_cellIdentifier isEqualToString:CELL_IDENTIFIER_ALARM_DETAIL_OPTION_REPEAT]) {
+        if (!_selectItems) _selectItems = [NSMutableArray array];
+        if ([_selectItems containsObject:@(indexPath.row)]) {
+            [_selectItems removeObject:@(indexPath.row)];
+        } else {
+            [_selectItems addObject:@(indexPath.row)];
+        }
+        [tableView reloadData];
+        _item.repeatTimes = _selectItems;
+        [self selectItem:_item];
+    } else if ([_cellIdentifier isEqualToString:CELL_IDENTIFIER_ALARM_DETAIL_OPTION_SNOOSE]) {
+        _item.snoose = SNOOSECELL_TYPE[indexPath.row];
+        [tableView reloadData];
+        [self selectItem:_item];
     }
-    [tableView reloadData];
-    [self sortingItems:_selectItems];
-    [self sendItem:@{ALARM_PARAMETER_KEY_REPEAT : _selectItems}];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -98,14 +112,15 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     if (textField.text.length > 0) {
-        [self sendItem:@{ALARM_PARAMETER_KEY_LABEL: textField.text}];
+        _item.title = textField.text;
+        [self selectItem:_item];
     }
 }
 
-- (void)sendItem:(id)item
+- (void)selectItem:(Alarm *)item
 {
-    if ([_delegate respondsToSelector:@selector(sendItem:)]) {
-        [_delegate sendItem:item];
+    if ([_delegate respondsToSelector:@selector(sendSelectOptionItem:)]) {
+        [_delegate sendSelectOptionItem:item];
     }
 }
 

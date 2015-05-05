@@ -21,12 +21,21 @@
 #import <UIKit/UIKit.h>
 #import <UIKit/UIKitDefines.h>
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 #import "G2CacheManager.h"
 #import "G2DataManager.h"
 #import "G2DateManager.h"
 #import "G2SoundManager.h"
 #import "G2NotificationManager.h"
 #import "G2Utility.h"
+#import "G2UIUtility.h"
+#import "G2LayoutUtility.h"
+#import "UIAlertView+Custom.h"
+#import "VWAUtility.h"
+#import "VWAAlarmManager.h"
+#import "VWADataManager.h"
+#import "BEMAnalogClockView.h"
+#import "SVProgressHUD.h"
 #endif
 
 #endif
