@@ -87,20 +87,11 @@
 {
     [manager stopUpdatingLocation];
     CLLocation *currentLocation = locations.lastObject;
-    CLLocationCoordinate2D centerCoordinate = currentLocation.coordinate;
+    CLLocationCoordinate2D coordinate = currentLocation.coordinate;
     MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.1, 0.1); // 숫자가 작으면 확대 배율이 커짐
-    MKCoordinateRegion newRegion = MKCoordinateRegionMake(centerCoordinate, coordinateSpan);
+    MKCoordinateRegion newRegion = MKCoordinateRegionMake(coordinate, coordinateSpan);
     [_mapView setRegion:newRegion animated:YES];
-    
-    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-    point.coordinate = centerCoordinate;
-    [_mapView removeAnnotations:_mapView.annotations];
-    [_mapView addAnnotation:point];
-    [self localNameWithAnnotation:point complete:^{
-        [_mapView selectAnnotation:[_mapView annotations][0] animated:NO];
-        [_mapView showAnnotations:[_mapView annotations] animated:YES];
-    }];
-
+    [self localNameWithCoordinate:coordinate];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -108,21 +99,17 @@
     NSLog(@"didFailWithError.");
 }
 
-- (void)localNameWithAnnotation:(MKPointAnnotation *)point complete:(void(^) (void))complete
+- (void)localNameWithCoordinate:(CLLocationCoordinate2D)coordinate
 {
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:point.coordinate.latitude longitude:point.coordinate.longitude];
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
         if(error) {
             NSLog(@"error");
         } else {
             if (placemarks.count > 0) {
                 CLPlacemark *placemark = placemarks.firstObject;
-                point.title = placemark.locality;
-                point.subtitle = [NSString stringWithFormat:@"%@%@", placemark.administrativeArea, placemark.locality];
-                if (complete) {
-                    complete();
-                }
+                [self localSearchStr:placemark.locality];
             }
         }
     }];
