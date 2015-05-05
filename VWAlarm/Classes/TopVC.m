@@ -40,7 +40,7 @@
 
 - (void)initDisplay
 {
-    NSDictionary *locationDic = USERDEFAULTS_GET_KEY(LOCATION_KEY);
+    NSDictionary *locationDic = USERDEFAULTS_GET_KEY(USERDEFAULTS_LOCATION_KEY);
     if (locationDic) {
         _hasLocationInfo = YES;
     }
@@ -48,8 +48,8 @@
     if (!_hasLocationInfo) {
         [self initWeatherInfo];
     } else {
-        NSDictionary *locationDic = USERDEFAULTS_GET_KEY(LOCATION_KEY);
-        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([locationDic[LOCATION_KEY_LATI] floatValue], [locationDic[LOCATION_KEY_LONGI] floatValue]);
+        NSDictionary *locationDic = USERDEFAULTS_GET_KEY(USERDEFAULTS_LOCATION_KEY);
+        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([locationDic[USERDEFAULTS_LOCATION_KEY_LATI] floatValue], [locationDic[USERDEFAULTS_LOCATION_KEY_LONGI] floatValue]);
         [self updateWeatherWithCoordinate:coordinate];
     }
 }
@@ -83,7 +83,7 @@
         if (!_hasLocationInfo) {
             [self localNameWithCoordinate:coordinate];
         } else {
-            _localLb.text = [NSString stringWithFormat:@"%@", USERDEFAULTS_GET_KEY(LOCATION_KEY)[LOCATION_KEY_NAME]];
+            _localLb.text = [NSString stringWithFormat:@"%@", USERDEFAULTS_GET_KEY(USERDEFAULTS_LOCATION_KEY)[USERDEFAULTS_LOCATION_KEY_NAME]];
             [_localIndicatorView stopAnimating];
         }
         // 날씨 정보 설정
@@ -187,9 +187,9 @@
                 CLPlacemark *placemark = placemarks.firstObject;
                 _localLb.text = [NSString stringWithFormat:@"%@", placemark.locality];
                 
-                NSDictionary *locationDic = LOCATION_DIC(placemark.locality, @(coordinate.latitude), @(coordinate.longitude));
+                NSDictionary *locationDic = USERDEFAULTS_LOCATION_DIC(placemark.locality, @(coordinate.latitude), @(coordinate.longitude));
                 NSLog(@"locationDic : %@", locationDic);
-                USERDEFAULTS_SET_OBJ(LOCATION_KEY, locationDic);
+                USERDEFAULTS_SET_OBJ(USERDEFAULTS_LOCATION_KEY, locationDic);
                 [USERDEFAULTS synchronize];
             }
         }

@@ -64,8 +64,8 @@
     NSString *title = TABLE_SECTION_TITLES[indexPath.section][indexPath.row];
     cell.textLabel.text = title;
     if (indexPath.section == 0) {
-        NSDictionary *locationDic = USERDEFAULTS_GET_KEY(LOCATION_KEY);
-        cell.detailTextLabel.text = (locationDic[LOCATION_KEY_NAME]) ? locationDic[LOCATION_KEY_NAME] : LSTR(@"未設定");
+        NSDictionary *locationDic = USERDEFAULTS_GET_KEY(USERDEFAULTS_LOCATION_DICLOCATION_KEY);
+        cell.detailTextLabel.text = (locationDic[USERDEFAULTS_LOCATION_DICLOCATION_KEY_NAME]) ? locationDic[USERDEFAULTS_LOCATION_DICLOCATION_KEY_NAME] : LSTR(@"未設定");
     }
 }
 

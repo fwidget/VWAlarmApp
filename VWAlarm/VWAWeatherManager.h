@@ -10,6 +10,9 @@
 
 #define APIKeys @[@"b679f6c90a21d8c40513078a40bc19b8", @"b679f6c90a21d8c40513078a40bc19b8", @"b679f6c90a21d8c40513078a40bc19b8"]
 
+// server url
+#define WEATHER_API                       @"http://api.openweathermap.org/data/2.5"
+
 // paramters key
 #define WEATHER_KEY                       @"weather"
 #define WEATHER_CITY_NAME_KEY             @"cityName"

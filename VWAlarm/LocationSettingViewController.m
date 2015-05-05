@@ -52,14 +52,14 @@
     
     
     // 초기 설정
-    NSDictionary *locationDic = USERDEFAULTS_GET_KEY(LOCATION_KEY);
+    NSDictionary *locationDic = USERDEFAULTS_GET_KEY(USERDEFAULTS_LOCATION_KEY);
     // 위치 데이터가 있으면
     if (locationDic) {
-        CLLocationCoordinate2D centerCoordinate = CLLocationCoordinate2DMake([locationDic[LOCATION_KEY_LATI] floatValue], [locationDic[LOCATION_KEY_LONGI] floatValue]);
+        CLLocationCoordinate2D centerCoordinate = CLLocationCoordinate2DMake([locationDic[USERDEFAULTS_LOCATION_KEY_LATI] floatValue], [locationDic[USERDEFAULTS_LOCATION_KEY_LONGI] floatValue]);
         MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.1, 0.1); // 숫자가 작으면 확대 배율이 커짐
         MKCoordinateRegion newRegion = MKCoordinateRegionMake(centerCoordinate, coordinateSpan);
         [_mapView setRegion:newRegion animated:YES];
-        [self localSearchStr:locationDic[LOCATION_KEY_NAME]];
+        [self localSearchStr:locationDic[USERDEFAULTS_LOCATION_KEY_NAME]];
         _button.enabled = NO;
         _initLocation = YES;
     }
@@ -129,8 +129,8 @@
 {
     if (buttonIndex == 1) {
         NSLog(@"annotation %@", _currentAnnotation);
-        NSDictionary *locationDic = LOCATION_DIC(_currentAnnotation.title, @(_currentAnnotation.coordinate.latitude), @(_currentAnnotation.coordinate.longitude));
-        USERDEFAULTS_SET_OBJ(LOCATION_KEY, locationDic);
+        NSDictionary *locationDic = USERDEFAULTS_LOCATION_DIC(_currentAnnotation.title, @(_currentAnnotation.coordinate.latitude), @(_currentAnnotation.coordinate.longitude));
+        USERDEFAULTS_SET_OBJ(USERDEFAULTS_LOCATION_KEY, locationDic);
         [USERDEFAULTS synchronize];
     }
 }
