@@ -18,11 +18,11 @@
 @implementation TopVC
 {
     BOOL _hasLocationInfo;
+    BEMAnalogClockView *_analogClockView;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initClock];
     [self initDisplay];
 }
 
@@ -35,6 +35,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self initClock];
 }
 
 - (void)initDisplay
@@ -55,13 +56,18 @@
 
 - (void)initClock
 {
-    _clockView.delegate = self;
-    _clockView.realTime = YES;
-    _clockView.currentTime = YES;
-    _clockView.enableDigit = YES;
-    _clockView.faceBackgroundAlpha = 0.0;
-    _clockView.faceBackgroundColor = [UIColor clearColor];
-    [_clockView updateTimeAnimated:YES];
+    // 다른 화면에서 애니메이션의 영향으로 이상하게 보일 경우가 있음
+    if (_analogClockView) {
+        [_analogClockView removeFromSuperview];
+        _analogClockView = nil;
+    }
+    _analogClockView = [[BEMAnalogClockView alloc] initWithFrame:_clockView.bounds];
+    _analogClockView.delegate = self;
+    _analogClockView.realTime = YES;
+    _analogClockView.enableDigit = YES;
+    _analogClockView.faceBackgroundAlpha = 0.0;
+    _analogClockView.faceBackgroundColor = [UIColor clearColor];
+    [_clockView addSubview:_analogClockView];
 }
 
 - (void)initWeatherInfo

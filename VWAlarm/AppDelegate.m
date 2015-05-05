@@ -16,6 +16,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [NSThread sleepForTimeInterval:2.0]; // launchScreen 표시 타이머
     [G2NotificationManager didFinishLaunchingWithOptions:launchOptions application:application];
     return YES;
 }

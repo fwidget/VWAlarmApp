@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *currentWeatherIndicatorView;
 @property (weak, nonatomic) IBOutlet UIView *weatherTimes;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *dayWeatherIndicatorView;
-@property (weak, nonatomic) IBOutlet BEMAnalogClockView *clockView;
+@property (weak, nonatomic) IBOutlet UIView *clockView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSArray *forecasts;

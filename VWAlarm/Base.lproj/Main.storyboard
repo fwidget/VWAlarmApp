@@ -24,19 +24,11 @@
                                     <constraint firstAttribute="width" constant="320" id="DyU-mD-avc"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cyw-SU-BhN">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="520"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cyw-SU-BhN">
+                                <rect key="frame" x="0.0" y="35" width="320" height="450"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VfW-LL-g4K" userLabel="clockView" customClass="BEMAnalogClockView">
-                                        <rect key="frame" x="60" y="20" width="200" height="200"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="3yM-Lh-10o"/>
-                                            <constraint firstAttribute="width" constant="200" id="pad-j4-jwr"/>
-                                        </constraints>
-                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015.04.19 日曜日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghT-va-5wR">
-                                        <rect key="frame" x="40" y="241" width="239" height="15"/>
+                                        <rect key="frame" x="40" y="171" width="239" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="iit-Ch-cyn"/>
                                             <constraint firstAttribute="width" constant="239" id="lzS-Vh-yXb"/>
@@ -46,7 +38,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="東京" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bbD-9g-CKO">
-                                        <rect key="frame" x="40" y="267" width="240" height="40"/>
+                                        <rect key="frame" x="40" y="197" width="240" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="4LS-bh-DVv"/>
                                             <constraint firstAttribute="width" constant="240" id="bN9-GQ-BKg"/>
@@ -56,10 +48,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <activityIndicatorView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="qfC-8u-4BP" userLabel="localActivityIndicatorView">
-                                        <rect key="frame" x="150" y="277" width="20" height="20"/>
+                                        <rect key="frame" x="150" y="207" width="20" height="20"/>
                                     </activityIndicatorView>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gqx-92-Xb8">
-                                        <rect key="frame" x="40" y="315" width="240" height="129"/>
+                                        <rect key="frame" x="40" y="245" width="240" height="129"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="41c-M9-Wsh" userLabel="TempImg">
                                                 <rect key="frame" x="8" y="8" width="113" height="113"/>
@@ -95,7 +87,7 @@
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C1F-UW-K4x" userLabel="WeathersView">
-                                        <rect key="frame" x="40" y="452" width="240" height="63"/>
+                                        <rect key="frame" x="40" y="379" width="240" height="63"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="I7Q-L1-vvb">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="63"/>
@@ -165,10 +157,18 @@
                                             <constraint firstAttribute="height" constant="63" id="uDz-96-aKM"/>
                                         </constraints>
                                     </view>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VfW-LL-g4K" userLabel="clockView">
+                                        <rect key="frame" x="85" y="0.0" width="150" height="150"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="3yM-Lh-10o"/>
+                                            <constraint firstAttribute="width" constant="150" id="pad-j4-jwr"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="520" id="0Nu-Ha-7mu"/>
+                                    <constraint firstAttribute="height" constant="450" id="0Nu-Ha-7mu"/>
                                     <constraint firstAttribute="centerX" secondItem="gqx-92-Xb8" secondAttribute="centerX" id="BV2-Oe-D4S"/>
                                     <constraint firstAttribute="centerX" secondItem="bbD-9g-CKO" secondAttribute="centerX" id="DMC-oE-Ua1"/>
                                     <constraint firstAttribute="centerX" secondItem="ghT-va-5wR" secondAttribute="centerX" constant="0.5" id="EaC-jh-m7O"/>
@@ -180,8 +180,8 @@
                                     <constraint firstAttribute="centerX" secondItem="VfW-LL-g4K" secondAttribute="centerX" id="gEx-RJ-aGH"/>
                                     <constraint firstItem="bbD-9g-CKO" firstAttribute="top" secondItem="ghT-va-5wR" secondAttribute="bottom" constant="11" id="irb-wO-vMI"/>
                                     <constraint firstItem="bbD-9g-CKO" firstAttribute="leading" secondItem="qfC-8u-4BP" secondAttribute="trailing" constant="-130" id="odr-x7-GpZ"/>
-                                    <constraint firstItem="VfW-LL-g4K" firstAttribute="top" secondItem="Cyw-SU-BhN" secondAttribute="top" constant="20" id="pHU-M0-BJ3"/>
-                                    <constraint firstItem="C1F-UW-K4x" firstAttribute="top" secondItem="gqx-92-Xb8" secondAttribute="bottom" constant="8" id="qaT-8x-Ni2"/>
+                                    <constraint firstItem="VfW-LL-g4K" firstAttribute="top" secondItem="Cyw-SU-BhN" secondAttribute="top" id="pHU-M0-BJ3"/>
+                                    <constraint firstItem="C1F-UW-K4x" firstAttribute="top" secondItem="gqx-92-Xb8" secondAttribute="bottom" constant="5" id="qaT-8x-Ni2"/>
                                 </constraints>
                             </view>
                         </subviews>

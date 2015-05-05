@@ -286,9 +286,17 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
+		0432709C1AF8696300464807 /* LanuchScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = LanuchScreen;
+			sourceTree = "<group>";
+		};
 		0454606D1AEAB82500308E02 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				0432709C1AF8696300464807 /* LanuchScreen */,
 				04088FF41AEABF51009FCCD4 /* Weather */,
 				0454606E1AEAB83000308E02 /* Top */,
 			);
