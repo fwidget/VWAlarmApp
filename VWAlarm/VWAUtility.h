@@ -81,11 +81,11 @@
 #define VIEW_WITH_TAG_DELETE_BUTTON                                     112
 
 // userdefault key
-#define LOCATION_KEY                                                    @"location"
-#define LOCATION_KEY_NAME                                               @"name"
-#define LOCATION_KEY_LATI                                               @"lati"
-#define LOCATION_KEY_LONGI                                              @"longi"
-#define LOCATION_DIC(name, lati, longi)                                 @{LOCATION_KEY_NAME : name, LOCATION_KEY_LATI : lati, LOCATION_KEY_LONGI : longi}
+#define USERDEFAULTS_LOCATION_KEY                                                    @"location"
+#define USERDEFAULTS_LOCATION_KEY_NAME                                               @"name"
+#define USERDEFAULTS_LOCATION_KEY_LATI                                               @"lati"
+#define USERDEFAULTS_LOCATION_KEY_LONGI                                              @"longi"
+#define USERDEFAULTS_LOCATION_DIC(name, lati, longi)                                 @{USERDEFAULTS_LOCATION_KEY_NAME : name, USERDEFAULTS_LOCATION_KEY_LATI : lati, USERDEFAULTS_LOCATION_KEY_LONGI : longi}
 
 
 #pragma mark - SHARE MESSAGE

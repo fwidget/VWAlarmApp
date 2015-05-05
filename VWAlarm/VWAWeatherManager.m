@@ -24,7 +24,7 @@
                    withCallback:(void (^)(NSError* error, NSDictionary *result))callback
 {
     NSString *method = [NSString stringWithFormat:@"/weather?q=%@&units=metric", name];
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@", @"http://api.openweathermap.org/data/2.5", method];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@", WEATHER_API, method];
     NSURL *url = [NSURL URLWithString:urlStr];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
@@ -48,7 +48,7 @@
 {
     NSString *method = [NSString stringWithFormat:@"/weather?lat=%f&lon=%f&units=metric",
                         coordinate.latitude, coordinate.longitude ];
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@", @"http://api.openweathermap.org/data/2.5", method];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@", WEATHER_API, method];
     NSURL *url = [NSURL URLWithString:urlStr];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
@@ -74,7 +74,7 @@
     
     NSString *method = [NSString stringWithFormat:@"/forecast?lat=%f&lon=%f&units=metric",
                         coordinate.latitude, coordinate.longitude];
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@", @"http://api.openweathermap.org/data/2.5", method];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@", WEATHER_API, method];
     NSURL *url = [NSURL URLWithString:urlStr];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
@@ -98,7 +98,7 @@
                   withCallback:(void (^)( NSError* error, NSDictionary *result ) )callback
 {
     NSString *method = [NSString stringWithFormat:@"/weather?id=%@&units=metric", cityId];
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@", @"http://api.openweathermap.org/data/2.5", method];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@", WEATHER_API, method];
     NSURL *url = [NSURL URLWithString:urlStr];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
