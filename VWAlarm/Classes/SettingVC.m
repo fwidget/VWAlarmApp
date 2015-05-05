@@ -11,6 +11,8 @@
 #import "LKLineActivity.h"
 
 #define TABLE_SECTION_TITLES @[@[LSTR(@"天気予報エリア")], @[LSTR(@"友達にシェア"), LSTR(@"サポート"), LSTR(@"このアプリについて")]]
+#define TABLEVIEW_CELL_INDENTIFIERS @[@[CELL_IDENTIFIER_SETTING_MAPVIEW], @[CELL_IDENTIFIER_SETTING_SHARE, CELL_IDENTIFIER_SETTING_DETAIL, CELL_IDENTIFIER_SETTING_DETAIL], @[CELL_IDENTIFIER_SETTING_DELETE]]
+
 
 @interface SettingVC ()
 
@@ -45,9 +47,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:(indexPath.section == 0) ? @"SettingCell" : @"Cell"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TABLEVIEW_CELL_INDENTIFIERS[indexPath.section][indexPath.row]];
     [self configurationCell:cell atIndexPath:indexPath];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1 && indexPath.row == 0) {
+        [self openActivity];
+    }
 }
 
 - (void)configurationCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
@@ -64,6 +73,6 @@
 {
     UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:@[SHARE_MESSAGE_CONTENT, [NSURL URLWithString:SHARE_MESSAGE_URL]] applicationActivities:@[[[LKLineActivity alloc] init]]];
     [self presentViewController:avc animated:YES completion:nil];
-
 }
+
 @end

@@ -31,12 +31,17 @@
 //#define CELL_IDENTIFIER_ALARM_SOUND                                     @"AlarmSoundCell"
 #define CELL_IDENTIFIER_ALARM_SONOOZE                                   @"AlarmSnoozeCell"
 // alarm detail
-#define CELL_IDENTIFIER_ALARM_DETAIL_OPTION_REPEAT                      @"repeatCell"
-#define CELL_IDENTIFIER_ALARM_DETAIL_OPTION_SNOOSE                      @"snooseCell"
-#define CELL_IDENTIFIER_ALARM_DETAIL_OPTION_LABEL                       @"labelCell"
-#define CELL_IDENTIFIER_ALARM_DETAIL_OPTION_SOUND                       @"soundCell"
+#define CELL_IDENTIFIER_ALARM_DETAIL_OPTION_REPEAT                      @"RepeatCell"
+#define CELL_IDENTIFIER_ALARM_DETAIL_OPTION_SNOOSE                      @"SnooseCell"
+#define CELL_IDENTIFIER_ALARM_DETAIL_OPTION_LABEL                       @"LabelCell"
+#define CELL_IDENTIFIER_ALARM_DETAIL_OPTION_SOUND                       @"SoundCell"
 // weather
 #define CELL_IDENTIFIER_WEATHER                                         @"WeatherCell"
+// setting
+#define CELL_IDENTIFIER_SETTING_MAPVIEW                                 @"MapviewCell"
+#define CELL_IDENTIFIER_SETTING_SHARE                                   @"ShareCell"
+#define CELL_IDENTIFIER_SETTING_DETAIL                                  @"DetailCell"
+#define CELL_IDENTIFIER_SETTING_DELETE                                  @"DetailCell"
 
 
 #pragma mark - DATA
