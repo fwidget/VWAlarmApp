@@ -70,6 +70,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)showCurrentLocation:(id)sender
+{
+    [_locationManager startUpdatingLocation];
+}
+
 - (IBAction)showSettingAlert:(id)sender
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LSTR(@"確認") message:LSTR(@"この位置を設定しますか？") delegate:self cancelButtonTitle:LSTR(@"キャンセル") otherButtonTitles:LSTR(@"設定"), nil];
@@ -80,14 +85,22 @@
 // 위치 업데이트
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    
+    [manager stopUpdatingLocation];
     CLLocation *currentLocation = locations.lastObject;
     CLLocationCoordinate2D centerCoordinate = currentLocation.coordinate;
     MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(0.1, 0.1); // 숫자가 작으면 확대 배율이 커짐
-    if (!_initLocation) {
-        MKCoordinateRegion newRegion = MKCoordinateRegionMake(centerCoordinate, coordinateSpan);
-        [_mapView setRegion:newRegion animated:YES];
-    }
+    MKCoordinateRegion newRegion = MKCoordinateRegionMake(centerCoordinate, coordinateSpan);
+    [_mapView setRegion:newRegion animated:YES];
+    
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    point.coordinate = centerCoordinate;
+    [_mapView removeAnnotations:_mapView.annotations];
+    [_mapView addAnnotation:point];
+    [self localNameWithAnnotation:point complete:^{
+        [_mapView selectAnnotation:[_mapView annotations][0] animated:NO];
+        [_mapView showAnnotations:[_mapView annotations] animated:YES];
+    }];
+
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -95,6 +108,25 @@
     NSLog(@"didFailWithError.");
 }
 
+- (void)localNameWithAnnotation:(MKPointAnnotation *)point complete:(void(^) (void))complete
+{
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:point.coordinate.latitude longitude:point.coordinate.longitude];
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        if(error) {
+            NSLog(@"error");
+        } else {
+            if (placemarks.count > 0) {
+                CLPlacemark *placemark = placemarks.firstObject;
+                point.title = placemark.locality;
+                point.subtitle = [NSString stringWithFormat:@"%@%@", placemark.administrativeArea, placemark.locality];
+                if (complete) {
+                    complete();
+                }
+            }
+        }
+    }];
+}
 
 #pragma mark - MKMapViewDelegate
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
@@ -166,12 +198,11 @@
              
              [_mapView addAnnotation:point];
          }
-         
-         [_mapView showAnnotations:[_mapView annotations] animated:YES];
 
          if ([[_mapView annotations] count] == 1) {
              [_mapView selectAnnotation:[_mapView annotations][0] animated:NO];
          }
+         [_mapView showAnnotations:[_mapView annotations] animated:YES];
      }];
 }
 

@@ -845,13 +845,28 @@
                                     <constraint firstAttribute="trailing" secondItem="yV5-sw-Z4U" secondAttribute="trailing" id="v1r-VM-PAF"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5C-sx-zkE">
+                                <rect key="frame" x="240" y="151" width="64" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Lb8-Y5-TEh"/>
+                                    <constraint firstAttribute="width" constant="64" id="NlG-2Y-lj9"/>
+                                </constraints>
+                                <state key="normal" title="現在位置">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showCurrentLocation:" destination="r2A-lF-8RC" eventType="touchUpInside" id="fNr-NY-dv0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Y5C-sx-zkE" secondAttribute="trailing" constant="16" id="5eL-Ef-dhQ"/>
                             <constraint firstItem="ap6-yo-9Yl" firstAttribute="top" secondItem="rgJ-jr-ydg" secondAttribute="bottom" id="9mG-ss-pYw"/>
                             <constraint firstAttribute="trailing" secondItem="DLp-89-RSm" secondAttribute="trailing" constant="10" id="Eap-ue-i0X"/>
                             <constraint firstItem="h3o-P3-mzg" firstAttribute="top" secondItem="ap6-yo-9Yl" secondAttribute="bottom" id="I4M-RW-k9W"/>
                             <constraint firstItem="ap6-yo-9Yl" firstAttribute="leading" secondItem="NrT-7u-rxY" secondAttribute="leading" id="Mtg-ao-XUG"/>
+                            <constraint firstItem="Y5C-sx-zkE" firstAttribute="top" secondItem="DLp-89-RSm" secondAttribute="bottom" constant="8" id="Tqb-Sg-03v"/>
                             <constraint firstItem="MUA-Om-XVR" firstAttribute="top" secondItem="rgJ-jr-ydg" secondAttribute="bottom" id="cvg-fl-QrF"/>
                             <constraint firstAttribute="trailing" secondItem="MUA-Om-XVR" secondAttribute="trailing" id="e6m-4n-skd"/>
                             <constraint firstAttribute="trailing" secondItem="ap6-yo-9Yl" secondAttribute="trailing" id="gGZ-9I-0bL"/>
@@ -863,6 +878,7 @@
                     <navigationItem key="navigationItem" id="gEo-kp-Tdd"/>
                     <connections>
                         <outlet property="button" destination="8hq-2H-2Zg" id="fmJ-nE-8lw"/>
+                        <outlet property="currentButton" destination="Y5C-sx-zkE" id="DDA-y1-byD"/>
                         <outlet property="currentLocationLb" destination="K1V-Hb-ieV" id="lPx-lp-Gcp"/>
                         <outlet property="mapView" destination="ap6-yo-9Yl" id="KZ3-Wo-IHz"/>
                         <outlet property="searchBar" destination="MUA-Om-XVR" id="9Y4-ZG-VEd"/>
